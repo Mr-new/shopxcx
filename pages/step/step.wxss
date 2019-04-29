@@ -1,0 +1,627 @@
+/**index.wxss**/
+page{
+  width: 100%;
+  height: 100%;
+}
+.container{
+  width: 100%;
+  height: 100%;
+}
+.header{
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+  position: relative;
+}
+.rule{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #ffffff;
+  width: 90rpx;
+  height: 40rpx;
+  border-radius: 40rpx;
+  box-shadow: 0 4rpx 0 #631411;
+  position: absolute;
+  right: 30rpx;
+  top: 30rpx;
+}
+.rule>text{
+  font-size: 8pt;
+  color: #B0241D;
+}
+.goLotteryBtn{
+  width: 54%;
+  position: absolute;
+  top: 45%;
+  left: 23%;
+  background-color: #FFFFFF;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding: 5rpx 0;
+  border-radius: 8rpx;
+  animation: k2 2s linear infinite;
+}
+@keyframes k2{
+  0%{
+    transform: scale(1);
+  }
+  50%{
+    transform: scale(1.2);
+  }
+  100%{
+    transform: scale(1);
+  }
+}
+.goLotteryBtn>text{
+  font-size: 10pt;
+  color: #BC3239;
+}
+.goLotteryBtn>image{
+  width: 40rpx;
+  margin-top: 2rpx;
+  margin-left: 5rpx;
+}
+.header>image{
+  width: 100%;
+  display: block;
+}
+.content{
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+  background: url("https://xaxcx.17mall.cc/Public/uploadImages/default/step_back2.jpg") repeat-y;
+  background-size: 100% auto;
+}
+.content_top{
+  width: 80%;
+  height: auto;
+  overflow: hidden;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 50rpx 0;
+}
+.content_top>image:first-of-type{
+  width: 80%;
+  display: block;
+}
+.ljStep{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 40rpx;
+}
+.ljStep>view{
+  width: 90rpx;
+  height: 110rpx;
+  background-color: #ffffff;
+  border-radius: 15rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 2rpx 4rpx #333333;
+}
+.ljStep>view>text{
+  font-weight: 500;
+  font-size: 34pt;
+  color: #000000;
+}
+.line{
+  width: 60%;
+  height: 2rpx;
+  background-color: #D8878C;
+}
+.content_center{
+  width: 50%;
+  height: auto;
+  overflow: hidden;
+  margin: 50rpx auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.todayStep{
+  width: 300rpx;
+  height: 300rpx;
+  background: url("https://xaxcx.17mall.cc/Public/uploadImages/default/step_bumber.png") no-repeat;
+  background-size: 100% 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.todayStep>text:first-of-type{
+  font-size: 16pt;
+  color: #FFFFFF;
+}
+.todayStep>text:nth-of-type(2){
+  font-size: 30pt;
+  color: #ffffff;
+  font-weight: 500;
+}
+.todayStep>text:nth-of-type(3){
+  font-size: 9pt;
+  color: #ffffff;
+}
+.share{
+  width: 70%;
+  margin: 0 auto;
+}
+.share>text{
+  font-size: 12pt;
+  color: #ffffff;
+  text-align: center;
+  margin: 40rpx 0 20rpx;
+  display: block;
+}
+.share>button{
+  width: 70%;
+  height: 50rpx;
+  font-size: 10pt;
+  line-height: 50rpx;
+  background-color: #ffffff;
+  border-radius: 40rpx;
+  color: #C84048;
+}
+.button{
+  width: 400rpx;
+  height: 70rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  background-color: #FFFFFF;
+  margin: 0 auto 50rpx;
+  border-radius: 20rpx;
+  box-shadow: 0 4rpx 5rpx #333333;
+}
+.button>text{
+  font-size: 12pt;
+  color: #C42A34;
+}
+.button>image{
+  width: 45rpx;
+}
+.prize{
+  width: 94%;
+  height: auto;
+  overflow: hidden;
+  margin: 0 auto;
+  background-color: #6F0207;
+}
+.prize>text:first-of-type{
+  font-size: 22pt;
+  color: #ffffff;
+  text-align: center;
+  display: block;
+  margin: 30rpx 0;
+}
+.prizeList{
+  width: 94%;
+  height: auto;
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 auto;
+}
+.prizeList>view{
+  width: 48%;
+  height: auto;
+  overflow: hidden;
+  background-color: #FFFFFF;
+  margin-bottom: 30rpx;
+}
+.prizeList>view>view{
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+  position: relative;
+}
+.prizeList>view>view>image{
+  width: 100%;
+}
+.prizeList>view>view>text{
+  display: block;
+  width: 100%;
+  height: 50rpx;
+  line-height: 50rpx;
+  position: absolute;
+  bottom: 20rpx;
+  left: 0;
+  font-size: 12pt;
+  font-weight: bolder;
+  background-color: rgba(0, 0, 0, 0.6);
+  color: #ffffff;
+  text-align: center;
+}
+.prizeList>view>text{
+  display: block;
+  font-size: 12pt;
+  color: #4E4E4E;
+  text-align: center;
+  margin: 10rpx 0 20rpx;
+}
+.prize>text:last-of-type{
+  font-size: 10pt;
+  color: #ffffff;
+  margin-left: 20rpx;
+  margin-bottom: 30rpx;
+  display: block;
+}
+.cardBtn{
+  width: 400rpx;
+  height: 80rpx;
+  background-color: #FFFFFF;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin: 30rpx auto 60rpx;
+  border-radius: 10rpx;
+  box-shadow: 0 2rpx 4rpx #333333;
+}
+.cardBtn>text{
+  font-size: 18pt;
+  color: #860008;
+}
+.cardBtn>image{
+  width: 40rpx;
+  margin-left: 10rpx;
+}
+.line2{
+  width: 50%;
+  height: 2rpx;
+  background-color: #D8878C;
+  float: right;
+  margin-bottom: 40rpx;
+}
+.myPrize{
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+
+}
+.myPrize>view{
+  width: 80%;
+  /* height: auto;
+  overflow: hidden; */
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  position: relative;
+}
+.myPrize>view>image{
+  width: 100%;
+}
+.myPrize>view>text:first-of-type{
+  font-size: 20pt;
+  color: #ffffff;
+  margin-top: -10rpx;
+}
+.myPrize>view>view{
+  width: 80%;
+  height: auto;
+  overflow: hidden;
+  position: absolute;
+  left: 5%;
+  top: 50rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.myPrize>view>view>text:first-of-type{
+  font-size: 18pt;
+  color: #000000;
+  padding: 15rpx 0;
+  border-bottom: 2rpx solid #3F3732;
+
+}
+.myPrize>view>view>view{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 15rpx;
+}
+.myPrize>view>view>view>text{
+  font-size: 12pt;
+  color: #333333;
+  line-height: 50rpx;
+}
+/* 分享页面 */
+.sharePage{
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 99;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+.sharePage>view{
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+  background-color: #FFFFFF;
+}
+.sharePage>view>text{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 10pt;
+  line-height: 80rpx;
+  color: #AF0009;
+}
+.shareBtn{
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.shareBtn>button{
+  padding: 70rpx 0 10rpx;
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent;
+  border: none;
+  outline: none;
+}
+.shareBtn>button::after{
+  border: none;
+}
+.shareBtn>view{
+  padding: 70rpx 0 10rpx;
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.shareBtn>view>text:first-of-type,.shareBtn>button>text:first-of-type{
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #ffffff;
+  font-size: 20pt;
+}
+.shareBtn>view>text:last-of-type,.shareBtn>button>text:last-of-type{
+  font-size: 12pt;
+  color: #333333;
+  line-height: 60rpx;
+}
+.shareBtn>button>text:first-of-type{
+  background-color: #5FC742;
+}
+.shareBtn>view>text:first-of-type{
+  background-color: #AC030C;
+}
+.close{
+  width: 100%;
+  height: 90rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #AC030C;
+}
+.close>text{
+  font-size: 12pt;
+  color: #ffffff;
+}
+/* 保存分享图弹框 */
+.sharepyq{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+.share1{
+  width: 300px;
+  height: 550px;
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.share1>text{
+  font-size: 20pt;
+  color: #ffffff;
+  position: absolute;
+  right: -21pt;
+  top: -10pt;
+  z-index: 99;
+}
+.button1{
+  background: #962615;
+  margin-top: 30rpx;
+  color: #ffffff;
+  font-size: 12pt;
+}
+/* 用户信息授权及手机号授权 */
+.login{
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 99;
+  background-color: rgba(0,0,0,0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.login>view{
+  width: 400rpx;
+  height: 200rpx;
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 20rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 20rpx 0 30rpx;
+}
+.login>view>text{
+  font-size: 40pt;
+  color: #51C332;
+  margin-bottom: 10rpx;
+}
+.login>view>button{
+  width: 280rpx;
+  height: 70rpx;
+  line-height: 70rpx;
+  background-color: rgba(0, 0, 0, 0);
+  border: 2rpx solid #51876F;
+  color: #51876F;
+  font-size: 12pt;
+  margin: 0;
+  padding: 0;
+  outline: none;
+}
+.login>view>button::after{
+  border: none;
+  outline: none;
+}
+.scale{
+  animation: k 2s infinite;
+}
+@keyframes k{
+  0%{
+    transform: scale(1)
+  }
+  50%{
+    transform: scale(1.3)
+  }
+  100%{
+    transform: scale(1)
+  }
+}
+/* 规则 */
+.activity_role{
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgba(0,0,0,0.6);
+  z-index: 99;
+  display: flex;
+  justify-content: center;
+  /* align-items: center; */
+}
+.activity_role>view{
+  width: 80%;
+  height: auto;
+  overflow: hidden;
+  transform: translateY(-100%);
+  animation: topBottom 2s linear forwards;
+}
+@keyframes topBottom{
+  0%{
+    transform: translateY(-100%);
+  }
+  50%{
+    transform: translateY(0);
+  }
+  60%{
+    transform: translateY(-20%);
+  }
+  70%{
+    transform: translateY(-5%);
+  }
+  80%{
+    transform: translateY(-15%);
+  }
+  90%{
+    transform: translateY(-5%);
+  }
+  100%{
+    transform: translateY(0);
+  }
+}
+.back{
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+  position: relative;
+  margin-top: 100rpx;
+}
+.back>image{
+  width: 100%;
+}
+.back>text{
+  font-size: 18pt;
+  color: #ffffff;
+  position: absolute;
+  top: 20rpx;
+  right: 0;
+}
+.text{
+  width: 78%;
+  position: absolute;
+  top: 340rpx;
+  left: 11%;
+}
+.text>text{
+  font-size: 12pt;
+  color: #333333;
+  line-height: 80rpx;
+}
+.text>view{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+
+}
+.text>view>text{
+  font-size: 10pt;
+  color: #666666;
+  line-height: 45rpx;
+}

@@ -1,0 +1,64 @@
+<!--index.wxml-->
+<view class="container">
+  <view class='header'>
+    <image src='{{imgUrl}}step_kj_back_01.jpg' mode='widthFix'></image>
+  </view>
+  <view class='content'>
+    <!-- 开奖礼品 -->
+    <view class='giftPage'>
+      <view class='gift_top'>
+        <view>
+          <view style="width:{{percentage}}"></view>
+        </view>
+        <text>已有{{satisfy}}位参与者完成挑战</text>
+      </view>
+      <view class='gift_content'>
+        <text>开奖礼品</text>
+        <view>
+          <block wx:for="{{giftList}}" wx:key="{{index}}">
+            <text>{{item.gift}}</text>
+          </block>
+        </view>
+        <text>注：本次活动将于5月10号下午4点准时开奖。</text>
+      </view>
+    </view>
+    <!-- 参与人员 -->
+    <view class='participantPage'>
+      <text>参与人员</text>
+      <view>
+        <view>
+          <block wx:for="{{userList}}" wx:key="{{index}}">
+            <view>
+              <text>{{item.nickname}}</text>
+              <text>完成40000步挑战获得抽奖机会</text>
+              <text>{{item.datetime}}</text>
+            </view>
+          </block>   
+        </view>
+      </view>
+    </view>
+    <!-- 中奖名单 -->
+    <view class='cardBtn' bindtap='showMyPrize'>
+      <text>中奖名单</text>
+      <image src='{{imgUrl}}step_hand.png' mode='widthFix'></image>
+    </view>
+  </view>
+  <!-- 中奖名单 -->
+  <view class='myPrize' wx:if="{{isShowMyPrize}}">
+    <view>
+      <image src='{{imgUrl}}myPrize_back_03.png' mode='widthFix'></image>
+      <view>
+        <text>中奖名单</text>
+        <view wx:if="{{inYesUser}}">
+          <block wx:for="{{inYesUser}}" wx:key="{{index}}">
+            <text>恭喜{{item.nickname}}抽中{{item.gift}}</text>
+          </block>
+        </view>
+        <view wx:else> 
+          <text>还未开奖哟,5月10号下午4点准时开奖！</text>
+        </view>
+      </view>
+      <text bindtap='hideMyPrize' class='iconfont icon-Close'></text>
+    </view>
+  </view>
+</view>

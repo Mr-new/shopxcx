@@ -1,0 +1,5 @@
+<!--index.wxml-->
+<view class="container">
+  <image src='https://xaxcx.17mall.cc/Public/uploadImages/default/agexm.jpg' mode='widthFix'></image>
+
+</view>

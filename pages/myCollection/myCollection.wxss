@@ -1,0 +1,222 @@
+/**index.wxss**/
+page{
+  width: 100%;
+  height: 100%;
+  background-color: #F5F5F5;
+}
+/* 顶部部分 */
+.header{
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+  background-color: #FFFFFF;
+  display: flex;
+  flex-direction: row;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9;
+}
+.header>view{
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80rpx;
+  font-size: 11pt;
+  border-bottom: 4rpx solid transparent;
+  color: #333333;
+}
+.selected{
+  color: #87C64A !important;
+  border-bottom-color: #87C64A !important;
+}
+/* 商品收藏列表 */
+.shopList,.dayList{
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+  margin-top: 100rpx;
+}
+.list{
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+}
+.item{
+  width: 100%;
+  background-color: #FFFFFF;
+}
+.item>view{
+  width: 94%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin: 0 auto;
+  padding: 20rpx 0;
+  border-bottom: 2rpx solid #E6E6E6;
+}
+.item>view>image{
+  width: 25%;
+}
+.item>view>view{
+  width: 72%;
+  display: flex;
+  flex-direction: column;
+
+}
+.item>view>view>text:first-of-type{
+  font-size: 11pt;
+  color: #333333;
+  display: -webkit-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-wrap: break-word;
+  white-space: normal !important;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+.item>view>view>text:last-of-type{
+  margin-top: 40rpx;
+  font-size: 10pt;
+  color: #ED762E;
+}
+/* 暂无数据 */
+.isNull{
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 100rpx;
+}
+.isNull>text:first-of-type{
+  font-size: 26pt;
+  color: #999999;
+}
+.isNull>text:last-of-type{
+  font-size: 10pt;
+  color: #666666;
+  margin-top: 20rpx;
+}
+/* 日记收藏列表 */
+.listItem{
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  border-bottom: 15rpx solid #F5F5F5;
+  background-color: #ffffff;
+}
+.top{
+  width: 92%;
+  padding: 30rpx 3%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+.top>image{
+  width: 80rpx; 
+  height: 80rpx;
+  border-radius: 50%;
+}
+.top>view{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  margin-left: 20rpx;
+  width: 80%;
+}
+.top>view>text:first-of-type{
+  width: 100%;
+  font-size: 11pt;
+  color: #333333;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.top>view>text:nth-of-type(2){
+  font-size: 8pt;
+  color: #ffffff;
+  padding: 5rpx 10rpx;
+  background-color: #F4BC50;
+  border-radius: 8rpx;
+}
+.center{
+  width: 92%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding: 0 3%;
+}
+.center>view:first-of-type{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.center>view:first-of-type>image{
+  width: 32%;
+}
+.center>view:nth-of-type(2){
+  display: flex;
+  flex-direction: column;
+  margin-top: 20rpx;
+}
+.center>view:nth-of-type(2)>text{
+  font-size: 9pt;
+  color: #999999;
+}
+.center>view:nth-of-type(2)>view{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  transform: translateX(-18rpx);
+}
+.center>view:nth-of-type(2)>view>text:first-of-type{
+  color: #E45452;
+  font-size: 10pt;
+  margin-right: 8rpx;
+}
+.center>view:nth-of-type(2)>view>text:nth-of-type(2){
+  color: #326B73;
+  font-size: 10pt;
+  line-height: 60rpx;
+}
+.bottom{
+  display: flex;
+  width: 100%;
+  padding: 15rpx 0;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.bottom>view{
+  width: 33.33%;
+  height: 50rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.bottom>view>text:first-of-type{
+  font-size: 10pt;
+  color: #434343;
+  margin-right: 5rpx;
+}
+.bottom>view:first-of-type>text:first-of-type{
+  font-size: 12pt;
+}
+.bottom>view>text:nth-of-type(2){
+  color: #333333;
+  font-size: 10pt;
+}
+.line{
+  width: 100%;
+  height: 2rpx;
+  background-color: #EAEAEA;
+}

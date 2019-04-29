@@ -1,0 +1,86 @@
+<!--index.wxml-->
+<view class="container">
+  <view class='header'>
+    <view>
+      <input placeholder="请输入商品名称" bindinput='getSearchValue' value="{{searchValue}}"/>
+      <view bindtap='goSearch'>
+        <text class='iconfont icon-sousuo'></text>
+      </view>
+    </view>
+  </view>
+  <view class='content'>
+    <scroll-view scroll-y="true">
+      <block wx:for="{{classList}}" wx:key="index">
+        <view class="item {{item.id==idx ? 'selected' : ''}}" bindtap='selected' data-title="{{item.title}}" data-idx="{{item.id}}">{{item.title}}</view>
+      </block>
+    </scroll-view>
+    <view class='right'>
+      <text>{{showShopListTitle}}</text>
+      <scroll-view scroll-y="true" bindscrolltolower="getMoreData">
+        <block wx:for="{{showShopList}}" wx:key="index">
+          <view class='shopItem'>
+            <image bindtap='goShopDetails' src='{{item.imgUrl}}' mode='widthFix'></image>
+            <view>
+              <view bindtap='goShopDetails'>
+                <text>{{item.bigTitle}}</text>
+                <text>{{item.smallTitle}}</text>
+              </view>
+              <view>
+                <view>
+                  <text>现价:￥{{item.currentPrice}}</text>
+                  <text>原价:￥{{item.beforePrice}}</text>
+                </view>
+                <view bindtap="selectSpec">
+                  <text>选规格</text>
+                </view>
+              </view>
+            </view>
+          </view>
+        </block>
+      </scroll-view>
+    </view>
+  </view>
+  <view class='purchasePage' wx:if="{{showPurchasePage}}">
+    <view>
+      <view class='top'>
+        <view>
+          <view>
+            <image src='{{PurchaseMsg.imgUrl}}' mode='widthFix'></image>
+          </view>
+          <view>
+            <text>{{PurchaseMsg.title}}</text>
+            <text>￥{{PurchaseMsg.startPrice}}-{{PurchaseMsg.endPrice}}</text>
+            <text wx:if="{{PurchaseMsgIdx}}">库存{{PurchaseMsgIdx.stock}}件</text>
+          </view>
+        </view>
+        <text bindtap='hidePurchasePage' class='iconfont icon-close_icon'></text>
+      </view>
+      <view class='center'>
+        <view>项目</view>
+        <view>
+          <block wx:for="{{PurchaseMsg.classList}}" wx:key="index">
+            <text class="{{item.id==PurchaseMsgIdx.id ? 'selectedClass' : ''}}" bindtap='selectedClass' data-idx="{{item}}">{{item.title}}</text>
+          </block>  
+        </view>
+      </view>
+      <view class='bottom'>
+        <view>
+          <text>购买数量</text>
+          <view>
+            <text bindtap='reduce'>-</text>
+            <text>{{num}}</text>
+            <text bindtap='add'>+</text>
+          </view>
+        </view>
+        <view>
+          <view>
+            <text>加入购物车</text>
+          </view>
+          <view bindtap='goConfirmOrder'>
+            <text>立即购买</text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,153 @@
+<!--index.wxml-->
+<view class="container">
+  <view class='top'>
+    <image src='{{backImg}}' mode='widthFix'></image>
+  </view>
+  <view class='wrap'>
+    <view class='content'>
+      <view class='rule' bindtap='showRole'>
+        <text class='iconfont icon-iconfontjiantou4'>规则</text>
+      </view>
+      <view class='title'>
+        <image src='{{titleImg}}' mode='widthFix'></image>
+        <view class='tips'>
+        <!-- <text decode="{{true}}">疯狂砸金蛋&nbsp;&nbsp;盘iphoneXS</text> -->
+          <text>今日还有{{frequency}}次砸蛋机会</text>
+        </view>
+      </view>
+      <view class='ageList' wx:if="{{isUserTel}}">
+        <block wx:for="{{ageList}}" wx:key="{{index}}">
+          <image data-content="{{item.content}}" bindtap='goSmashEggs' src='{{item.imgUrl}}' mode='widthFix'></image>
+        </block>  
+      </view>
+      <view class='ageList' wx:else>
+        <block wx:for="{{ageList}}" wx:key="{{index}}">
+          <button open-type="getPhoneNumber" data-content="{{item.content}}" bindgetphonenumber="getPhoneNumber">
+            <image data-content="{{item.content}}" bindtap='goSmashEggs' src='{{item.imgUrl}}' mode='widthFix'></image>
+          </button>
+        </block> 
+      </view>
+      <view class='center'>
+      <view class='prize'>
+        <view class='prizeWrap'>
+          <view class='prize_title'>
+            <text>中奖名单</text>
+          </view>
+          <view class='wwwrap'>
+            <view class='prize_list marqueen'>
+            
+                <block wx:for="{{winPrizeList}}" wx:key="{{index}}">
+                  
+                    <view class='zhongjiangList'>
+                      <text>{{item.nickName}}</text>
+                      <text>{{item.prize}}</text>
+                      <text>{{item.datetime}}</text>
+                    </view>
+                </block> 
+              
+            </view>
+          </view>
+        </view>
+      </view>
+      <view class='prize' style='padding-top:0; margin-bottom:150rpx;'>
+        <view>
+          <view class='prize_title'>
+            <text>奖品列表</text>
+          </view>
+          <view class='prize_listItem'>
+            <block wx:for="{{giftList}}" wx:key="{{index}}">
+              <view>
+                <image src='{{item.imgUrl}}' mode='widthFix'></image>
+                <text>{{item.prize}}</text>
+              </view>
+            </block>  
+          </view>
+        </view>
+      </view> 
+    </view>
+  </view>
+  <view class='activity_role' style="display:{{isShowRole ? 'flex' : 'none'}}">
+    <view>
+      <view class='back'>
+        <image src='https://xaxcx.17mall.cc/Public/uploadImages/default/role_back_03.png' mode='widthFix'></image>
+        <text bindtap='hideRole' class='iconfont icon-Close'></text>
+      </view>
+      <view class='text'>
+        <text>活动说明</text>
+        <view>
+          <rich-text style='font-size:10pt;' nodes="{{activityDetails}}"></rich-text>
+          <!-- <block wx:for="{{activityDetails}}" wx:key="{{index}}">
+            <text>{{item.content}}</text>
+          </block> -->
+        </view>
+      </view>
+    </view>
+  </view>
+  </view>
+  
+
+  <!-- <view class='prize_record' style="display:{{isShowprize ? 'flex' : 'none'}}">
+    <view>
+      <view class='prize_back'>
+        <image src='https://xaxcx.17mall.cc/Public/uploadImages/default/prize_record_back_03.png' mode='widthFix'></image>
+        <text bindtap='hidePrize' class='iconfont icon-Close'></text>
+      </view>
+      <view class='prize_text'>
+        <view wx:if="{{prizeList.length==0}}">
+          <text>您还没有获得奖品</text>
+        </view>
+        <view wx:else>
+          <block wx:for="{{prizeList}}" wx:key="{{index}}">
+            <text>{{item.prize}}</text>
+          </block>
+        </view>
+      </view>
+    </view>
+  </view> -->
+  <view class='boom' style="display:{{boom ? 'block' : 'none'}}">
+    <image src="{{boomImgUrl}}" mode='widthFix'></image>
+  </view>
+  <view class='giftTips' style="display:{{giftTips ? 'flex' : 'none'}}">
+    <view>
+      <text>{{PrizeTitle}}</text>
+      <text>{{giftTipsMsg.prize}}</text>
+      <image src='{{PrizeImgUrl}}' mode='widthFix'></image>
+      <view wx:if="{{isShowBtn}}" bindtap='showModel' data-id="{{giftTipsMsg.recordId}}">
+        <text>立即领奖</text>
+      </view>
+    </view>
+    <text  bindtap='hideGiftTips' class='iconfont icon-Close'></text>
+  </view>
+  <view class='login' style="display:{{isLogin ? 'flex' : 'none'}}">
+    <view>
+      <text class='iconfont icon-wechat1'></text>
+      <button open-type='getUserInfo' bindgetuserinfo="getUserInfo">点击微信授权</button>
+    </view>
+  </view>
+  <view class='ku' wx:if="{{isKu}}">
+    <view>
+      <image src='https://xaxcx.17mall.cc/Public/uploadImages/default/ku.png' mode='widthFix'></image>
+      <text>您的砸蛋次数暂时用完了，去做任务可以获得更多砸蛋次数哟</text>
+      <navigator url='/pages/smashAge/receive'>
+        <text>去做任务</text>
+      </navigator>
+      <navigator>
+        <text class='iconfont icon-icon-test'>提醒我明天继续抽奖</text>
+      </navigator>
+    </view>
+    <text bindtap='hideKu' class='iconfont icon-Close'></text>
+  </view>
+  <audio id='boomMusic' src="https://xaxcx.17mall.cc/Public/music/boomMusic.mp3" loop="{{false}}"></audio>
+  <audio id='backMusic' src="https://xaxcx.17mall.cc/Public/music/backMusic2.mp3" loop="{{true}}"></audio>
+  <view class='record'>
+    <view bindtap='showPrize'>
+      <text>我的卡券</text>
+    </view>
+    <view bindtap='goReceive'>
+      <text>做任务</text>
+    </view>
+  </view>
+  <button class='customerService' open-type="contact">
+    <text class='iconfont icon-service'>客服</text>
+  </button>
+</view>

@@ -1,0 +1,31 @@
+<!--index.wxml-->
+<view class="container">
+  <view class='list' wx:if="{{list}}">
+    <block wx:for="{{list}}" wx:key="{{index}}">
+      <view>
+        <image bindtap='showCode' data-code="{{item.code}}" src='{{item.imgUrl}}' mode='widthFix'></image>
+        <view bindtap='showCode' data-code="{{item.code}}">
+          <text>{{item.prize}}</text>
+          <text>{{item.remarks}}</text>
+        </view>
+        <button wx:if="{{item.status==1}}" data-id="{{item.id}}" bindtap='showModel'>立即领取</button>
+        <button wx:elif="{{item.status==2}}" class='black'>已领取</button>
+        <button wx:elif="{{item.status==3}}" class='black'>已使用</button>
+      </view>
+    </block>
+  </view>
+  <view class='none' wx:else>
+    <text>您还没有获得卡券哟</text>
+  </view>
+
+  <view class='alert' wx:if="{{isAlert}}">
+    <view>
+      <text>兑换码</text>
+      <view>
+        <text>{{showCode}}</text>
+      </view>
+    </view>
+    <text bindtap='hideAlert' class='iconfont icon-Close'></text>
+  </view>  
+
+</view>

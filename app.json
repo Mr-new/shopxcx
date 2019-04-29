@@ -1,0 +1,68 @@
+{
+  "pages": [
+    
+    "pages/step/step",
+    "pages/index/index",
+    "pages/smashAge/smashAge",
+    "pages/step/lottery",
+    "pages/confirmOrder/confirmOrder",
+    
+    "pages/smashAge/prizeRecord",
+    "pages/smashAge/receive",
+    "pages/smashAge/agexm",
+    "pages/my/my",
+    "pages/case/case",
+    "pages/activity/activity",
+    "pages/shopDetails/shopDetails",
+    "pages/shop/shop",
+    "pages/order/order",
+    "pages/shopCart/shopCart",
+    "pages/myCollection/myCollection",
+    "pages/paySuccess/paySuccess",
+    "pages/orderDetails/orderDetails"
+    
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "WeChat",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "color": "#7D2CDC",
+    "selectedColor": "#7D2CDC",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "/images/home.png",
+        "selectedIconPath": "/images/home_selected.png"
+      },
+      {
+        "pagePath": "pages/shop/shop",
+        "text": "商品",
+        "iconPath": "/images/cart.png",
+        "selectedIconPath": "/images/cart_selected.png"
+      },
+      {
+        "pagePath": "pages/activity/activity",
+        "text": "星粉节",
+        "iconPath": "/images/activity.png",
+        "selectedIconPath": "/images/activity_selected.png"
+      },
+      {
+        "pagePath": "pages/case/case",
+        "text": "案例",
+        "iconPath": "/images/case.png",
+        "selectedIconPath": "/images/case_selected.png"
+      },
+      {
+        "pagePath": "pages/my/my",
+        "text": "我的",
+        "iconPath": "/images/my.png",
+        "selectedIconPath": "/images/my_selected.png"
+      }
+    ]
+  },
+  "sitemapLocation": "sitemap.json"
+}

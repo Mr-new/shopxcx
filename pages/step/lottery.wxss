@@ -1,0 +1,245 @@
+/**index.wxss**/
+page{
+  width: 100%;
+  height: 100%;
+}
+.container{
+  width: 100%;
+  height: 100%;
+}
+.header{
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+}
+.header>image{
+  width: 100%;
+  display: block;
+}
+.content{
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+  background: url("https://xaxcx.17mall.cc/Public/uploadImages/default/step_back2.jpg") repeat-y;
+  background-size: 100% auto;
+}
+/* 开奖礼品 */
+.giftPage{
+  width: 80%;
+  height: auto;
+  overflow: hidden;
+  padding: 20rpx 4%;
+  background-color: #FFFFFF;
+  border-radius: 20rpx;
+  margin: 20rpx auto 40rpx;
+  box-shadow: 0rpx 2rpx 5rpx #666666;
+}
+.gift_top{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+.gift_top>view{
+  width: 180rpx;
+  height: 15rpx;
+  background-color: #D2D2D2;
+  margin-right: 10rpx;
+}
+.gift_top>view>view{
+  width: 0%;
+  height: 100%;
+  background-color: #F8000F;
+}
+.gift_top>text{
+  font-size: 8pt;
+  color: #333333;
+}
+.gift_content{
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.gift_content>text:first-of-type{
+  font-size: 20pt;
+  color: #000000;
+  border-bottom: 2rpx solid #646464;
+  padding-bottom: 5rpx;
+  margin: 20rpx 0;
+}
+.gift_content>view{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+.gift_content>view>text{
+  font-size: 11pt;
+  color: #141414;
+  font-weight: 500;
+  line-height: 50rpx;
+}
+.gift_content>text:last-of-type{
+  font-size: 10pt;
+  color: #E83F3F;
+  margin-top: 20rpx;
+}
+/* 参与人员 */
+.participantPage{
+  width: 80%;
+  height: auto;
+  overflow: hidden;
+  padding: 20rpx 4%;
+  margin: 20rpx auto;
+  border-radius: 20rpx;
+  border: 2rpx solid #DF9B9E;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.participantPage>text{
+  font-size: 20pt;
+  color: #FFFFFF;
+  border-bottom: 2rpx solid #DE989B;
+  padding-bottom: 5rpx;
+  margin-bottom: 10rpx;
+}
+.participantPage>view{
+  width: 100%;
+  height: 350rpx;
+  overflow: hidden;
+  margin-top: 20rpx;
+  /* background-color: #FFFFFF */
+}
+.participantPage>view>view{
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  /* background-color: #FFFFFF; */
+  animation: marqueen 8s linear infinite;
+}
+@keyframes marqueen{
+  0%{
+    transform: translateY(0)
+  }
+  100%{
+    transform: translateY(-100%)
+  }
+}
+.participantPage>view>view>view{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1rpx dashed #C9585E;
+  line-height: 70rpx;
+}
+.participantPage>view>view>view:last-of-type{
+  border-bottom: none;
+}
+.participantPage>view>view>view>text{
+  font-size: 10pt;
+  color: #FFFFFF;
+}
+.participantPage>view>view>view>text:first-of-type{
+  width: 80rpx;
+  /* background-color: #FFFFFF; */
+  overflow:hidden; 
+  text-overflow:ellipsis;
+  white-space:nowrap;
+}
+/* 中奖名单 */
+.cardBtn{
+  width: 400rpx;
+  height: 80rpx;
+  background-color: #FFFFFF;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin: 40rpx auto 60rpx;
+  border-radius: 10rpx;
+  box-shadow: 0 2rpx 4rpx #333333;
+}
+.cardBtn>text{
+  font-size: 18pt;
+  color: #860008;
+}
+.cardBtn>image{
+  width: 40rpx;
+  margin-left: 10rpx;
+}
+/* 中奖名单页面 */
+.myPrize{
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+
+}
+.myPrize>view{
+  width: 98%;
+  /* height: auto;
+  overflow: hidden; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+.myPrize>view>image{
+  width: 100%;
+}
+.myPrize>view>text:first-of-type{
+  font-size: 22pt;
+  color: #ffffff;
+  margin-top: 20rpx;
+}
+.myPrize>view>view{
+  width: 86%;
+  height: auto;
+  overflow: hidden;
+  position: absolute;
+  left: 5%;
+  top: 50rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.myPrize>view>view>text:first-of-type{
+  font-size: 18pt;
+  color: #000000;
+  padding: 15rpx 0;
+  border-bottom: 2rpx solid #3F3732;
+
+}
+.myPrize>view>view>view{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 15rpx;
+}
+.myPrize>view>view>view>text{
+  text-align: center;
+  font-size: 10pt;
+  color: #333333;
+  margin: 10rpx 0;
+}

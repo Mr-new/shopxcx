@@ -1,0 +1,278 @@
+/**index.wxss**/
+page{
+  width: 100%;
+  height: 100%;
+  background-color: #ffffff;
+}
+.container{
+  width: 100%;
+  height: 100%;
+}
+/* 顶部 */
+.header{
+  width: 100%;
+  height: 85rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #ffffff;
+  border-bottom: 5rpx solid #EC7E3B;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 99;
+}
+.header>text{
+  font-size: 11pt;
+  color: #EC7E3B;
+}
+/* 内容 */
+.content{
+  width: 100%;
+  height: 100%;
+  padding-top: 85rpx;
+}
+/* 购物车有商品时 */
+.shoplist{
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+  background-color: #ffffff;
+}
+.shoptlistitem{
+  margin-bottom: 170rpx;
+}
+.item{
+  width: 94%;
+  padding: 10px 3%;
+  height: auto;
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  justify-content:space-between;
+  align-items: center;
+  background-color: #FAFAFA;
+  margin-top: 20rpx;
+}
+.selecticon{
+  width: 20px;
+}
+.itemright{
+  display: flex;
+  width: 92%;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+.itemright>navigator{
+  width: 30%;
+}
+.itemright>navigator>image:first-of-type{
+  width: 100%;
+}
+.itemright>view{
+  width: 65%;
+  
+}
+.itemright>view>navigator{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: space-between;
+}
+.itemright>view>navigator>text{
+  font-size: 10pt;
+  display: -webkit-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-wrap: break-word;
+  white-space: normal !important;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+.itemright>view>navigator>text:nth-of-type(2){
+  color: #A1A1A1;
+  margin: 20rpx 0;
+}
+.itemright>view>view{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.itemright>view>view>text{
+  font-size: 11pt;
+  color: #E44C27;
+}
+.itemright>view>view>view{
+  display: flex;
+  flex-direction: row;
+}
+.itemright>view>view>view>text{
+  font-size: 10pt;
+  color: #676767;
+}
+.itemright>view>view>view>text:first-of-type{
+  width: 25px;
+  height: 25px;
+  text-align: center;
+  line-height: 25px;
+  border: 1rpx solid #E3E3E3;
+  border-top-left-radius: 8rpx;
+  border-bottom-left-radius: 8rpx;
+}
+.itemright>view>view>view>text:nth-of-type(2){
+  width: 40px;
+  height: 25px;
+  text-align: center;
+  line-height: 25px;
+  border: 1rpx solid #E3E3E3;
+  margin-left: -1px;
+}
+.itemright>view>view>view>text:last-of-type{
+  width: 25px;
+  height: 25px;
+  text-align: center;
+  line-height: 25px;
+  border: 1rpx solid #E3E3E3;
+  margin-left: -1px;
+  border-top-right-radius: 8rpx;
+  border-bottom-right-radius: 8rpx;
+}
+.content_bottom{
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+}
+.delete{
+  width: 94%;
+  padding: 0 3%;
+  height: 80rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #FFFFFF;
+  border-top: 5rpx solid #F9F9F9;
+}
+.delete>text{
+  font-size: 10pt;
+  color: #666666;
+}
+.delete>view{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10rpx 50rpx;
+  border-radius: 8rpx;
+  border: 1rpx solid #EC7E3B;
+}
+.delete>view>text{
+  font-size: 10pt;
+  color: #EC7E3B;
+}
+.all{
+  display: flex;
+  width: 100%;
+  height: 55px;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #ffffff;
+  border-top: 1px solid #f1f1f1;
+}
+.all>view:first-of-type{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-left: 3%;
+}
+.all>view:first-of-type>image{
+  width: 20px;
+  margin-right: 5px;
+}
+.all>view:first-of-type>text{
+  font-size: 11pt;
+  color: #686868;
+}
+.all>view:nth-of-type(2){
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 70%;
+}
+.all>view:nth-of-type(2)>text{
+  font-size: 12pt;
+  color: #E44C27;
+}
+.all>view:nth-of-type(2)>navigator{
+  width: 50%;
+  background-color: #EC7E3B;
+  height: 55px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.all>view:nth-of-type(2)>navigator>text{
+  font-size: 11pt;
+  color: #ffffff;
+}
+
+
+
+/* 购物车无商品时 */
+.isNull{
+  width: 100%;
+  height: 100%;
+  background-color: #F9F9F9;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+.isNull>view{
+  width: 200rpx;
+  height: 200rpx;
+  border-radius: 50%;
+  background-color: #EFEFEF;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 100rpx 0 70rpx;
+}
+.isNull>view>text{
+  font-size: 100rpx;
+  color: #ffffff;
+  display: block;
+}
+.isNull>text:first-of-type{
+  font-size: 12pt;
+  color: #555454;
+}
+.isNull>text:nth-of-type(2){
+  font-size: 10pt;
+  color: #999999;
+  line-height: 80rpx;
+}
+.isNull>navigator{
+  width: 220rpx;
+  height: 80rpx;
+  border: 2rpx solid #EB544D;
+  border-radius: 10rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 30rpx;
+}
+.isNull>navigator>text{
+  font-size: 11pt;
+  color: #EB544D;
+}

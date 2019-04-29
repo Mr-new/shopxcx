@@ -1,0 +1,156 @@
+<!--index.wxml-->
+<view class="container">
+  <view class='header'>
+    <view class='rule' bindtap='showRole'>
+      <text class='iconfont icon-iconfontjiantou4'>规则</text>
+    </view>
+    <image src="{{imgUrl}}step_back10.jpg" mode='widthFix'></image>
+    <view class='goLotteryBtn' bindtap='goLottery'>
+      <text>领取10000元项目打造基金</text>
+      <image src='{{imgUrl}}step_hand.png' mode='widthFix'></image>
+    </view>
+  </view>
+  <view class='content'>
+    <view class='content_top'>
+      <image src='{{imgUrl}}step_button1.png' mode='widthFix'></image>
+      <view class='ljStep'>
+        <block wx:for="{{ljStep}}" wx:key="{{index}}">
+          <view>
+            <text>{{item}}</text>
+          </view>
+        </block>
+      </view>
+    </view>
+    <view class='line'></view>
+    <view class='content_center'>
+      <view class='todayStep'>
+        <text>今日步数</text>
+        <text class='scale'>{{todayStep}}</text>
+        <text>加油你是最棒的</text>
+      </view>
+      <view class='share'>
+        <text>邀请新好友一起健步可立即增加5000步</text>
+        <button bindtap='showSharePage'>立即邀请</button>
+      </view>
+    </view>
+    <view class='line2'></view>
+    <view class='content_bottom'>
+      <view class='button'bindtap="receivePrize" wx:if="{{isLuckDraw}}">
+        <text>您可领取奖品</text>
+        <image src='{{imgUrl}}step_hand.png' mode='widthFix'></image>
+      </view>
+      <view class='content_top' wx:if="{{isShowsy}}" style='padding-top:0;'>
+        <image src='{{imgUrl}}step_button2.png' mode='widthFix'></image>
+        <view class='ljStep'>
+          <block wx:for="{{syStep}}" wx:key="{{index}}">
+            <view>
+              <text>{{item}}</text>
+            </view>
+          </block>
+        </view>
+      </view>
+    </view>
+    <view class='line' style='margin-bottom:40rpx; width:50%'></view>
+    <view class='prize'>
+      <text>奖品门槛</text>
+      <view class='prizeList'>
+        <block wx:for="{{prizeList}}" wx:key="{{index}}">
+          <view>
+            <view>
+              <image src='{{item.imageUrl}}' mode='widthFix'></image>
+              <text>{{item.title}}</text>
+            </view>
+            <text>{{item.condition}}</text>
+          </view>
+        </block>  
+      </view>
+      <text>注：满足40000步即可获得抽奖机会，5月10号下午4点开奖</text>
+    </view>
+    <view class='cardBtn' bindtap='showMyPrize'>
+      <text>我的卡券</text>
+      <image src='{{imgUrl}}step_hand.png' mode='widthFix'></image>
+    </view>
+  </view>
+
+  <view class='myPrize' wx:if="{{isShowMyPrize}}">
+    <view>
+      <image src='{{imgUrl}}myPrize_back_03.png' mode='widthFix'></image>
+      <text bindtap='hideMyPrize' class='iconfont icon-Close'></text>
+      <view>
+        <text>我的卡券</text>
+        <view wx:if="{{myPrizeList}}">
+          <block wx:for="{{myPrizeList}}" wx:key="{{index}}">
+            <text>{{item.title}}</text>
+          </block>
+        </view>
+        <view wx:else> 
+          <text>您还没有获得卡券哟</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class='sharePage' wx:if="{{isShowSharePage}}">
+    <view>
+      <view class='shareBtn'>
+        <button open-type='share'>
+          <text class='iconfont icon-weixin'></text>
+          <text>分享朋友</text>
+        </button>
+        <view bindtap='showsharepyq'>
+          <text class='iconfont icon-tupian'></text>
+          <text>生成海报</text>
+        </view>
+      </view>
+      <text>注：当好友参与健步挑战赛您才能获得5000步哟</text>
+      <view class='close' bindtap='hideSharePage'>
+        <text>关闭</text>
+      </view>
+    </view>
+  </view>
+  <!-- 保存分享图弹框 -->
+  <view class='sharepyq' wx:if="{{issharepyq}}">
+    <view class='share1'>
+      <text bindtap='hideIssharepyq' class='iconfont icon-Close'></text>
+      <canvas canvas-id="shareCanvas" style="width:300px;height:460px"></canvas>
+      <button class='button1' bindtap='baocun'>保存分享图</button>
+    </view>
+  </view>
+  <!-- 用户信息授权及手机号授权 -->
+  <view class='login' style="display:{{isLogin ? 'flex' : 'none'}}">
+    <view wx:if="{{isAuthor==1}}">
+      <text class='iconfont icon-wechat1'></text>
+      <button open-type='getUserInfo' lang='zh_CN' bindgetuserinfo="getUserInfo">点击微信授权</button>
+    </view>
+    <view wx:if="{{isAuthor==2}}">
+      <text class='iconfont icon-shoujihao'></text>
+      <button open-type='getPhoneNumber' bindgetphonenumber="getPhoneNumber">点击手机号授权</button>
+    </view>
+  </view>
+  <audio src="{{src}}" id="myAudio" loop style='display:none' ></audio>
+  <!-- 规则 -->
+  <view class='activity_role' style="display:{{isShowRole ? 'flex' : 'none'}}">
+    <view>
+      <view class='back'>
+        <image src='https://xaxcx.17mall.cc/Public/uploadImages/default/role_back_03.png' mode='widthFix'></image>
+        <text bindtap='hideRole' class='iconfont icon-Close'></text>
+      </view>
+      <view class='text'>
+        <text>活动说明</text>
+        <view>
+          <rich-text style='font-size:10pt;' nodes="{{activityDetails}}"></rich-text>
+          <!-- <block wx:for="{{activityDetails}}" wx:key="{{index}}">
+            <text>{{item.content}}</text>
+          </block> -->
+        </view>
+      </view>
+    </view>
+  </view>
+  <!-- <text>总运动步数：{{sumStep}}</text>
+  <view>
+    <text>今天运动步数：{{todayStep}}</text>
+  </view> -->
+  <!-- <button open-type='getUserInfo' lang='zh_CN' bindgetuserinfo="getUserInfo">用户信息授权</button>
+  <button open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">用户手机号授权</button>
+  <button bindtap='getUserStep'>获取用户步数</button> -->
+</view>

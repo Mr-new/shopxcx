@@ -1,0 +1,66 @@
+<!--index.wxml-->
+<view class="container">
+  <!-- 自提地址信息 -->
+  <view class='address'>
+    <text class='iconfont icon-dizhi'></text>
+    <view bindtap='goMap'>
+      <text>商家电话：15381133106</text>
+      <view>
+        <text>提货地址：浙江省杭州市西湖区莫干山路333（地铁2号线沈塘桥站B出口）</text>
+        <text class='iconfont icon-iconfontjiantou4'></text>
+      </view>
+    </view>
+  </view>
+  <!-- 商品内容 -->
+  <view class='content'>
+    <view class='shop'>
+      <view>
+        <image src='http://shopxcx.com/Public/uploadImages/default/logo.jpg'></image>
+        <text>西安艺星医疗美容医院</text>
+      </view>
+      <view>
+        <image src='http://shopxcx.com/Public/uploadImages/default/shop_item_03.png' mode='widthFix'></image>
+        <view>
+          <view>
+            <text>海薇玻尿酸【PLM多维立体定格术】【鼻子除外】</text>
+            <text>线上全款</text>
+          </view>
+          <view>
+            <text>￥199.00</text>
+            <text>x1</text>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class='form'>
+      <view>
+        <text>商品总额</text>
+        <text>￥199.00</text>
+      </view>
+      <view>
+        <text>配送方式</text>
+        <text>自提</text>
+      </view>
+      <view>
+        <text>优惠券</text>
+        <text class='iconfont icon-iconfontjiantou4'></text>
+      </view>
+      <view>
+        <text>手机号码</text>
+        <input placeholder='请输入提货人手机号' placeholder-style="color:#B2B2B2;"></input>
+        <button open-type='getPhoneNumber'>获取微信手机号</button>
+      </view>
+      <view>
+        <text>订单备注</text>
+        <textarea placeholder='请输入备注内容' placeholder-style="color:#B2B2B2;"></textarea>
+      </view>
+    </view>
+  </view>
+  <!-- 总价格 -->
+  <view class='sumPrice'>
+    <text>总计：<text class='price'>￥194.00</text></text>
+    <view bindtap='goPay'>
+      <text>立即支付</text>
+    </view>
+  </view>
+</view>

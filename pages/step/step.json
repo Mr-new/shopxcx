@@ -1,0 +1,8 @@
+{
+  "usingComponents": {},
+  "navigationBarBackgroundColor": "#B2000C",
+  "navigationBarTextStyle": "white",
+  "navigationBarTitleText": "健步挑战赛",
+  "backgroundColor": "#eeeeee",
+  "backgroundTextStyle": "light"
+}

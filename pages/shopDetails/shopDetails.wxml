@@ -1,0 +1,157 @@
+<!--index.wxml-->
+<view class="container">
+  <swiper class='swiper' indicator-dots="{{indicatorDots}}" 
+        autoplay="{{autoplay}}" indicator-active-color='#ffffff' indicator-color='rgba(255,255,255,0.5)' interval="{{interval}}" duration="{{duration}}" circular="true"> 
+      <block wx:for="{{arr}}" wx:key="index"> 
+        <swiper-item> 
+            <image src="{{item.src}}" class="slide-image" mode='widthFix' /> 
+        </swiper-item> 
+      </block>
+  </swiper>
+  <view class='title'>
+    <view>
+      <view>
+        <text>祛痘月卡111111111111111111111111111111111111111111111111111111111111111111111</text>
+        <text>同科室不同产品限购一次11111111111111111111111111111111111111111111111111111111111111</text>
+        <text>￥58.00-588.00</text>
+      </view>
+      <view>
+        <text class='iconfont icon-shoucang1'></text>
+        <text>收藏商品</text>
+      </view>
+    </view>
+    <view>
+      <text>原价： ￥2500.00</text>
+      <text>销量： 5499笔</text>
+    </view>
+  </view>
+  <view class='spec' data-selected="3" bindtap='selectSpec'>
+    <text wx:if="{{PurchaseMsgIdx==null}}">商品规格</text>
+    <text wx:else>已选择：{{PurchaseMsgIdx.title}}</text>
+    <text class='iconfont icon-iconfontjiantou4'></text>
+  </view>
+  <view class='spec'>
+    <text>由<text style='color:#EC7E3B'>西安艺星整形医院</text>为您提供</text>
+    <text class='iconfont icon-iconfontjiantou4'></text>
+  </view>
+  <view class='details'>
+    <view class='details_top'>
+      <view>
+        <text bindtap='switchTab' data-id="1" class="{{idx==1 ? 'selected' : ''}}">商品详情</text>
+      </view>
+      <view>
+        <text bindtap='switchTab' data-id="2" class="{{idx==2 ? 'selected' : ''}}">用户评价(26)</text>
+      </view>
+    </view>
+    <view class='details_content'>
+      <view wx:if="{{idx==1}}">
+        <block wx:for="{{detailsImgList}}" wx:key="index">
+          <image src='{{item.imgUrl}}' mode='widthFix'></image>
+        </block>
+      </view>
+      <view wx:else>
+        <block wx:for="{{commentList}}" wx:key="index">
+          <view class='comment'>
+            <view>
+              <image src='{{item.pic}}'></image>
+              <text>{{item.name}}</text>
+              <view>
+                <block wx:for="{{item.xing}}" wx:key="index">
+                  <text class='iconfont icon-pingjia'></text>
+                </block>
+              </view>
+            </view>
+            <view>
+              <text>{{item.dateTime}}</text>
+              <text>{{item.commentContent}}</text>
+            </view>
+            <view>
+              <block wx:for="{{item.imgList}}" wx:for-item="cell" wx:key="index">
+                <image data-imglist="{{item.imgList}}" data-currentImg="{{cell}}" bindtap='showBigImg' src='{{cell}}'></image>
+              </block>
+            </view>
+          </view>
+        </block>
+      </view>
+    </view>
+  </view>
+  <!-- 固定在下方购买按钮 -->
+  <view class='shopMenu'>
+    <view class='shopMenuLeft'>
+      <button open-type="share">
+        <text class='iconfont icon-share-s'></text>
+        <text>分享</text>
+      </button>
+      <button open-type='contact'>
+        <text class='iconfont icon-xiaoxi'></text>
+        <text>客服</text>
+      </button>
+      <button>
+        <text class='iconfont icon-gouwuche'></text>
+        <text>购物车</text>
+      </button>
+    </view>
+    <view class='shopMenuRight'>
+      <view data-selected="1" bindtap='selectSpec'>
+        <text>加入购物车</text>
+      </view>
+      <view data-selected="2" bindtap='selectSpec'>
+        <text>立即购买</text>
+      </view>
+    </view>
+  </view>
+  <!-- 商品规格弹框 -->
+  <view class='purchasePage' wx:if="{{showPurchasePage}}">
+    <view>
+      <view class='top'>
+        <view>
+          <view>
+            <image src='{{PurchaseMsg.imgUrl}}' mode='widthFix'></image>
+          </view>
+          <view>
+            <text>{{PurchaseMsg.title}}</text>
+            <text>￥{{PurchaseMsg.startPrice}}-{{PurchaseMsg.endPrice}}</text>
+            <text wx:if="{{PurchaseMsgIdx}}">库存{{PurchaseMsgIdx.stock}}件</text>
+          </view>
+        </view>
+        <text bindtap='hidePurchasePage' class='iconfont icon-close_icon'></text>
+      </view>
+      <view class='center'>
+        <view>项目</view>
+        <view>
+          <block wx:for="{{PurchaseMsg.classList}}" wx:key="index">
+            <text class="{{item.id==PurchaseMsgIdx.id ? 'selectedClass' : ''}}" bindtap='selectedClass' data-idx="{{item}}">{{item.title}}</text>
+          </block>  
+        </view>
+      </view>
+      <view class='bottom'>
+        <view>
+          <text>购买数量</text>
+          <view>
+            <text bindtap='reduce'>-</text>
+            <text>{{num}}</text>
+            <text bindtap='add'>+</text>
+          </view>
+        </view>
+        <view wx:if="{{btnStatus==1}}">
+          <view class='goCart'>
+            <text>加入购物车</text>
+          </view>
+        </view>
+        <view wx:elif="{{btnStatus==2}}">
+          <view class='goPurchase' bindtap='goConfirmOrder'>
+            <text>立即购买</text>
+          </view>
+        </view>
+        <view wx:else>
+          <view>
+            <text>加入购物车</text>
+          </view>
+          <view bindtap='goConfirmOrder'>
+            <text>立即购买</text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,229 @@
+/**index.wxss**/
+page{
+  width: 100%;
+  height: 100%;
+  background-color: #FAFAFA;
+}
+/* 自体地址信息 */
+.address{
+  width: 90%;
+  height: auto;
+  overflow: hidden;
+  margin: 20rpx auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20rpx 2.5%;
+  background-color: #FFFFFF;
+  border-radius: 20rpx;
+}
+.address>text:first-of-type{
+  width: 7%;
+  font-size: 12pt;
+  color: #3E4144;
+}
+.address>view{
+  width: 93%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+.address>view>text:first-of-type{
+  font-size: 12pt;
+  color: #333333;
+  margin-bottom: 20rpx;
+}
+.address>view>view{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.address>view>view>text{
+  font-size: 14pt;
+}
+.address>view>view>text:first-of-type{
+  font-size: 10pt;
+  color: #444444;
+}
+/* 商品内容 */
+.content{
+  width: 90%;
+  height: auto;
+  overflow: hidden;
+  margin: 0 auto;
+  padding: 20rpx 2.5%;
+  background-color: #FFFFFF;
+  border-radius: 20rpx;
+}
+.shop{
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+}
+.shop>view:first-of-type{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  margin-bottom: 20rpx;
+}
+.shop>view:first-of-type>image{
+  width: 50rpx;
+  height: 50rpx;
+  border-radius: 50%;
+  margin-right: 10rpx;
+}
+.shop>view:first-of-type>text{
+  font-size: 11pt;
+  /* font-weight: bold; */
+}
+.shop>view:nth-of-type(2){
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+.shop>view:nth-of-type(2)>image{
+  width: 20%;
+  border-radius: 10rpx;
+}
+.shop>view:nth-of-type(2)>view{
+  width: 78%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+.shop>view:nth-of-type(2)>view>view:first-of-type{
+  display: flex;
+  flex-direction: column;
+
+}
+.shop>view:nth-of-type(2)>view>view:first-of-type>text{
+  font-size: 9pt;
+  color: #000000;
+}
+.shop>view:nth-of-type(2)>view>view:first-of-type>text:last-of-type{
+  display: block;
+  width: 100%;
+  height: 40rpx;
+  line-height: 40rpx;
+  background-color: #FAFAFA;
+  margin-top: 15rpx;
+  text-indent: 0.5em;
+  color: #888888;
+}
+.shop>view:nth-of-type(2)>view>view:nth-of-type(2){
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  margin-left:10rpx;
+}
+.shop>view:nth-of-type(2)>view>view:nth-of-type(2)>text{
+  font-size: 9pt;
+  color: #333333;
+}
+.shop>view:nth-of-type(2)>view>view:nth-of-type(2)>text:last-of-type{
+  color: #888888;
+  font-size: 8pt;
+  display: block;
+  margin-top: 10rpx;
+}
+.form{
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+  margin-top: 20rpx;
+}
+.form>view{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin: 30rpx 0;
+}
+.form>view:last-of-type{
+  align-items: flex-start;
+}
+.form>view>text:first-of-type{
+  display: block;
+  width: 18%;
+  font-size: 10pt;
+  text-align: right;
+  color: #333333;
+}
+.form>view>text:nth-of-type(2){
+  font-size: 10pt;
+  color: #333333;
+}
+.form>view>input{
+  width: 40%;
+  font-size: 10pt;
+  color: #333333;
+}
+.form>view>button{
+  width: 32%;
+  font-size: 10pt;
+  margin: 0;
+  padding: 0;
+  height: 55rpx;
+  line-height: 55rpx;
+  color: #ffffff;
+  border-radius: 10rpx;
+  background-color: #6BBF51;
+}
+.form>view>button::after{
+  border: none;
+}
+.form>view>textarea{
+  width: 74%;
+  font-size: 10pt;
+  height: 100rpx;
+  color: #333333;
+  border: 1rpx solid #f1f1f1;
+  border-radius: 8rpx;
+  padding: 10rpx 2%;
+}
+
+/* 总价格 */
+.sumPrice{
+  width: 100%;
+  height: 100rpx;
+  background-color: #FFFFFF;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+}
+.sumPrice>text:first-of-type{
+  font-size: 12pt;
+  color: #333333;
+}
+.price{
+  color: #DC6E3C;
+  font-size: 14pt;
+}
+.sumPrice>view{
+  width: 200rpx;
+  height: 75rpx;
+  border-radius: 40rpx;
+  background-color: #DD834B;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 30rpx;
+  margin-right: 20rpx;
+}
+.sumPrice>view>text{
+  font-size: 12pt;
+  color: #FFFFFF;
+}

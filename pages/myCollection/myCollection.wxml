@@ -1,0 +1,85 @@
+<!--index.wxml-->
+<view class="container">
+  <!-- 顶部部分 -->
+  <view class='header'>
+    <view data-id="1" class="{{idx==1 ? 'selected' : ''}}" bindtap='switch'>
+      <text>商品收藏</text>
+    </view>
+    <view data-id="2" class="{{idx==2 ? 'selected' : ''}}" bindtap='switch'>
+      <text>日记收藏</text>
+    </view>
+  </view>
+  <!-- 商品收藏 -->
+  <view class='shopList' wx:if="{{idx==1}}">
+    <!-- 商品收藏列表 -->
+    <view class='list' wx:if="{{list.length!=0}}">
+      <block wx:for="{{list}}" wx:key="{{index}}">
+        <navigator url='/pages/shopDetails/shopDetails' data-index='{{index}}' class='item'>
+          <view>
+            <image mode='widthFix' src='{{item.image}}'></image>
+            <view>
+              <text>{{item.title}}</text>
+              <text>现价￥<text style="font-size:12pt;">{{item.price}}</text></text>
+            </view>
+          </view>
+        </navigator>
+      </block>
+    </view>
+    <!-- 暂无数据 -->
+    <view class='isNull' wx:else>
+      <text class='iconfont icon-zanwushuju'></text>
+      <text>暂无数据</text>
+    </view>
+  </view>
+  <!-- 日记收藏 -->
+  <view class='dayList' wx:if="{{idx==2}}">
+    <!-- 日记收藏列表 -->
+    <view class='dayList_content' wx:if="{{caseList.length!=0}}">
+      <block wx:for="{{caseList}}" wx:key="index">
+        <view class='listItem'>
+          <view class='top'>
+            <image src='{{item.pic}}'></image>
+            <view>
+              <text>{{item.title}}</text>
+              <text>{{item.className}}</text>
+            </view>
+          </view>
+          <view class='center'>
+            <view>
+              <block wx:for="{{item.imgList}}" wx:key="index">
+                <image src='{{item.imgUrl}}' mode='widthFix'></image>
+              </block>
+            </view>
+            <view>
+              <text>{{item.dateTime}}发布</text>
+              <view>
+                <text class='iconfont icon-weizhi'></text>
+                <text>{{item.address}}</text>
+              </view>
+            </view>
+          </view>
+          <view class='line'></view>
+          <view class='bottom'>
+            <view>
+              <text class='iconfont icon-chakan'></text>
+              <text><text style='color:#E45452'>{{item.lookNumber}}</text>人浏览</text>
+            </view>
+            <view>
+              <text class='iconfont icon-dianzan1'></text>
+              <text><text style='color:#E45452'>{{item.fabulousNumber}}</text>人点赞</text>
+            </view>
+            <view>
+              <text class='iconfont icon-xiangqing'></text>
+              <text>查看详情</text>
+            </view>
+          </view>
+        </view>
+      </block>
+    </view>
+    <!-- 暂无数据 -->
+    <view class='isNull' wx:else>
+      <text class='iconfont icon-zanwushuju'></text>
+      <text>暂无数据</text>
+    </view>
+  </view>
+</view>

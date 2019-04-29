@@ -1,0 +1,70 @@
+<!--index.wxml-->
+<view class="container">
+  <view class='header'>
+    <view class='search'>
+      <view>
+        <text class='iconfont icon-weizhi'></text>
+        <text>西安</text>
+      </view>
+      <view>
+        <text class='iconfont icon-sousuo'></text>
+        <input bindinput='getSearchValue' placeholder='请输入搜索内容'></input>
+      </view>
+      <view bindtap='goSearch'>
+        <text>搜索</text>
+      </view>
+    </view>
+    <view class='navList'>
+      <scroll-view scroll-x="true">
+        <block wx:for="{{navList}}" wx:key="index">
+          <view bindtap='selectedNavItem' class="navItem {{item.id==idx ? 'selected' : ''}}" data-id="{{item.id}}">
+            {{item.title}}
+          </view>
+        </block>
+      </scroll-view>
+    </view>
+  </view>
+  <scroll-view class='caseList' scroll-y="true">
+    <block wx:for="{{caseList}}" wx:key="index">
+      <view class='listItem'>
+        <view class='top'>
+          <image src='{{item.pic}}'></image>
+          <view>
+            <text>{{item.title}}</text>
+            <text>{{item.className}}</text>
+          </view>
+        </view>
+        <view class='center'>
+          <view>
+            <block wx:for="{{item.imgList}}" wx:key="index">
+              <image src='{{item.imgUrl}}' mode='widthFix'></image>
+            </block>
+          </view>
+          <view>
+            <text>{{item.dateTime}}发布</text>
+            <view>
+              <text class='iconfont icon-weizhi'></text>
+              <text>{{item.address}}</text>
+            </view>
+          </view>
+        </view>
+        <view class='line'></view>
+        <view class='bottom'>
+          <view>
+            <text class='iconfont icon-chakan'></text>
+            <text><text style='color:#E45452'>{{item.lookNumber}}</text>人浏览</text>
+          </view>
+          <view>
+            <text class='iconfont icon-dianzan1'></text>
+            <text><text style='color:#E45452'>{{item.fabulousNumber}}</text>人点赞</text>
+          </view>
+          <view>
+            <text class='iconfont icon-xiangqing'></text>
+            <text>查看详情</text>
+          </view>
+        </view>
+      </view>
+    </block>
+    
+  </scroll-view>
+</view>

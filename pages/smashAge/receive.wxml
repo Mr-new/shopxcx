@@ -1,0 +1,81 @@
+<!--index.wxml-->
+<view class="container">
+  <view class='share_back'>
+    <text decode="{{true}}">做任务&nbsp;&nbsp;领取次数</text>
+    <image mode='widthFix' src='https://xaxcx.17mall.cc/Public/uploadImages/default/share_back_02.png'></image>
+  </view>
+  <view class='list'>
+    <official-account></official-account>
+    <view>
+      <image src='https://xaxcx.17mall.cc/Public/uploadImages/default/share_icon_03.png'></image>
+      <view>
+        <text>关注公众号</text>
+        <text>奖励：2次</text>
+      </view>
+      <button bindtap='isPublicAddress'>做任务</button>
+    </view>
+    <view>
+      <image src='https://xaxcx.17mall.cc/Public/uploadImages/default/share_icon_06.png'></image>
+      <view>
+        <text>分享朋友</text>
+        <text>奖励：5次</text>
+      </view>
+      <button bindtap='showsharepyq'>做任务</button>
+    </view>
+    <view>
+      <image src='https://xaxcx.17mall.cc/Public/uploadImages/default/share_icon_08.png'></image>
+      <view>
+        <text>分享给好友</text>
+        <text>奖励：每邀请1位获1次</text>
+      </view>
+      <button open-type="share">做任务</button>
+    </view>
+    
+    <view>
+      <image src='https://xaxcx.17mall.cc/Public/uploadImages/default/share_icon_10.png'></image>
+      <view>
+        <text>内部码</text>
+        <text>输入内部码获得砸蛋机会</text>
+      </view>
+      <button bindtap='showAlert'>内部码</button>
+    </view>
+  </view>
+  <view class='renwuDetails'>
+    <text>任务说明</text>
+    <view>
+      <block wx:for="{{details}}" wx:key="{{index}}">
+        <text>{{item.title}}</text>
+      </block>
+    </view>
+  </view>
+ 
+  <view class='alert' wx:if="{{isAlert}}">
+    <view>
+      <text>输入内部码</text>
+      <input bindinput='updateInCode' placeholder='请输入内部码' />
+      <view bindtap='submitInCode'>确认</view>
+    </view>
+    <text bindtap='hideAlert' class='iconfont icon-Close'></text>
+  </view>
+
+  <view class='sharepyq' wx:if="{{issharepyq}}">
+    <view class='share'>
+      <text bindtap='hideIssharepyq' class='iconfont icon-Close'></text>
+      <canvas canvas-id="shareCanvas" style="width:300px;height:460px"></canvas>
+      <button class='button' bindtap='baocun'>保存分享图</button>
+    </view>
+  </view>
+
+  <view class='gzgWrap' wx:if="{{isgzh}}">
+    <view>
+      <text bindtap='hideIsgzh' class='iconfont icon-Close'></text>
+      <image src='{{gzhImg}}' data-imgUrl="{{gzhImg}}" bindtap="previewImage" mode='widthFix'></image>
+      <view>
+        <button class='button' bindtap='downloadgzhImage' style='width:250rpx'>保存图片</button>
+        <button class='button' bindtap='receive' style='width:250rpx'>领取机会</button>
+      </view>
+      
+    </view>
+  </view>
+  
+</view>

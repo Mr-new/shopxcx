@@ -1,0 +1,79 @@
+<!--index.wxml-->
+<view class="container">
+  <view class='header'>
+    <view class='header_content'>
+      <view>
+        <image src='http://xaxcx.17mall.cc/Public/uploadImages/default/logo.jpg'></image>
+        <text>西安艺星整形医院</text>
+      </view>
+      <view class="userinfo">
+        <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
+        <block wx:else>
+          <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+          <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+          <text>电话：16621299974</text>
+        </block>
+      </view>
+    </view>
+  </view>
+  <view class='content'>
+    <view class='item1'>
+      <text>余额：<text style='color:#E9783D'>0</text></text>
+      <view>
+        <text>签到</text>
+      </view>
+    </view>
+    <view class='item2 mt25'>
+      <view class='title'>
+        <text>我的订单</text>
+        <text bindtap='goOrder' class='iconfont icon-iconfontjiantou4'>全部订单</text>
+      </view>
+      <view class='my_menu'>
+        <navigator url='/pages/order/order?idx=1'>
+          <image src='http://xaxcx.17mall.cc/Public/uploadImages/default/my_icon_03.png' mode='widthFix'></image>
+          <text>待支付</text>
+        </navigator>
+        <navigator url='/pages/order/order?idx=2'>
+          <image src='http://xaxcx.17mall.cc/Public/uploadImages/default/my_icon_05.png' mode='widthFix'></image>
+          <text>已支付</text>
+        </navigator>
+        <navigator url='/pages/order/order?idx=3'>
+          <image src='http://xaxcx.17mall.cc/Public/uploadImages/default/my_icon_07.png' mode='widthFix'></image>
+          <text>待接单</text>
+        </navigator>
+        <navigator url='/pages/order/order?idx=4'>
+          <image src='http://xaxcx.17mall.cc/Public/uploadImages/default/my_icon_09.png' mode='widthFix'></image>
+          <text>退款订单</text>
+        </navigator>
+      </view>
+    </view>
+    <view class='item2'>
+      <view class='title'>
+        <text>必备工具</text>
+      </view>
+      <view class='my_menu'>
+        <navigator url='/pages/shopCart/shopCart'>
+          <image src='http://xaxcx.17mall.cc/Public/uploadImages/default/my_icon_15.png' mode='widthFix'></image>
+          <text>购物车</text>
+        </navigator>
+        <navigator>
+          <image src='http://xaxcx.17mall.cc/Public/uploadImages/default/my_icon_16.png' mode='widthFix'></image>
+          <text>站内信</text>
+        </navigator>
+        <navigator url="/pages/myCollection/myCollection?idx=1">
+          <image src='http://xaxcx.17mall.cc/Public/uploadImages/default/my_icon_19.png' mode='widthFix'></image>
+          <text>商品收藏</text>
+        </navigator>
+        <navigator url="/pages/myCollection/myCollection?idx=2">
+          <image src='http://xaxcx.17mall.cc/Public/uploadImages/default/my_icon_20.png' mode='widthFix'></image>
+          <text>专题收藏</text>
+        </navigator>
+        <navigator>
+          <image src='http://xaxcx.17mall.cc/Public/uploadImages/default/my_icon1_03.png' mode='widthFix'></image>
+          <text>我的优惠券</text>
+        </navigator>
+      </view>
+    </view>
+  </view>
+  <view class='null'></view>
+</view>

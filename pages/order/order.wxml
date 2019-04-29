@@ -1,0 +1,55 @@
+<!--index.wxml-->
+<view class="container">
+  <!-- 顶部tab部分 -->
+  <view class='menu'>
+    <block wx:for="{{menuList}}" wx:key="{{index}}">
+      <view class="{{idx==item.id ? 'selected' : ''}}" data-id="{{item.id}}" bindtap='tabSwitch'>
+        <text>{{item.title}}</text>
+      </view>
+    </block>
+  </view>
+  <!-- 订单列表 -->
+  <view class='orderList' wx:if="{{orderList.length!=0}}">
+    <block wx:for="{{orderList}}" wx:key="{{index}}">
+      <view class='item' bindtap='goOrderDetails'>
+        <view class='item_top'>
+          <view>
+            <text>订单编号：{{item.orderNumber}}</text>
+            <text>下单时间：{{item.datetime}}</text>
+          </view>
+          <view>
+            <text>到店自提</text>
+          </view>
+        </view>
+        <view class='item_center'>
+          <view>
+            <image src='{{item.img}}' mode='widthFix'></image>
+            <view>
+              <text>{{item.title}}</text>
+              <view>
+                <text>{{item.type}}</text>
+                <text>x{{item.number}}</text>
+              </view>
+            </view>
+          </view>
+          <view>
+            <text>￥{{item.price}}</text>
+          </view>
+        </view>
+        <view class='item_bottom'>
+          <text>待支付</text>
+          <view catchtap='gopay'>
+            <text>立即支付</text>
+          </view>
+        </view>
+      </view>
+    </block>
+  </view>
+  <view class='isnull' wx:else>
+    <view>
+      <image src="{{imgUrl}}order_none_03.png" mode='widthFix'></image>
+    </view>
+    <text>暂无订单数据</text>
+  </view>
+  
+</view>

@@ -1,0 +1,12 @@
+<!--index.wxml-->
+<view class="container">
+  <swiper class="swiper_container" vertical="true" autoplay="true" circular="true" interval="1000">
+  <block wx:for="{{msgList}}">
+  <navigator url="/pages/index/index?title={{item.url}}" open-type="navigate">
+  <swiper-item>
+  <view class="swiper_item">{{item.title}}</view>
+  </swiper-item>
+  </navigator>
+  </block>
+  </swiper>
+</view>
