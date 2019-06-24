@@ -7,43 +7,28 @@ Page({
     userInfo: {},
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
+    pageIndex: 1, //当前第几页
+    number: 10,  //每页显示数量
+    sumPage: 1,  //总页数
+    isBottom: false,  //是否到底
     searchValue:"",  //搜索关键字
-    classList:[
-      { title: "全部商品", id:1},
-      { title: "皮肤美容", id: 2},
-      { title: "玻尿酸", id: 3},
-      { title: "瘦脸针", id: 4},
-      { title: "眼部整形", id: 5},
-      { title: "鼻部整形", id: 6},
-      { title: "胸部整形", id: 7},
-      { title: "口腔", id: 8},
-      { title: "自体脂肪填充", id: 9},
-      { title: "私密", id: 10},
-      { title: "纹绣", id: 11},
-      { title: "抗衰老", id: 12},
-      { title: "脱毛", id: 13},
-      { title: "美体塑形", id: 14},
-      { title: "祛斑", id: 15},
-      { title: "祛痘", id: 16},
+    classList:[  //商品分类列表
+      { title: "全部商品", id: 0},
     ],
-    idx:1,  //当前选中分类
+    idx:0,  //当前选中分类
     showShopListTitle:"全部商品",  //商品列表标题
-    showShopList:[
-      { bigTitle: "约会美白急救包", smallTitle: "【纳米微针，美白补水】同科室不同产品限购123", imgUrl: "http://xaxcx.17mall.cc/Public/uploadImages/default/shop_item_03.png", currentPrice: 199, beforePrice: 2680.00 },
-      { bigTitle: "约会美白急救包", smallTitle: "【纳米微针，美白补水】同科室不同产品限购123", imgUrl: "http://xaxcx.17mall.cc/Public/uploadImages/default/shop_item_03.png", currentPrice: 199, beforePrice: 2680.00 },
-      { bigTitle: "约会美白急救包", smallTitle: "【纳米微针，美白补水】同科室不同产品限购123", imgUrl: "http://xaxcx.17mall.cc/Public/uploadImages/default/shop_item_03.png", currentPrice: 199, beforePrice: 2680.00 },
-      { bigTitle: "约会美白急救包", smallTitle: "【纳米微针，美白补水】同科室不同产品限购123", imgUrl: "http://xaxcx.17mall.cc/Public/uploadImages/default/shop_item_03.png", currentPrice: 199, beforePrice: 2680.00 },
-      { bigTitle: "约会美白急救包", smallTitle: "【纳米微针，美白补水】同科室不同产品限购123", imgUrl: "http://xaxcx.17mall.cc/Public/uploadImages/default/shop_item_03.png", currentPrice: 199, beforePrice: 2680.00 },
-      { bigTitle: "约会美白急救包", smallTitle: "【纳米微针，美白补水】同科室不同产品限购123", imgUrl: "http://xaxcx.17mall.cc/Public/uploadImages/default/shop_item_03.png", currentPrice: 199, beforePrice: 2680.00 },
-      { bigTitle: "约会美白急救包", smallTitle: "【纳米微针，美白补水】同科室不同产品限购123", imgUrl: "http://xaxcx.17mall.cc/Public/uploadImages/default/shop_item_03.png", currentPrice: 199, beforePrice: 2680.00 },
-    ],
+    showShopList:[],  //商品列表
     showPurchasePage:false,  //是否显示购买页
-    PurchaseMsg: { title: "约会美白急救包", imgUrl: "http://xaxcx.17mall.cc/Public/uploadImages/default/shop_item_03.png", startPrice: 250.00, endPrice: 2500.00, classList: [{ title: "线上全款", id: 1, stock: 10 }, { title: "线上全款2", id: 2, stock: 100 }, { title: "线上全款3", id: 3, stock: 999 }, { title: "线上全款4", id: 4, stock: 150 }, { title: "线上全款5", id: 5, stock: 10 }, { title: "预约金(到院需付尾款2250)", id: 6, stock: 99 }] },
-    PurchaseMsgIdx: null,  //选中购买项
-    // currentStock:false,  //当前选中库存数量
+    shopItem: null,  //选中商品项
+    PurchaseMsgIdx: null,  //选中购买项 
     num:1,  //数量
   },
   onLoad: function () {
+    //获取商品分类列表
+    this.getCommodityMenuList();
+    //获取商品列表
+    this.getCommodityList();
+
     if (app.globalData.userInfo) {
       this.setData({
         userInfo: app.globalData.userInfo,
@@ -79,6 +64,45 @@ Page({
       hasUserInfo: true
     })
   },
+  //获取商品分类列表
+  getCommodityMenuList: function () {
+    let _this = this;
+    wx.showLoading({
+      title: '加载中',
+    })
+    wx.request({
+      url: app.globalData.shopRequestUrl + "Commodity/getCommodityMenuList",
+      data: {
+
+      },
+      header: {
+        "Content-Type": "application/x-www-form-urlencoded"
+      },
+      method: 'POST',
+      success: function (result) {
+        let results = result.data;
+        if (results.success == true) {
+          _this.setData({
+            classList: _this.data.classList.concat(results.data)
+          })
+        } else {
+          wx.showToast({
+            icon: 'none',
+            title: results.msg,
+          })
+        }
+      },
+      fail: function (err) {
+        wx.showToast({
+          icon: 'none',
+          title: '网络似乎走丢了哟',
+        })
+      },
+      complete: function () {
+        wx.hideLoading();
+      }
+    })
+  },
   //获取用户输入的关键字
   getSearchValue:function(e){
     let value=e.detail.value;
@@ -88,7 +112,15 @@ Page({
   },
   //发起搜索
   goSearch:function(){
-    console.log(this.data.searchValue);
+    //console.log(this.data.searchValue);
+    this.setData({
+      showShopListTitle:"搜索商品",
+      showShopList: [],
+      pageIndex:1,
+      isBottom: false,
+    })
+    //获取商品列表
+    this.getCommodityList();
   },
   //用户切换分类操作
   selected:function(e){
@@ -96,17 +128,83 @@ Page({
     let title = e.currentTarget.dataset.title;
     this.setData({
       idx:idx,
-      showShopListTitle:title
+      showShopListTitle:title,
+      searchValue: "",
+      showShopList: [],
+      pageIndex: 1,
+      isBottom: false,
+    })
+    //获取商品列表
+    this.getCommodityList();
+  },
+  //获取商品列表
+  getCommodityList: function (){
+    let _this = this;
+    wx.showLoading({
+      title: '加载中',
+    })
+    wx.request({
+      url: app.globalData.shopRequestUrl + "Commodity/getCommodityList",
+      data: {
+        'pageIndex' : _this.data.pageIndex,
+        'number' : _this.data.number,
+        'categoryid' : _this.data.idx,
+        'searchValue': _this.data.searchValue
+      },
+      header: {
+        "Content-Type": "application/x-www-form-urlencoded"
+      },
+      method: 'POST',
+      success: function (result) {
+        let results = result.data;
+        // console.log(results);
+        if (results.success == true) {
+          _this.setData({
+            showShopList: _this.data.showShopList.concat(results.data.list),
+            sumPage: results.data.sumPage
+          })
+        } else {
+          _this.setData({
+            showShopList: []
+          })
+          // wx.showToast({
+          //   icon: 'none',
+          //   title: results.msg,
+          // })
+        }
+      },
+      fail: function (err) {
+        wx.showToast({
+          icon: 'none',
+          title: '网络似乎走丢了哟',
+        })
+      },
+      complete: function () {
+        wx.hideLoading();
+      }
     })
   },
   //上拉加载更多数据
   getMoreData:function(){
-    console.log("我到底了");
+    if(this.data.pageIndex == this.data.sumPage){
+      this.setData({
+        isBottom: true
+      })
+    }else{
+      this.setData({
+        pageIndex: this.data.pageIndex + 1
+      })
+      this.getCommodityList();
+    }
+    // console.log("我到底了",this.data.pageIndex);
   },
   //用户点击选规格操作
-  selectSpec:function(){
+  selectSpec:function(e){
+    let selectedItem = e.currentTarget.dataset.selecteditem;
+    // console.log(selectedItem);
     this.setData({
-      showPurchasePage:true
+      showPurchasePage:true,
+      shopItem:selectedItem
     })
   },
   //用户点击X关闭购买页
@@ -120,7 +218,7 @@ Page({
   //用户选中购买类中的某个项目
   selectedClass:function(e){
     let idx = e.currentTarget.dataset.idx;
-    console.log(idx);
+    // console.log(idx);
     this.setData({
       PurchaseMsgIdx: idx
     })
@@ -142,15 +240,88 @@ Page({
     }
   },
   //跳转到商品详情页面
-  goShopDetails:function(){
+  goShopDetails:function(e){
+    let shopId=e.currentTarget.dataset.shopid;
     wx.navigateTo({
-      url: '/pages/shopDetails/shopDetails',
+      url: '/pages/shopDetails/shopDetails?shopId=' + shopId,
     })
   },
   //跳转到提交订单页面
   goConfirmOrder:function(){
-    wx.navigateTo({
-      url: '/pages/confirmOrder/confirmOrder',
-    })
-  }
+    if (this.data.PurchaseMsgIdx==null){
+      wx.showToast({
+        icon: 'none',
+        title: '请选择商品规格',
+      })
+    }else{
+      let temp = [{
+        'shopId': this.data.shopItem.id,  //商品id
+        'specsId': this.data.PurchaseMsgIdx.id,  //规格id
+        'number': this.data.num,  //数量
+      }];
+      let orderArr = JSON.stringify(temp);
+      wx.navigateTo({
+        url: '/pages/confirmOrder/confirmOrder?orderArr=' + orderArr,
+      })
+    }
+  },
+  //加入购物车
+  addShopCart:function(){
+    if (this.data.PurchaseMsgIdx == null) {
+      wx.showToast({
+        icon: 'none',
+        title: '请选择商品规格',
+      })
+    } else {
+      let _this = this;
+      wx.showLoading({
+        title: '加载中',
+      })
+      let params={
+        'shopid': this.data.shopItem.id,
+        'specsid': this.data.PurchaseMsgIdx.id,
+        'userid': wx.getStorageSync('userid'),
+        'number': this.data.num
+      }
+      wx.request({
+        url: app.globalData.shopRequestUrl + "Cart/addShopCart",
+        data: params,
+        header: {
+          "Content-Type": "application/x-www-form-urlencoded"
+        },
+        method: 'POST',
+        success: function (result) {
+          let results = result.data;
+          if (results.success == true) {
+            wx.showToast({
+              icon:'success',
+              title: results.msg,
+            })
+          } else {
+            wx.showToast({
+              icon: 'none',
+              title: results.msg,
+            })
+          }
+        },
+        fail: function (err) {
+          wx.showToast({
+            icon: 'none',
+            title: '网络似乎走丢了哟',
+          })
+        },
+        complete: function () {
+          wx.hideLoading();
+        }
+      })
+    }
+  },
+  //分享
+  onShareAppMessage(res) {
+    let _this = this;
+    return {
+      title: "商品列表",
+      path: '/pages/shop/shop'
+    }
+  },
 })

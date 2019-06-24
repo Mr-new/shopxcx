@@ -11,39 +11,67 @@
   <!-- 订单列表 -->
   <view class='orderList' wx:if="{{orderList.length!=0}}">
     <block wx:for="{{orderList}}" wx:key="{{index}}">
-      <view class='item' bindtap='goOrderDetails'>
+      <view class='item' bindtap='goOrderDetails' data-id="{{item.id}}">
         <view class='item_top'>
           <view>
-            <text>订单编号：{{item.orderNumber}}</text>
+            <text>订单编号：{{item.ordernumber}}</text>
             <text>下单时间：{{item.datetime}}</text>
           </view>
           <view>
-            <text>到店自提</text>
+            <text wx:if="{{item.status==1}}">未支付</text>
+            <text wx:elif="{{item.status==2}}">已支付</text>
+            <text wx:elif="{{item.status==3}}">已取消</text>
+            <text wx:elif="{{item.status==4}}">退款中</text>
+            <text wx:elif="{{item.status==5}}">已退款</text>
           </view>
         </view>
         <view class='item_center'>
-          <view>
-            <image src='{{item.img}}' mode='widthFix'></image>
-            <view>
-              <text>{{item.title}}</text>
+          <block wx:for="{{item.shopList}}" wx:for-item="item2" wx:key="{{index}}">
+            <view class='foritem'>
+              <image src='{{item2.thumbnail}}' mode='widthFix'></image>
               <view>
-                <text>{{item.type}}</text>
-                <text>x{{item.number}}</text>
+                <text>{{item2.name}}</text>
+                <view>
+                  <text>{{item2.specs.title}}<text style='margin-right:20rpx;'>({{item2.specs.price}})</text></text>
+                  <text>x{{item2.number}}</text>
+                </view>
               </view>
             </view>
-          </view>
+          </block>
           <view>
-            <text>￥{{item.price}}</text>
+            <text>￥{{item.sumprice}}</text>
           </view>
         </view>
-        <view class='item_bottom'>
+        <view class='item_bottom' wx:if="{{item.status==1}}">
           <text>待支付</text>
-          <view catchtap='gopay'>
-            <text>立即支付</text>
+          <view>
+            <view catchtap='canceOrder' data-id="{{item.id}}">
+              <text>取消订单</text>
+            </view>
+            <view catchtap='gopay' data-id="{{item.id}}">
+              <text>立即支付</text>
+            </view>
+          </view>
+        </view>
+        <view class='item_bottom' wx:elif="{{item.status==2}}">
+          <text>已支付</text>
+          <view>
+            <view catchtap='refund' data-id="{{item.id}}">
+              <text>申请退款</text>
+            </view>
+            <view catchtap='goComment' wx:if="{{item.isComment}}" data-id="{{item.isComment}}">
+              <text>查看评论</text>
+            </view>
+            <view catchtap='comment' wx:else data-id="{{item.id}}" data-shopid="{{item.shopList[0].id}}">
+              <text>立即评论</text>
+            </view>
           </view>
         </view>
       </view>
     </block>
+    <view class='isButtom' wx:if="{{isBottom}}">
+      <text>别拉了~到底了</text>
+    </view>
   </view>
   <view class='isnull' wx:else>
     <view>

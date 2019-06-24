@@ -133,14 +133,17 @@
 .details_content{
   width: 100%;
 }
-.details_content>view:first-of-type{
-  width: 96%;
-  padding: 0 2%;
+.detailsCC{
+  width: 100%;
+  /* padding: 0 2%; */
 }
-.details_content>view:first-of-type>image{
+.details_content>view:first-of-type image{
+  vertical-align: top;
+}
+/* .details_content>view:first-of-type>image{
   display: block;
   width: 100%;
-}
+} */
 .details_content>view:nth-of-type(2){
   width: 92%;
   padding: 0 4%;
@@ -490,4 +493,90 @@ button::after{
 .goPurchase{
   width: 100% !important;
   background-color: #FB4E48 !important;
+}
+.isButtom{
+  margin: 20rpx 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.isButtom>text{
+  font-size: 10pt;
+  color: #888888;
+}
+/* 暂无数据 */
+.isNull{
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 50rpx;
+  margin-bottom: 150rpx;
+}
+.isNull>text:first-of-type{
+  font-size: 26pt;
+  color: #999999;
+}
+.isNull>text:last-of-type{
+  font-size: 10pt;
+  color: #666666;
+  margin-top: 20rpx;
+}
+.rightMenu{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 80rpx;
+  height: 464rpx;
+  position: fixed;
+  top: 50%;
+  right: -80rpx;
+  transition: 0.5s right;
+  margin-top: -232rpx;
+  background-color: rgba(0, 0, 0, 0.7);
+  border-top-left-radius: 10rpx;
+  border-bottom-left-radius: 10rpx;
+}
+.rightMenu>view,.rightMenu>button{
+  width: 100%;
+  height: 80rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.rightMenu>view>image,.rightMenu>button>image{
+  width: 50%;
+}
+.rightMenu>view:last-of-type>image{
+  width: 25%;
+}
+.showRightMenuBtn{
+  width: 80rpx;
+  height: 80rpx;
+  background-color: rgba(0, 0, 0, 0.7);
+  border-top-left-radius: 10rpx;
+  border-bottom-left-radius: 10rpx;
+  position: fixed;
+  right: 0;
+  transition: 0.5s right;
+  top: 50%;
+  margin-top: 152rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.showRightMenuBtn>image{
+  width: 25%;
+}
+button{
+  margin: 0;
+  padding: 0;
+  background-color: transparent;
+}
+.line{
+  width: 50rpx !important;
+  height: 2rpx !important;
+  background-color: #848484;
 }

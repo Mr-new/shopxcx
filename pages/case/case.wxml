@@ -4,7 +4,7 @@
     <view class='search'>
       <view>
         <text class='iconfont icon-weizhi'></text>
-        <text>西安</text>
+        <text>{{HospitalMsg.city}}</text>
       </view>
       <view>
         <text class='iconfont icon-sousuo'></text>
@@ -24,24 +24,24 @@
       </scroll-view>
     </view>
   </view>
-  <scroll-view class='caseList' scroll-y="true">
+  <scroll-view class='caseList' wx:if="{{caseList.length!=0}}" scroll-y="true" bindscrolltolower="getMoreData">
     <block wx:for="{{caseList}}" wx:key="index">
-      <view class='listItem'>
+      <view class='listItem' data-caseid="{{item.id}}" bindtap='goCaseDetails'>
         <view class='top'>
-          <image src='{{item.pic}}'></image>
+          <image src='{{item.headerimg}}'></image>
           <view>
+            <text>{{item.name}}</text>
             <text>{{item.title}}</text>
-            <text>{{item.className}}</text>
           </view>
         </view>
         <view class='center'>
           <view>
-            <block wx:for="{{item.imgList}}" wx:key="index">
-              <image src='{{item.imgUrl}}' mode='widthFix'></image>
+            <block wx:for="{{item.imglist}}" wx:key="index">
+              <image src='{{item}}' mode='widthFix'></image>
             </block>
           </view>
           <view>
-            <text>{{item.dateTime}}发布</text>
+            <text>{{item.datetime}}发布</text>
             <view>
               <text class='iconfont icon-weizhi'></text>
               <text>{{item.address}}</text>
@@ -52,11 +52,15 @@
         <view class='bottom'>
           <view>
             <text class='iconfont icon-chakan'></text>
-            <text><text style='color:#E45452'>{{item.lookNumber}}</text>人浏览</text>
+            <text><text style='color:#E45452'>{{item.looknumber}}</text>人浏览</text>
           </view>
-          <view>
+          <view catchtap='delfabulous' data-id='{{item.id}}' data-index="{{index}}" wx:if="{{item.isFabulous}}">
+            <text class='iconfont icon-dianzan' style='font-size:11pt; color:#E45452'></text>
+            <text><text style='color:#E45452'>{{item.fabulousnumber}}</text>人点赞</text>
+          </view>
+          <view catchtap='addfabulous' data-id='{{item.id}}' data-index="{{index}}" wx:else>
             <text class='iconfont icon-dianzan1'></text>
-            <text><text style='color:#E45452'>{{item.fabulousNumber}}</text>人点赞</text>
+            <text><text style='color:#E45452'>{{item.fabulousnumber}}</text>人点赞</text>
           </view>
           <view>
             <text class='iconfont icon-xiangqing'></text>
@@ -65,6 +69,13 @@
         </view>
       </view>
     </block>
-    
+    <view class='isButtom' wx:if="{{isBottom}}">
+      <text>别拉了~到底了</text>
+    </view>
   </scroll-view>
+  <!-- 暂无数据 -->
+  <view class='isNull' wx:else>
+    <text class='iconfont icon-zanwushuju'></text>
+    <text>暂无数据</text>
+  </view>
 </view>

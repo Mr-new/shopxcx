@@ -1,12 +1,10 @@
 {
   "pages": [
-    
-    "pages/step/step",
     "pages/index/index",
     "pages/smashAge/smashAge",
     "pages/step/lottery",
     "pages/confirmOrder/confirmOrder",
-    
+    "pages/step/step",
     "pages/smashAge/prizeRecord",
     "pages/smashAge/receive",
     "pages/smashAge/agexm",
@@ -19,7 +17,13 @@
     "pages/shopCart/shopCart",
     "pages/myCollection/myCollection",
     "pages/paySuccess/paySuccess",
-    "pages/orderDetails/orderDetails"
+    "pages/orderDetails/orderDetails",
+    "pages/caseDetails/caseDetails",
+    "pages/author/author",
+    "pages/pay/pay",
+    "pages/commentOrder/commentOrder",
+    "pages/lookComment/lookComment",
+    "pages/bannerDetails/bannerDetails"
     
   ],
   "window": {
@@ -29,8 +33,8 @@
     "navigationBarTextStyle": "black"
   },
   "tabBar": {
-    "color": "#7D2CDC",
-    "selectedColor": "#7D2CDC",
+    "color": "#B2000B",
+    "selectedColor": "#B2000B",
     "list": [
       {
         "pagePath": "pages/index/index",
@@ -45,14 +49,8 @@
         "selectedIconPath": "/images/cart_selected.png"
       },
       {
-        "pagePath": "pages/activity/activity",
-        "text": "星粉节",
-        "iconPath": "/images/activity.png",
-        "selectedIconPath": "/images/activity_selected.png"
-      },
-      {
         "pagePath": "pages/case/case",
-        "text": "案例",
+        "text": "日记",
         "iconPath": "/images/case.png",
         "selectedIconPath": "/images/case_selected.png"
       },

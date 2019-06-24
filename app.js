@@ -1,6 +1,15 @@
 //app.js
 App({
   onLaunch: function () {
+    let _this=this;
+    //获取医院配置信息
+    this.getHospitalMsg();  
+    //检测用户是否授权
+    this.authorUserInfo();
+    
+
+
+
     // 展示本地存储能力
     var logs = wx.getStorageSync('logs') || []
     logs.unshift(Date.now())
@@ -36,8 +45,6 @@ App({
         }
       })
     }
-    // 登录
-    // this.goLogin();
     // 获取用户信息
     wx.getSetting({
       success: res => {
@@ -59,51 +66,68 @@ App({
       }
     })
   },
-  //执行登陆操作
-  goLogin:function(topId,callback){
+  //获取医院配置信息
+  getHospitalMsg: function () {
     let _this = this;
-    wx.login({
-      success: res => {
-        // 发送 res.code 到后台换取 openId, sessionKey, unionId
-        console.log(res);
-        wx.request({
-          url: this.globalData.testRequestUrl + "Login/login",
-          data: {
-            "code": res.code,
-            "topId": topId
-          },
-          header: {
-            "Content-Type": "application/x-www-form-urlencoded"
-          },
-          method: 'POST',
-          success: function (result) {
-            if (result.data.success) {
-              let third_Session = result.data.data.session3rd;
-              let userId = result.data.data.userId;
-              let frequency = result.data.data.frequency;
-              console.log(result.data);
-              _this.globalData.frequency = frequency;  //记录用户可用砸蛋次数
-              callback();
-              //记录session3rd
-              wx.setStorage({
-                key: "third_Session",
-                data: third_Session
-              })
-              //记录用户id
-              wx.setStorage({
-                key: 'userId',
-                data: userId,
-              })
-            } else {
-              console.log(result);
-            }
+    return new Promise(function (resolve, reject) {
+      wx.request({
+        url: _this.globalData.shopRequestUrl + "Hospital/getHospitalMsg",
+        data: {
+
+        },
+        header: {
+          "Content-Type": "application/x-www-form-urlencoded"
+        },
+        method: 'POST',
+        success: function (result) {
+          let results = result.data;
+          // console.log(results);
+          if (results.success == true) {
+            _this.globalData.HospitalMsg = results.data;
+            resolve(results);
+          } else {
+            wx.showToast({
+              icon: 'none',
+              title: results.msg,
+            })
+            reject('error');
           }
+        },
+        fail: function (err) {
+          wx.showToast({
+            icon: 'none',
+            title: '网络似乎走丢了哟',
+          })
+        },
+        complete: function () {
+
+        }
+      })
+    });
+  },
+  //判断用户是否授权用户信息：如果为授权则跳转到授权页面，已授权则执行接下来操作
+  authorUserInfo:function(){
+    wx.getSetting({
+      success: function (res) {
+        if (!res.authSetting['scope.userInfo']) {
+          console.log("未授权，跳转到授权页面")
+          wx.reLaunch({
+            url: '/pages/author/author',
+          })
+        }
+      },
+      fail:function(){
+        wx.reLaunch({
+          url: '/pages/author/author',
         })
       }
     })
   },
+
+  //全局变量
   globalData: {
-    userInfo: null,
+    userInfo: null,  //用户信息
+    caseMenuIdx:0,  //日记选中菜单
     frequency:0, //砸蛋次数
     // 砸金蛋接口地址
     // testRequestUrl:"http://shopxcx.com/index.php/Api/",  //测试地址
@@ -111,6 +135,10 @@ App({
     //健步挑战赛接口地址
     // stepRequestUrl: "http://shopxcx.com/index.php/Step/",  //测试地址
     stepRequestUrl: "https://xaxcx.17mall.cc/index.php/Step/",  //线上地址
-    publicImgUrl: "http://shopxcx.com/Public/uploadImages/default/"
+    publicImgUrl: "http://shopxcx.com/Public/uploadImages/default/",
+    //商城接口地址
+    // shopRequestUrl: "http://shopxcx.com/index.php/Shop/",  //测试地址
+    shopRequestUrl: "https://xaxcx.17mall.cc/index.php/Shop/",  //线上地址
+    HospitalMsg:null, //医院基本信息配置
   }
 })

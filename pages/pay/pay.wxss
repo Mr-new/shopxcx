@@ -1,0 +1,12 @@
+/**index.wxss**/
+.swiper_container {
+background-color: #e7e6e6;
+height: 150rpx;
+width: 100%;
+}
+.swiper_item {
+font-size: 30rpx;
+overflow: hidden;
+text-overflow: ellipsis;
+white-space: nowrap;
+}

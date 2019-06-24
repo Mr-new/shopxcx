@@ -1,0 +1,82 @@
+<!--index.wxml-->
+<view class="container">
+  <view class='longtxt'>
+    <import src="../../wxParse/wxParse.wxml"/>
+    <template is="wxParse" wx:if="{{caseDetails.details}}" data="{{wxParseData:article.nodes}}"/>
+    <!-- 暂无数据 -->
+    <view class='isNull' wx:else>
+      <text class='iconfont icon-zanwushuju'></text>
+      <text>暂无数据</text>
+    </view>
+  </view>
+  <view class='longtxtFooter'>
+    <view>
+      <text class='iconfont icon-chakan'></text>
+      <text><text style="color:#E45452">{{caseDetails.looknumber}}</text>人浏览</text>
+    </view>
+    <view>
+      <text class='iconfont icon-dianzan'></text>
+      <text><text style="color:#E45452">{{caseDetails.fabulousnumber}}</text>人点赞</text>
+    </view>
+    <view>
+      <image src='{{caseDetails.headerimg}}'></image>
+      <text style='width:200rpx;'>{{caseDetails.name}}</text>
+    </view>
+  </view>
+  <view class='footer'>
+    <view>
+      <text>联系电话：{{HospitalMsg.tel}}</text>
+      <view bindtap='goTel'>
+        <text class='iconfont icon-phone-channel'></text>
+        <text>拨打电话</text>
+      </view>
+    </view>
+    <view>
+      <text>发布时间：{{caseDetails.datetime}}</text>
+    </view>
+  </view>
+  <view class='fixed_bottom'>
+    <view bindtap='goHome'>
+      <text class='iconfont icon-shouye'></text>
+      <text>首页</text>
+    </view>
+    <button open-type='share'>
+      <text class='iconfont icon-share-s'></text>
+      <text>转发</text>
+    </button>
+    <view wx:if="{{caseDetails.isCollection}}" bindtap='deleteCaseCollection'>
+      <text class='iconfont icon-shoucang' style='color:#EC7E3B'></text>
+      <text style='color:#EC7E3B'>已收藏</text>
+    </view>
+    <view wx:else bindtap='addCaseCollection'>
+      <text class='iconfont icon-shoucang1'></text>
+      <text>收藏</text>
+    </view>
+  </view>
+  <!-- 右侧按钮 -->
+  <view class="rightMenu" style="right:{{rightMenuShow ? '0' : '-80rpx'}}">
+    <view bindtap='goHome'>
+      <image src='http://xaxcx.17mall.cc/Public/uploadImages/default/icon_03.png' mode='widthFix'></image>
+    </view>
+    <view bindtap='goMy'>
+      <image src='http://xaxcx.17mall.cc/Public/uploadImages/default/icon_06.png' mode='widthFix'></image>
+    </view>
+    <view bindtap='goTel' data-tel="{{HospitalMsg.tel}}">
+      <image src='http://xaxcx.17mall.cc/Public/uploadImages/default/icon_08.png' mode='widthFix'></image>
+    </view>
+    <view class='line'></view>
+    <button open-type="contact">
+       <image src='http://xaxcx.17mall.cc/Public/uploadImages/default/icon_10.png' mode='widthFix'></image>
+    </button>
+    <view bindtap='goTop'>
+      <image src='http://xaxcx.17mall.cc/Public/uploadImages/default/icon_top.png' mode='widthFix'></image>
+    </view>
+    <view class='line'></view>
+    <view bindtap='hideRightMenu'>
+      <image src='http://xaxcx.17mall.cc/Public/uploadImages/default/icon_hide.png' mode='widthFix'></image>
+    </view>  
+  </view>
+  <view class='showRightMenuBtn' style="right:{{rightMenuShow ? '-80rpx' : '0'}}" bindtap='showRightMenu'>
+    <image src='http://xaxcx.17mall.cc/Public/uploadImages/default/icon_show_03.png' mode='widthFix'></image>
+  </view>
+</view>

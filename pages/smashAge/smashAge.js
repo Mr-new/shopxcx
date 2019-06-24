@@ -59,7 +59,49 @@ Page({
     PrizeImgUrl:"", //领奖弹框图片地址
    
   },
- 
+  //执行登陆操作
+  goLogin: function (topId, callback) {
+    let _this = this;
+    wx.login({
+      success: res => {
+        // 发送 res.code 到后台换取 openId, sessionKey, unionId
+        console.log(res);
+        wx.request({
+          url: app.globalData.testRequestUrl + "Login/login",
+          data: {
+            "code": res.code,
+            "topId": topId
+          },
+          header: {
+            "Content-Type": "application/x-www-form-urlencoded"
+          },
+          method: 'POST',
+          success: function (result) {
+            if (result.data.success) {
+              let third_Session = result.data.data.session3rd;
+              let userId = result.data.data.userId;
+              let frequency = result.data.data.frequency;
+              console.log(result.data);
+              app.globalData.frequency = frequency;  //记录用户可用砸蛋次数
+              callback();
+              //记录session3rd
+              wx.setStorage({
+                key: "third_Session",
+                data: third_Session
+              })
+              //记录用户id
+              wx.setStorage({
+                key: 'userId',
+                data: userId,
+              })
+            } else {
+              console.log(result);
+            }
+          }
+        })
+      }
+    })
+  },
   onLoad: function (options) {
     let _this = this;
     let topId=0;  //上级id
@@ -69,7 +111,7 @@ Page({
       topId = decodeURIComponent(options.scene);
     }
     console.log(topId);
-    app.goLogin(topId, function () {
+    this.goLogin(topId, function () {
       _this.setData({
         frequency: app.globalData.frequency
       })

@@ -104,7 +104,10 @@ page{
   display: flex;
   width: 100%;
   flex-direction: column;
-  border-bottom: 15rpx solid #F5F5F5;
+  border-top: 15rpx solid #F5F5F5;
+}
+.listItem:first-of-type{
+  border-top: none !important;
 }
 .top{
   width: 92%;
@@ -154,11 +157,13 @@ page{
   width: 100%;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: center;
+  flex-wrap: wrap;
 }
 .center>view:first-of-type>image{
-  width: 32%;
+  width: 32.3%;
+  margin: 0 0.5%;
 }
 .center>view:nth-of-type(2){
   display: flex;
@@ -217,4 +222,33 @@ page{
   width: 100%;
   height: 2rpx;
   background-color: #EAEAEA;
+}
+/* 暂无数据 */
+.isNull{
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 100rpx;
+}
+.isNull>text:first-of-type{
+  font-size: 26pt;
+  color: #999999;
+}
+.isNull>text:last-of-type{
+  font-size: 10pt;
+  color: #666666;
+  margin-top: 20rpx;
+}
+/* 到底提示 */
+.isButtom{
+  margin: 20rpx 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.isButtom>text{
+  font-size: 10pt;
+  color: #888888;
 }

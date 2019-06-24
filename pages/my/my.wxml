@@ -3,23 +3,26 @@
   <view class='header'>
     <view class='header_content'>
       <view>
-        <image src='http://xaxcx.17mall.cc/Public/uploadImages/default/logo.jpg'></image>
-        <text>西安艺星整形医院</text>
+        <image src='{{HospitalMsg.logo}}'></image>
+        <text>{{HospitalMsg.hospitalname}}</text>
       </view>
       <view class="userinfo">
         <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
         <block wx:else>
           <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
           <text class="userinfo-nickname">{{userInfo.nickName}}</text>
-          <text>电话：16621299974</text>
+          <!-- <text>电话：16621299974</text> -->
         </block>
       </view>
     </view>
   </view>
   <view class='content'>
     <view class='item1'>
-      <text>余额：<text style='color:#E9783D'>0</text></text>
       <view>
+        <!-- <text>余额：<text style='color:#E9783D'>0</text></text> -->
+        <text>积分：<text style='color:#E9783D'>{{integral}}</text></text>
+      </view>
+      <view bindtap='addUserIntegral'>
         <text>签到</text>
       </view>
     </view>
@@ -39,7 +42,7 @@
         </navigator>
         <navigator url='/pages/order/order?idx=3'>
           <image src='http://xaxcx.17mall.cc/Public/uploadImages/default/my_icon_07.png' mode='widthFix'></image>
-          <text>待接单</text>
+          <text>已取消</text>
         </navigator>
         <navigator url='/pages/order/order?idx=4'>
           <image src='http://xaxcx.17mall.cc/Public/uploadImages/default/my_icon_09.png' mode='widthFix'></image>
@@ -56,22 +59,22 @@
           <image src='http://xaxcx.17mall.cc/Public/uploadImages/default/my_icon_15.png' mode='widthFix'></image>
           <text>购物车</text>
         </navigator>
-        <navigator>
+        <!-- <navigator>
           <image src='http://xaxcx.17mall.cc/Public/uploadImages/default/my_icon_16.png' mode='widthFix'></image>
           <text>站内信</text>
-        </navigator>
+        </navigator> -->
         <navigator url="/pages/myCollection/myCollection?idx=1">
           <image src='http://xaxcx.17mall.cc/Public/uploadImages/default/my_icon_19.png' mode='widthFix'></image>
           <text>商品收藏</text>
         </navigator>
         <navigator url="/pages/myCollection/myCollection?idx=2">
           <image src='http://xaxcx.17mall.cc/Public/uploadImages/default/my_icon_20.png' mode='widthFix'></image>
-          <text>专题收藏</text>
+          <text>日记收藏</text>
         </navigator>
-        <navigator>
+        <!-- <navigator>
           <image src='http://xaxcx.17mall.cc/Public/uploadImages/default/my_icon1_03.png' mode='widthFix'></image>
           <text>我的优惠券</text>
-        </navigator>
+        </navigator> -->
       </view>
     </view>
   </view>

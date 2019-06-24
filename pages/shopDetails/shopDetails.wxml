@@ -2,27 +2,35 @@
 <view class="container">
   <swiper class='swiper' indicator-dots="{{indicatorDots}}" 
         autoplay="{{autoplay}}" indicator-active-color='#ffffff' indicator-color='rgba(255,255,255,0.5)' interval="{{interval}}" duration="{{duration}}" circular="true"> 
-      <block wx:for="{{arr}}" wx:key="index"> 
+      <block wx:for="{{shopDetails.swiperimg}}" wx:key="index"> 
         <swiper-item> 
-            <image src="{{item.src}}" class="slide-image" mode='widthFix' /> 
+            <image src="{{item}}" mode='widthFix' class="slide-image" /> 
         </swiper-item> 
       </block>
   </swiper>
   <view class='title'>
     <view>
       <view>
-        <text>祛痘月卡111111111111111111111111111111111111111111111111111111111111111111111</text>
-        <text>同科室不同产品限购一次11111111111111111111111111111111111111111111111111111111111111</text>
-        <text>￥58.00-588.00</text>
+        <text>{{shopDetails.name}}</text>
+        <text>{{shopDetails.title}}</text>
+        <text>
+          <text wx:if="{{shopDetails.specslist.length==1}}">￥{{shopDetails.specslist[0].price}}</text>
+          <text wx:else>￥{{shopDetails.specslist[shopDetails.specslist.length-1].price}}-{{shopDetails.specslist[0].price}}</text>
+        </text>
       </view>
-      <view>
+      <view bindtap='deleteShopCollection' wx:if="{{shopDetails.isCollection}}">
+        <text class='iconfont icon-shoucang' style='color:#EC7E3B'></text>
+        <text style='color:#EC7E3B'>已收藏</text>
+      </view>
+      <view bindtap='addShopCollection' wx:else>
         <text class='iconfont icon-shoucang1'></text>
         <text>收藏商品</text>
       </view>
+      
     </view>
     <view>
-      <text>原价： ￥2500.00</text>
-      <text>销量： 5499笔</text>
+      <text>原价： ￥{{shopDetails.beforeprice}}</text>
+      <text>销量： {{shopDetails.salenumber}}笔</text>
     </view>
   </view>
   <view class='spec' data-selected="3" bindtap='selectSpec'>
@@ -40,38 +48,53 @@
         <text bindtap='switchTab' data-id="1" class="{{idx==1 ? 'selected' : ''}}">商品详情</text>
       </view>
       <view>
-        <text bindtap='switchTab' data-id="2" class="{{idx==2 ? 'selected' : ''}}">用户评价(26)</text>
+        <text bindtap='switchTab' data-id="2" class="{{idx==2 ? 'selected' : ''}}">用户评价({{shopDetails.comment}})</text>
       </view>
     </view>
     <view class='details_content'>
-      <view wx:if="{{idx==1}}">
-        <block wx:for="{{detailsImgList}}" wx:key="index">
-          <image src='{{item.imgUrl}}' mode='widthFix'></image>
-        </block>
+      <view wx:if="{{idx==1}}" class='detailsCC'>
+        <!-- <rich-text wx:if="{{shopDetails.details}}" nodes="{{shopDetails.details}}"></rich-text> -->
+        <import src="../../wxParse/wxParse.wxml"/>
+        <template is="wxParse" wx:if="{{shopDetails.details}}" data="{{wxParseData:article.nodes}}"/>
+        <!-- 暂无数据 -->
+        <view class='isNull' wx:else>
+          <text class='iconfont icon-zanwushuju'></text>
+          <text>暂无数据</text>
+        </view>
       </view>
-      <view wx:else>
-        <block wx:for="{{commentList}}" wx:key="index">
-          <view class='comment'>
-            <view>
-              <image src='{{item.pic}}'></image>
-              <text>{{item.name}}</text>
+      <view wx:else style='padding: 0 2%;'>
+        <view wx:if="{{commentList.length>0}}">
+          <block wx:for="{{commentList}}" wx:key="index">
+            <view class='comment'>
               <view>
-                <block wx:for="{{item.xing}}" wx:key="index">
-                  <text class='iconfont icon-pingjia'></text>
+                <image src='{{item.userinfo.avatarurl}}'></image>
+                <text>{{item.userinfo.nickname}}</text>
+                <view>
+                  <block wx:for="{{item.xing}}" wx:key="index">
+                    <text class='iconfont icon-pingjia'></text>
+                  </block>
+                </view>
+              </view>
+              <view>
+                <text>{{item.datetime}}</text>
+                <text>{{item.content}}</text>
+              </view>
+              <view>
+                <block wx:for="{{item.imglist}}" wx:for-item="cell" wx:key="index">
+                  <image data-imglist="{{item.imglist}}" data-currentImg="{{cell}}" bindtap='showBigImg' src='{{cell}}'></image>
                 </block>
               </view>
             </view>
-            <view>
-              <text>{{item.dateTime}}</text>
-              <text>{{item.commentContent}}</text>
-            </view>
-            <view>
-              <block wx:for="{{item.imgList}}" wx:for-item="cell" wx:key="index">
-                <image data-imglist="{{item.imgList}}" data-currentImg="{{cell}}" bindtap='showBigImg' src='{{cell}}'></image>
-              </block>
-            </view>
+          </block>
+          <view class='isButtom' wx:if="{{isBottom}}">
+            <text>别拉了~到底了</text>
           </view>
-        </block>
+        </view>
+        <!-- 暂无数据 -->
+        <view class='isNull' wx:else>
+          <text class='iconfont icon-zanwushuju'></text>
+          <text>暂无数据</text>
+        </view>
       </view>
     </view>
   </view>
@@ -86,7 +109,7 @@
         <text class='iconfont icon-xiaoxi'></text>
         <text>客服</text>
       </button>
-      <button>
+      <button bindtap='goShopCart'>
         <text class='iconfont icon-gouwuche'></text>
         <text>购物车</text>
       </button>
@@ -106,12 +129,16 @@
       <view class='top'>
         <view>
           <view>
-            <image src='{{PurchaseMsg.imgUrl}}' mode='widthFix'></image>
+            <image src='{{shopDetails.thumbnailUrl}}' mode='widthFix'></image>
           </view>
           <view>
-            <text>{{PurchaseMsg.title}}</text>
-            <text>￥{{PurchaseMsg.startPrice}}-{{PurchaseMsg.endPrice}}</text>
-            <text wx:if="{{PurchaseMsgIdx}}">库存{{PurchaseMsgIdx.stock}}件</text>
+            <text>{{shopDetails.name}}</text>
+            <text wx:if="{{PurchaseMsgIdx!=null}}">￥{{PurchaseMsgIdx.price}}</text>
+            <text wx:else>
+              <text wx:if="{{shopDetails.specslist.length==1}}">￥{{shopDetails.specslist[0].price}}</text>
+              <text wx:else>￥{{shopDetails.specslist[shopDetails.specslist.length-1].price}}-{{shopDetails.specslist[0].price}}</text>
+            </text>
+            <!-- <text wx:if="{{PurchaseMsgIdx}}">库存{{PurchaseMsgIdx.stock}}件</text> -->
           </view>
         </view>
         <text bindtap='hidePurchasePage' class='iconfont icon-close_icon'></text>
@@ -119,7 +146,7 @@
       <view class='center'>
         <view>项目</view>
         <view>
-          <block wx:for="{{PurchaseMsg.classList}}" wx:key="index">
+          <block wx:for="{{shopDetails.specslist}}" wx:key="index">
             <text class="{{item.id==PurchaseMsgIdx.id ? 'selectedClass' : ''}}" bindtap='selectedClass' data-idx="{{item}}">{{item.title}}</text>
           </block>  
         </view>
@@ -134,7 +161,7 @@
           </view>
         </view>
         <view wx:if="{{btnStatus==1}}">
-          <view class='goCart'>
+          <view class='goCart' bindtap='addShopCart'>
             <text>加入购物车</text>
           </view>
         </view>
@@ -144,7 +171,7 @@
           </view>
         </view>
         <view wx:else>
-          <view>
+          <view bindtap='addShopCart'>
             <text>加入购物车</text>
           </view>
           <view bindtap='goConfirmOrder'>
@@ -153,5 +180,31 @@
         </view>
       </view>
     </view>
+  </view>
+  <!-- 右侧按钮 -->
+  <view class="rightMenu" style="right:{{rightMenuShow ? '0' : '-80rpx'}}">
+    <view bindtap='goHome'>
+      <image src='http://xaxcx.17mall.cc/Public/uploadImages/default/icon_03.png' mode='widthFix'></image>
+    </view>
+    <view bindtap='goMy'>
+      <image src='http://xaxcx.17mall.cc/Public/uploadImages/default/icon_06.png' mode='widthFix'></image>
+    </view>
+    <view bindtap='goTel' data-tel="{{HospitalMsg.tel}}">
+      <image src='http://xaxcx.17mall.cc/Public/uploadImages/default/icon_08.png' mode='widthFix'></image>
+    </view>
+    <view class='line'></view>
+    <button open-type="contact">
+       <image src='http://xaxcx.17mall.cc/Public/uploadImages/default/icon_10.png' mode='widthFix'></image>
+    </button>
+    <view bindtap='goTop'>
+      <image src='http://xaxcx.17mall.cc/Public/uploadImages/default/icon_top.png' mode='widthFix'></image>
+    </view>
+    <view class='line'></view>
+    <view bindtap='hideRightMenu'>
+      <image src='http://xaxcx.17mall.cc/Public/uploadImages/default/icon_hide.png' mode='widthFix'></image>
+    </view>  
+  </view>
+  <view class='showRightMenuBtn' style="right:{{rightMenuShow ? '-80rpx' : '0'}}" bindtap='showRightMenu'>
+    <image src='http://xaxcx.17mall.cc/Public/uploadImages/default/icon_show_03.png' mode='widthFix'></image>
   </view>
 </view>

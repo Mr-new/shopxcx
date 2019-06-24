@@ -11,16 +11,16 @@
       <scroll-view class='shoptlistitem' scroll-y="true">
       <block wx:for="{{shoplist}}" wx:key="index">
         <view class='item'>
-          <image class='selecticon' id='{{index}}' data-id="{{index}}" data-index="{{index}}" src="{{item.ischecked?'/images/yes-select.png':'/images/no-select.png'}}" bindtap='select' mode='widthFix' />
+          <image class='selecticon' id='{{index}}' data-id="{{index}}" data-index="{{index}}" src="{{item.checked?'/images/yes-select.png':'/images/no-select.png'}}" bindtap='select' mode='widthFix' />
           <view class='itemright'>
-            <navigator url='/pages/shopDetails/shopDetails'>
-              <image src='{{item.imgurl}}' mode='widthFix' />
+            <navigator url='/pages/shopDetails/shopDetails?shopId={{item.id}}'>
+              <image src='{{item.thumbnail}}' mode='widthFix' />
             </navigator>
             
             <view>
-              <navigator url='/pages/shopDetails/shopDetails'>
+              <navigator url='/pages/shopDetails/shopDetails?shopId={{item.id}}'>
+                <text>{{item.name}}</text>
                 <text>{{item.title}}</text>
-                <text>{{item.type}}</text>
               </navigator>  
               <view>
                 <text>￥{{item.price}}</text>
@@ -63,7 +63,7 @@
       </view>
       <text>购物车是空的 ^_^</text>
       <text>快去选点什么吧</text>
-      <navigator>
+      <navigator bindtap='goShop'>
         <text>去逛逛</text>
       </navigator>
     </view>

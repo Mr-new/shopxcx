@@ -98,13 +98,13 @@
   justify-content: center;
   align-items: center;
   padding: 20rpx 0;
-  box-shadow: -4rpx 2rpx 20rpx #D9BEEC;
+  box-shadow: -4rpx 2rpx 20rpx #ffd8da;
   border-radius: 10rpx;
   margin: 10rpx 0;
 }
 .list>navigator>image{
   width: 80%;
-  border-radius: 40rpx;
+  /* border-radius: 40rpx; */
 }
 .list>navigator>view:first-of-type{
   width: 80%;
@@ -114,12 +114,22 @@
   align-items: center;
 }
 .list>navigator>view:first-of-type>text:first-of-type{
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
   color: #333333;
   font-size: 13pt;
+  width: 100%;
+  text-align: center;
 }
 .list>navigator>view:first-of-type>text:last-of-type{
   font-size: 8pt;
   color: #A0A0A0;
+  width: 100%;
+  text-align: center;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 .list>navigator>view:nth-of-type(2){
   width: 90%;
@@ -131,18 +141,18 @@
 }
 .list>navigator>view:nth-of-type(2)>view{
   font-size: 8pt;
-  color: #7750BE;
+  color: #AD000A;
 }
 .list>navigator>view:nth-of-type(2)>view>text{
   font-size: 16pt;
 }
 .list>navigator>view:nth-of-type(2)>text{
   color: #ffffff;
-  font-size: 24rpx;
+  font-size: 25rpx;
   width: 70rpx;
   height: 70rpx;
   border-radius: 10rpx;
-  background-color: #7750BF;
+  background-color: #AD000A;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -173,7 +183,7 @@
 .title>view{
   width: 20%;
   height: 55rpx;
-  background: linear-gradient(to right,#5424CF,#A934EA);
+  background: linear-gradient(to right,#B2000B,#FF666D);
   display: flex;
   justify-content: flex-end;
   align-items: center;
@@ -269,12 +279,14 @@
 .imgList{
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: center;
+  flex-wrap: wrap;
   margin: 15rpx 0;
 }
 .imgList>image{
-  width: 32%;
+  width: 32.3%;
+  margin: 0 0.5%;
 }
 .details{
   display: flex;
@@ -297,7 +309,7 @@
   font-size: 10pt;
   color: #808080;
 }
-.details>view:last-of-type{
+/* .details>view:last-of-type{
   justify-content: space-between;
 }
 .details>view:last-of-type>text{
@@ -315,7 +327,7 @@
 .details>view:last-of-type>view>image{
   width: 45rpx;
   margin-left: 10rpx;
-}
+} */
 .showMore{
   width: 96%;
   margin: 0 auto;
@@ -341,7 +353,7 @@
 .topTitle>view{
   width: 23%;
   height: 55rpx;
-  background: linear-gradient(to right,#5424CF,#A934EA);
+  background: linear-gradient(to right,#B2000B,#FF666D);
   display: flex;
   flex-direction: row;
   justify-content: flex-end;

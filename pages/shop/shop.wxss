@@ -92,6 +92,16 @@ page{
   align-items: flex-start;
   margin-bottom: 40rpx;
 }
+.isButtom{
+  margin-bottom: 20rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.isButtom>text{
+  font-size: 10pt;
+  color: #888888;
+}
 .shopItem>image{
   width: 33%;
 }
@@ -145,6 +155,7 @@ page{
 .shopItem>view>view:nth-of-type(2)>view:first-of-type>text:nth-of-type(2){
   font-size: 9pt;
   color: #999999;
+  text-decoration: line-through;
 }
 .shopItem>view>view:nth-of-type(2)>view:nth-of-type(2){
   width: 30%;
@@ -348,4 +359,22 @@ page{
   border-color: #EC7E3B !important;
   background-color: #FDF5EF !important;
   color: #EC7E3B !important;
+}
+/* 暂无数据 */
+.isNull{
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 100rpx;
+}
+.isNull>text:first-of-type{
+  font-size: 26pt;
+  color: #999999;
+}
+.isNull>text:last-of-type{
+  font-size: 10pt;
+  color: #666666;
+  margin-top: 20rpx;
 }

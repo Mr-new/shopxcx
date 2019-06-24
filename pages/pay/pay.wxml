@@ -1,0 +1,4 @@
+<!--index.wxml-->
+<view class="container">
+  <button bindtap='goPay'>点我支付1分钱</button>
+</view>

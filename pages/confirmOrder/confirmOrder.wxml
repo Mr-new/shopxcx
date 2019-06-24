@@ -4,9 +4,9 @@
   <view class='address'>
     <text class='iconfont icon-dizhi'></text>
     <view bindtap='goMap'>
-      <text>商家电话：15381133106</text>
+      <text>商家电话：{{HospitalMsg.tel}}</text>
       <view>
-        <text>提货地址：浙江省杭州市西湖区莫干山路333（地铁2号线沈塘桥站B出口）</text>
+        <text>提货地址：{{HospitalMsg.address}}</text>
         <text class='iconfont icon-iconfontjiantou4'></text>
       </view>
     </view>
@@ -15,50 +15,52 @@
   <view class='content'>
     <view class='shop'>
       <view>
-        <image src='http://shopxcx.com/Public/uploadImages/default/logo.jpg'></image>
-        <text>西安艺星医疗美容医院</text>
+        <image src='{{HospitalMsg.logo}}'></image>
+        <text>{{HospitalMsg.hospitalname}}</text>
       </view>
-      <view>
-        <image src='http://shopxcx.com/Public/uploadImages/default/shop_item_03.png' mode='widthFix'></image>
-        <view>
+      <block wx:for="{{orderDetails.shopList}}" wx:key="{{index}}">
+        <view class='item'>
+          <image src='{{item.thumbnailimg}}' mode='widthFix'></image>
           <view>
-            <text>海薇玻尿酸【PLM多维立体定格术】【鼻子除外】</text>
-            <text>线上全款</text>
-          </view>
-          <view>
-            <text>￥199.00</text>
-            <text>x1</text>
+            <view>
+              <text>{{item.name}}</text>
+              <text>{{item.specs.title}}</text>
+            </view>
+            <view>
+              <text>￥{{item.specs.price}}</text>
+              <text>x{{item.number}}</text>
+            </view>
           </view>
         </view>
-      </view>
+      </block>
     </view>
     <view class='form'>
       <view>
         <text>商品总额</text>
-        <text>￥199.00</text>
+        <text>￥{{orderDetails.sumPrice}}</text>
       </view>
       <view>
         <text>配送方式</text>
         <text>自提</text>
       </view>
-      <view>
+      <!-- <view>
         <text>优惠券</text>
         <text class='iconfont icon-iconfontjiantou4'></text>
-      </view>
+      </view> -->
       <view>
         <text>手机号码</text>
-        <input placeholder='请输入提货人手机号' placeholder-style="color:#B2B2B2;"></input>
-        <button open-type='getPhoneNumber'>获取微信手机号</button>
+        <input placeholder='请输入提货人手机号' bindinput='getTelValue' value='{{tel}}' placeholder-style="color:#B2B2B2;"></input>
+        <button open-type='getPhoneNumber' bindgetphonenumber="getPhoneNumber">获取微信手机号</button>
       </view>
       <view>
         <text>订单备注</text>
-        <textarea placeholder='请输入备注内容' placeholder-style="color:#B2B2B2;"></textarea>
+        <textarea placeholder='请输入备注内容' bindinput='getRemarksValue' value='{{remarks}}' placeholder-style="color:#B2B2B2;"></textarea>
       </view>
     </view>
   </view>
   <!-- 总价格 -->
   <view class='sumPrice'>
-    <text>总计：<text class='price'>￥194.00</text></text>
+    <text>总计：<text class='price'>￥{{orderDetails.sumPrice}}</text></text>
     <view bindtap='goPay'>
       <text>立即支付</text>
     </view>

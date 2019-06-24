@@ -1,0 +1,10 @@
+<!--index.wxml-->
+<view class="container">
+  <import src="../../wxParse/wxParse.wxml"/>
+  <template is="wxParse" wx:if="{{details}}" data="{{wxParseData:article.nodes}}"/>
+  <!-- 暂无数据 -->
+  <view class='isNull' wx:else>
+    <text class='iconfont icon-zanwushuju'></text>
+    <text>暂无数据</text>
+  </view>
+</view>

@@ -6,9 +6,19 @@ Page({
   data: {
     userInfo: {},
     hasUserInfo: false,
-    canIUse: wx.canIUse('button.open-type.getUserInfo')
+    canIUse: wx.canIUse('button.open-type.getUserInfo'),
+    HospitalMsg:null,  //医院基本配置信息
+    integral: 0,  //积分
+  },
+  onShow: function(){
+    //获取用户积分
+    this.getUserIntegral();
   },
   onLoad: function () {
+    //获取医院基本配置信息
+    this.setData({
+      HospitalMsg: app.globalData.HospitalMsg
+    })
     if (app.globalData.userInfo) {
       this.setData({
         userInfo: app.globalData.userInfo,
@@ -49,5 +59,85 @@ Page({
     wx.navigateTo({
       url: '/pages/order/order?idx=0',
     })
-  }
+  },
+  //获取用户积分
+  getUserIntegral: function () {
+    let _this = this;
+    wx.showLoading({
+      title: '加载中',
+    })
+    wx.request({
+      url: app.globalData.shopRequestUrl + "Integral/getUserIntegral",
+      data: {
+        userid: wx.getStorageSync('userid')
+      },
+      header: {
+        "Content-Type": "application/x-www-form-urlencoded"
+      },
+      method: 'POST',
+      success: function (result) {
+        let results = result.data;
+        // console.log(results);
+        _this.setData({
+          integral: results.data
+        })
+        
+      },
+      fail: function (err) {
+        wx.showToast({
+          icon: 'none',
+          title: '网络似乎走丢了哟',
+        })
+      },
+      complete: function () {
+        wx.hideLoading();
+      }
+    })
+  },
+  //签到操作
+  addUserIntegral: function () {
+    let _this = this;
+    wx.showLoading({
+      title: '加载中',
+    })
+    wx.request({
+      url: app.globalData.shopRequestUrl + "Integral/addUserIntegral",
+      data: {
+        userid: wx.getStorageSync('userid')
+      },
+      header: {
+        "Content-Type": "application/x-www-form-urlencoded"
+      },
+      method: 'POST',
+      success: function (result) {
+        let results = result.data;
+        // console.log(results);
+        wx.showModal({
+          title: '提示',
+          content: results.msg,
+          showCancel: false
+        })
+        if(results.success){
+          _this.onShow();
+        }
+      },
+      fail: function (err) {
+        wx.showToast({
+          icon: 'none',
+          title: '网络似乎走丢了哟',
+        })
+      },
+      complete: function () {
+        wx.hideLoading();
+      }
+    })
+  },
+  //分享
+  onShareAppMessage(res) {
+    let _this = this;
+    return {
+      title: "会员主页",
+      path: '/pages/my/my'
+    }
+  },
 })

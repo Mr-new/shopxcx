@@ -14,6 +14,10 @@ page{
   justify-content: space-between;
   align-items: center;
   background-color: #ffffff;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 99;
 }
 .menu>view{
   margin: 0 30rpx;
@@ -36,6 +40,7 @@ page{
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin-top: 90rpx;
 }
 .isnull>view{
   width: 150rpx;
@@ -59,6 +64,7 @@ page{
   width: 100%;
   height: auto;
   overflow: hidden;
+  margin-top: 90rpx;
 }
 .item{
   width: 100%;
@@ -105,34 +111,37 @@ page{
   flex-direction: row;
   justify-content: space-between;
 }
-.item_center>view:first-of-type>image{
+.foritem{
+  margin: 15rpx 0;
+}
+.foritem>image{
   width: 25%;
 }
-.item_center>view:first-of-type>view{
+.foritem>view{
   display: flex;
   width: 72%;
   flex-direction: column;
 
 }
-.item_center>view:first-of-type>view>text{
+.foritem>view>text{
   font-size: 11pt;
   color: #000000;
 }
-.item_center>view:first-of-type>view>view{
+.foritem>view>view{
   width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-top: 20rpx;
 }
-.item_center>view:first-of-type>view>view>text{
+.foritem>view>view>text{
   font-size: 10pt;
   color: #9A9A9A;
 }
-.item_center>view:nth-of-type(2){
+.item_center>view:last-of-type{
   justify-content: flex-end;
 }
-.item_center>view:nth-of-type(2)>text{
+.item_center>view:last-of-type>text{
   font-size: 11pt;
   color: #EB5642;
 }
@@ -149,14 +158,35 @@ page{
   color: #EB5642;
 }
 .item_bottom>view{
+  display: flex;
+  flex-direction: row;
+}
+.item_bottom>view>view{
   border: 2rpx solid #EE8331;
-  padding: 13rpx 20rpx;
+  padding: 8rpx 20rpx;
   display: flex;
   justify-content: center;
   align-items: center;
-  border-radius: 8rpx;
+  border-radius: 40rpx;
+  margin-left: 15rpx;
 }
-.item_bottom>view>text{
-  font-size: 12pt;
+.item_bottom>view>view>text{
+  font-size: 11pt;
   color: #EE8331;
+}
+.item_bottom>view>view:first-of-type{
+  border: 2rpx solid #cccccc;
+}
+.item_bottom>view>view:first-of-type>text{
+  color: #333333;
+}
+.isButtom{
+  margin: 20rpx 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.isButtom>text{
+  font-size: 10pt;
+  color: #888888;
 }

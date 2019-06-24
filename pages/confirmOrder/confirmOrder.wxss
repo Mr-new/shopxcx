@@ -53,7 +53,7 @@ page{
   width: 90%;
   height: auto;
   overflow: hidden;
-  margin: 0 auto;
+  margin: 0 auto 100rpx;
   padding: 20rpx 2.5%;
   background-color: #FFFFFF;
   border-radius: 20rpx;
@@ -81,34 +81,35 @@ page{
   font-size: 11pt;
   /* font-weight: bold; */
 }
-.shop>view:nth-of-type(2){
+.item{
   width: 100%;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: flex-start;
+  margin: 15rpx 0;
 }
-.shop>view:nth-of-type(2)>image{
+.item>image{
   width: 20%;
   border-radius: 10rpx;
 }
-.shop>view:nth-of-type(2)>view{
+.item>view{
   width: 78%;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: flex-start;
 }
-.shop>view:nth-of-type(2)>view>view:first-of-type{
+.item>view>view:first-of-type{
   display: flex;
   flex-direction: column;
 
 }
-.shop>view:nth-of-type(2)>view>view:first-of-type>text{
+.item>view>view:first-of-type>text{
   font-size: 9pt;
   color: #000000;
 }
-.shop>view:nth-of-type(2)>view>view:first-of-type>text:last-of-type{
+.item>view>view:first-of-type>text:last-of-type{
   display: block;
   width: 100%;
   height: 40rpx;
@@ -118,17 +119,17 @@ page{
   text-indent: 0.5em;
   color: #888888;
 }
-.shop>view:nth-of-type(2)>view>view:nth-of-type(2){
+.item>view>view:nth-of-type(2){
   display: flex;
   flex-direction: column;
   align-items: flex-end;
   margin-left:10rpx;
 }
-.shop>view:nth-of-type(2)>view>view:nth-of-type(2)>text{
+.item>view>view:nth-of-type(2)>text{
   font-size: 9pt;
   color: #333333;
 }
-.shop>view:nth-of-type(2)>view>view:nth-of-type(2)>text:last-of-type{
+.item>view>view:nth-of-type(2)>text:last-of-type{
   color: #888888;
   font-size: 8pt;
   display: block;
@@ -203,6 +204,7 @@ page{
   flex-direction: row;
   justify-content: flex-end;
   align-items: center;
+  z-index: 999;
 }
 .sumPrice>text:first-of-type{
   font-size: 12pt;

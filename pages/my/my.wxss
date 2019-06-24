@@ -6,16 +6,16 @@ page{
   width: 100%;
   height: auto;
   overflow: hidden;
-  background-color: #7D2CDC;
+  background-color: #B2000B;
 }
 .header_content{
   width: 92%;
   margin: 30rpx 4% 80rpx;
   height: auto;
   overflow: hidden;
-  background-color: #9554E2;
+  background-color: #C21A1B;
   border-radius: 20rpx;
-  border: 2rpx solid #AA76E7;
+  border: 2rpx solid #FF666D;
 }
 .header_content>view:first-of-type{
   display: flex;
@@ -27,7 +27,7 @@ page{
 .header_content>view:first-of-type>image{
   width: 60rpx;
   height: 60rpx;
-  border: 2rpx solid #BE98ED;
+  border: 2rpx solid #FF666D;
   border-radius: 50%;
   margin-right: 10rpx;
 }
@@ -47,7 +47,7 @@ page{
   height: 150rpx;
   margin: 20rpx;
   border-radius: 50%;
-  border: 2rpx solid #BE98ED;
+  border: 2rpx solid #FF666D;
 }
 .userinfo-nickname {
   font-size: 11pt;
@@ -55,10 +55,10 @@ page{
   margin-bottom: 10rpx;
 }
 
-.userinfo>text:last-of-type{
+/* .userinfo>text:last-of-type{
   font-size: 10pt;
   color: #D4BAF2;
-}
+} */
 .content{
   width: 92%;
   padding: 0 4%;
@@ -75,17 +75,29 @@ page{
   align-items: center;
   transform: translateY(-50rpx);
 }
-.item1>text{
-  font-size: 10pt;
-  color: #333333;
-  height: 24rpx;
-  width: 18%;
-  border-right: 2rpx solid #E6E6E6;
+.item1>view:first-of-type{
+  width: 50%;
   display: flex;
+  flex-direction: row;
   justify-content: flex-start;
   align-items: center;
 }
-.item1>view{
+.item1>view:first-of-type>text{
+  font-size: 10pt;
+  color: #333333;
+  height: 24rpx;
+  /* width: 50%; */
+  display: flex;
+  align-items: center;
+}
+.item1>view:first-of-type>text:first-of-type{
+  border-right: 2rpx solid #E6E6E6;
+  padding-right: 15rpx;
+}
+.item1>view:first-of-type>text:nth-of-type(2){
+  padding-left: 15rpx;
+}
+.item1>view:last-of-type{
   width: 100rpx;
   height: 46rpx;
   border: 2rpx solid #E9783D;
@@ -93,7 +105,7 @@ page{
   justify-content: center;
   align-items: center;
 }
-.item1>view>text{
+.item1>view:last-of-type>text{
   font-size: 10pt;
   color: #E9783D;
 }
@@ -131,7 +143,7 @@ page{
   flex-direction: row;
   flex-wrap: wrap;
   align-items: flex-start;
-  justify-content: space-between;
+  justify-content: flex-start;
 }
 .my_menu>navigator{
   width: 25%;

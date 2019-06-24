@@ -3,24 +3,28 @@
   <!-- 顶部部分 -->
   <view class='header'>
     <view>
-      <text>订单编号：20190424485352981</text>
-      <text>未支付</text>
+      <text>订单编号：{{orderDetails.ordernumber}}</text>
+      <text wx:if="{{orderDetails.status==1}}">未支付</text>
+      <text wx:elif="{{orderDetails.status==2}}">已支付</text>
+      <text wx:elif="{{orderDetails.status==3}}">已取消</text>
+      <text wx:elif="{{orderDetails.status==4}}">退款中</text>
+      <text wx:elif="{{orderDetails.status==5}}">已退款</text>
     </view>
     <view>
       <view>
         <text>自提</text>
       </view>
       <view>
-        <text>自提：西安艺星整形医院</text>
-        <text>浙江省杭州市西湖区莫干山路333（地铁站2号线沈塘桥站B出口）</text>
+        <text>自提：{{HospitalMsg.hospitalname}}</text>
+        <text>{{HospitalMsg.address}}</text>
       </view>
     </view>
     <view>
-      <view>
+      <view bindtap='goTel'>
         <text class='iconfont icon-phone-channel'></text>
         <text>拨打电话</text>
       </view>
-      <view>
+      <view bindtap='goMap'>
         <text class='iconfont icon-weizhi'></text>
         <text>查看定位</text>
       </view>
@@ -28,41 +32,43 @@
   </view>
   <!-- 商品详细及价格部分 -->
   <view class='content'>
-    <view class='shop'>
-      <image mode='widthFix' src='http://xaxcx.17mall.cc/Public/uploadImages/default/shop_item_03.png'></image>
-      <view>
-        <text>海薇玻尿酸【PLM多维立体定格术】【鼻子除外】</text>
-        <text>￥199.00</text>
-      </view>
-      <view>
-        <text>线上全款</text>
+    <block wx:for="{{orderDetails.shopList}}" wx:key="{{index}}">
+      <view class='shop'>
+        <image mode='widthFix' src='{{item.thumbnail}}'></image>
         <view>
-          <text>x 1</text>
-          <text>￥199.00</text>
+          <text>{{item.name}}</text>
+          <text>￥{{item.specs.price}}</text>
+        </view>
+        <view>
+          <text>{{item.specs.title}}</text>
+          <view>
+            <text>x {{item.number}}</text>
+            <!-- <text>￥{{orderDetails.sumprice}}</text> -->
+          </view>
         </view>
       </view>
-    </view>
+    </block>
     <view class='price'>
       <view>
         <text>支付明细</text>
         <view>
           <text>商品总额</text>
-          <text>￥199.00</text>
+          <text>￥{{orderDetails.sumprice}}</text>
         </view>
-        <view>
+        <!-- <view>
           <text>优惠</text>
           <text>-￥5.00</text>
-        </view>
+        </view> -->
       </view>
     </view>
     <view class='remarks'>
       <view>
         <text>手机号：</text>
-        <text>16621299974</text>
+        <text>{{orderDetails.tel}}</text>
       </view>
       <view>
         <text>备注：</text>
-        <text></text>
+        <text>{{orderDetails.remarks}}</text>
       </view>
     </view>
   </view>

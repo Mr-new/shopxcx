@@ -77,8 +77,13 @@ page{
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
 }
+.item>view>view>text:nth-of-type(2){
+  font-size: 10pt;
+  color: #999999;
+  margin-top: 10rpx;
+}
 .item>view>view>text:last-of-type{
-  margin-top: 40rpx;
+  margin-top: 30rpx;
   font-size: 10pt;
   color: #ED762E;
 }
@@ -156,11 +161,13 @@ page{
   width: 100%;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: center;
+  flex-wrap: wrap;
 }
 .center>view:first-of-type>image{
-  width: 32%;
+  width: 32.3%;
+  margin: 0 0.5%;
 }
 .center>view:nth-of-type(2){
   display: flex;
@@ -219,4 +226,14 @@ page{
   width: 100%;
   height: 2rpx;
   background-color: #EAEAEA;
+}
+.isButtom{
+  margin: 20rpx 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.isButtom>text{
+  font-size: 10pt;
+  color: #888888;
 }

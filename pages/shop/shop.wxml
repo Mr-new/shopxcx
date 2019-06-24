@@ -16,28 +16,36 @@
     </scroll-view>
     <view class='right'>
       <text>{{showShopListTitle}}</text>
-      <scroll-view scroll-y="true" bindscrolltolower="getMoreData">
+      <scroll-view scroll-y="true" wx:if="{{showShopList.length!=0}}" bindscrolltolower="getMoreData">
         <block wx:for="{{showShopList}}" wx:key="index">
           <view class='shopItem'>
-            <image bindtap='goShopDetails' src='{{item.imgUrl}}' mode='widthFix'></image>
+            <image bindtap='goShopDetails' data-shopid="{{item.id}}" src='{{item.thumbnailUrl}}' mode='widthFix'></image>
             <view>
-              <view bindtap='goShopDetails'>
-                <text>{{item.bigTitle}}</text>
-                <text>{{item.smallTitle}}</text>
+              <view bindtap='goShopDetails' data-shopid="{{item.id}}">
+                <text>{{item.name}}</text>
+                <text>{{item.title}}</text>
               </view>
               <view>
                 <view>
-                  <text>现价:￥{{item.currentPrice}}</text>
-                  <text>原价:￥{{item.beforePrice}}</text>
+                  <text>￥{{item.specslist[item.specslist.length-1].price}}起</text>
+                  <text>￥{{item.beforeprice}}</text>
                 </view>
-                <view bindtap="selectSpec">
+                <view bindtap="selectSpec" data-selecteditem="{{item}}">
                   <text>选规格</text>
                 </view>
               </view>
             </view>
           </view>
         </block>
+        <view class='isButtom' wx:if="{{isBottom}}">
+          <text>别拉了~到底了</text>
+        </view>
       </scroll-view>
+      <!-- 暂无数据 -->
+      <view class='isNull' wx:else>
+        <text class='iconfont icon-zanwushuju'></text>
+        <text>暂无数据</text>
+      </view>
     </view>
   </view>
   <view class='purchasePage' wx:if="{{showPurchasePage}}">
@@ -45,12 +53,15 @@
       <view class='top'>
         <view>
           <view>
-            <image src='{{PurchaseMsg.imgUrl}}' mode='widthFix'></image>
+            <image src='{{shopItem.thumbnailUrl}}' mode='widthFix'></image>
           </view>
           <view>
-            <text>{{PurchaseMsg.title}}</text>
-            <text>￥{{PurchaseMsg.startPrice}}-{{PurchaseMsg.endPrice}}</text>
-            <text wx:if="{{PurchaseMsgIdx}}">库存{{PurchaseMsgIdx.stock}}件</text>
+            <text>{{shopItem.name}}</text>
+            <text wx:if="{{PurchaseMsgIdx}}">￥{{PurchaseMsgIdx.price}}</text>
+            <text wx:else>
+              <text wx:if="{{shopItem.specslist.length==1}}">￥{{shopItem.specslist[0].price}}</text>
+              <text wx:else>￥{{shopItem.specslist[shopItem.specslist.length-1].price}}-{{shopItem.specslist[0].price}}</text>
+            </text>
           </view>
         </view>
         <text bindtap='hidePurchasePage' class='iconfont icon-close_icon'></text>
@@ -58,7 +69,7 @@
       <view class='center'>
         <view>项目</view>
         <view>
-          <block wx:for="{{PurchaseMsg.classList}}" wx:key="index">
+          <block wx:for="{{shopItem.specslist}}" wx:key="index">
             <text class="{{item.id==PurchaseMsgIdx.id ? 'selectedClass' : ''}}" bindtap='selectedClass' data-idx="{{item}}">{{item.title}}</text>
           </block>  
         </view>
@@ -73,7 +84,7 @@
           </view>
         </view>
         <view>
-          <view>
+          <view bindtap='addShopCart'>
             <text>加入购物车</text>
           </view>
           <view bindtap='goConfirmOrder'>

@@ -8,8 +8,17 @@ Page({
     userInfo: {},
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
+    orderNumber: null,  //订单编号
+    sumPrice: null,  //支付金额
   },
-  onLoad: function () {
+  onLoad: function (options) {
+    //记录订单编号和支付金额
+    if(options){
+      this.setData({
+        orderNumber: options.orderNumber,
+        sumPrice: options.sumPrice
+      })
+    }
     if (app.globalData.userInfo) {
       this.setData({
         userInfo: app.globalData.userInfo,

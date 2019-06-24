@@ -3,7 +3,7 @@
   <view class='header'>
     <icon type="success" size="80" />
     <text>订单支付成功</text>
-    <text>￥50.00</text>
+    <text>￥{{sumPrice}}</text>
   </view>
   <view class='list'>
     <view>
@@ -12,7 +12,7 @@
     </view>
     <view>
       <text>订单编号</text>
-      <text>20190424484854509</text>
+      <text>{{orderNumber}}</text>
     </view>
   </view>
   <view class='botton'>
