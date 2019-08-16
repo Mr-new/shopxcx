@@ -43,10 +43,11 @@
         <text>配送方式</text>
         <text>自提</text>
       </view>
-      <!-- <view>
+      <view bindtap='goChoiceCoupon'>
         <text>优惠券</text>
-        <text class='iconfont icon-iconfontjiantou4'></text>
-      </view> -->
+        <text class='iconfont icon-iconfontjiantou4' wx:if="{{couponid!=0}}">-{{orderDetails.coupon.reduce}}</text>
+        <text class='iconfont icon-iconfontjiantou4' wx:else>未选择优惠券</text>
+      </view>
       <view>
         <text>手机号码</text>
         <input placeholder='请输入提货人手机号' bindinput='getTelValue' value='{{tel}}' placeholder-style="color:#B2B2B2;"></input>

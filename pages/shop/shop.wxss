@@ -1,43 +1,50 @@
 /**index.wxss**/
 page{
   height: 100%;
-  overflow: hidden;
+  /* overflow: hidden; */
 }
 .container{
   flex: 1;
   height: 100%;
 }
 .header{
-  width: 96%;
-  padding: 10rpx 2%;
-  height: 60rpx;
-  background-color: #FAFAFA;
-}
-.header>view{
   width: 100%;
-  height: 100%;
+  height: 175rpx;
   background-color: #ffffff;
+  border-bottom: 20rpx solid #F3F3F3;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 999;
+}
+.header>view:first-of-type{
+  width: 96%;
+  margin: 10rpx 2%;
+  height: 60rpx;
+  background-color: #F5F5F5;
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
+  border: 2rpx solid #DCDCDC;
+  border-radius: 6rpx;
 }
-.header>view>input{
+.header>view:first-of-type>input{
   width: 85%;
-  height: 70%;
+  height: 50rpx;
   font-size: 10pt;
   color: #959595;
   padding-left: 3%;
 }
-.header>view>view{
+.header>view:first-of-type>view{
   width: 12%;
-  height: 70%;
+  height: 50rpx;
   display: flex;
   justify-content: center;
   align-items: center;
-  border-left: 1rpx solid #EEEEEE;
+  border-left: 1rpx solid #DBDBDB;
 }
-.header>view>view>text{
+.header>view:first-of-type>view>text{
   font-size: 15pt;
   color: #999999;
 }
@@ -46,14 +53,42 @@ page{
   flex-direction: row;
   justify-content: flex-start;
   height: 93%;
+  margin-top: 195rpx;
 }
-.content>scroll-view:first-of-type{
-  width: 27%;
-  box-sizing: border-box;
-  height: 100%;
+
+.navList{
+  width: 94%;
+  padding: 0 3%;
+  height: 80rpx;
+  margin-top: 15rpx;
+  /* border-bottom: 2rpx solid #DCDCDC; */
 }
-.item{
+.navList>scroll-view{
   width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  white-space: nowrap;
+}
+.navItem{
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 30rpx;
+  height: 68rpx;
+  font-size: 10pt;
+  color: #333333;
+}
+.selected{
+  color: #B5261A;
+  border-bottom: 4rpx solid #B5261A;
+  box-sizing: border-box;
+}
+
+.item{
+  width: 25%;
   height: 100rpx;
   display: flex;
   justify-content: center;
@@ -62,13 +97,13 @@ page{
   font-size: 10pt;
   color: #666666;
 }
-.selected{
+/* .selected{
   border-left: 7rpx solid #E9783D;
   background-color: #ffffff;
   color: #000000;
-}
+} */
 .right{
-  width: 73%;
+  width: 100%;
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -79,10 +114,9 @@ page{
   color: #666666;
   margin: 30rpx 0;
 }
-.right>scroll-view{
+.right>view{
   width: 94%;
   padding: 0 3%;
-  height: 90%;
 }
 .shopItem{
   width: 100%;
@@ -90,10 +124,11 @@ page{
   flex-direction: row;
   justify-content: space-between;
   align-items: flex-start;
-  margin-bottom: 40rpx;
+  padding: 30rpx 0;
+  border-bottom: 2rpx solid #F3F3F3;
 }
 .isButtom{
-  margin-bottom: 20rpx;
+  padding: 20rpx 0;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -104,9 +139,11 @@ page{
 }
 .shopItem>image{
   width: 33%;
+  border-radius: 6rpx;
 }
 .shopItem>view{
-  width: 64%;
+  width: 63%;
+  height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -116,7 +153,7 @@ page{
   width: 100%;
 }
 .shopItem>view>view:first-of-type>text:first-of-type{
-  font-size: 11pt;
+  font-size: 12pt;
   color: #333333;
   display: -webkit-box;
   overflow: hidden;
@@ -142,6 +179,7 @@ page{
   flex-direction: row;
   justify-content: space-between;
   align-items: flex-end;
+  margin-top: 20rpx;
 }
 .shopItem>view>view:nth-of-type(2)>view:first-of-type{
   width: 65%;
@@ -149,8 +187,8 @@ page{
   flex-direction: column;
 }
 .shopItem>view>view:nth-of-type(2)>view:first-of-type>text:first-of-type{
-  font-size: 9pt;
-  color: #E9783D;
+  font-size: 11pt;
+  color: #B5261A;
 }
 .shopItem>view>view:nth-of-type(2)>view:first-of-type>text:nth-of-type(2){
   font-size: 9pt;
@@ -158,18 +196,18 @@ page{
   text-decoration: line-through;
 }
 .shopItem>view>view:nth-of-type(2)>view:nth-of-type(2){
-  width: 30%;
+  width: 100rpx;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 40rpx;
-  border-radius: 30rpx;
-  border: 1rpx solid #E9783D;
+  height: 55rpx;
+  border-radius: 6rpx;
   margin-right: 1%;
+  background-color: #EC605B;
 }
 .shopItem>view>view:nth-of-type(2)>view:nth-of-type(2)>text{
-  font-size: 8pt;
-  color: #E9783D;
+  font-size: 9pt;
+  color: #ffffff;
 }
 .purchasePage{
   width: 100%;

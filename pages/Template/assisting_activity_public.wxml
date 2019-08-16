@@ -1,0 +1,8 @@
+<template name="assisting_activity_public">
+  <navigator url='/pages/custompage/custompage?pageid=14' class='right_activity_rule' hover-class='none'>
+  活动规则
+  </navigator>
+  <button open-type="contact" class="zx_right">
+    <image src='{{imgpath}}assisting_zxzx.png' mode='widthFix'></image>
+  </button>
+</template>

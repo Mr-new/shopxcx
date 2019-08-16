@@ -1,0 +1,74 @@
+/**index.wxss**/
+page{
+  width: 100%;
+  height: 100%;
+}
+.container{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.main{
+  width: 90%;
+  height: 900rpx;
+  background-color: #FFFFFF;
+  border-radius: 10rpx;
+  box-shadow: 0rpx 0rpx 15rpx 3rpx rgba(0, 0, 0, 0.3);
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  position: relative;
+}
+.yestar_logo{
+  width: 200rpx;
+  position: absolute;
+  top: -100rpx;
+  left: 50%;
+  margin-left: -100rpx;
+}
+.content{
+  width: 98%;
+  height: 760rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+.content>view:first-of-type{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 25rpx;
+}
+.content>view:first-of-type>text:first-of-type{
+  font-size: 20pt;
+  color: #E5A652;
+}
+.content>view:first-of-type>text:nth-of-type(2){
+  font-size: 16pt;
+  color: #FC585B;
+  font-weight: bold;
+  margin: 30rpx 0 0 -20rpx;
+  line-height: 130rpx;
+}
+.content>view:first-of-type>text:last-of-type{
+  font-size: 14pt;
+  color: #858585;
+  line-height: 30rpx;
+}
+.content>view:nth-of-type(2){
+  margin-top: 160rpx;
+}
+.content>view:nth-of-type(2)>image{
+  width: 350rpx;
+}
+.content>view:nth-of-type(3){
+  margin-top: 60rpx;
+}
+.content>view:nth-of-type(3)>text{
+  font-size: 11pt;
+  color: #21201D;
+}

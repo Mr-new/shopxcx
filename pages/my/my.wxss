@@ -13,9 +13,9 @@ page{
   margin: 30rpx 4% 80rpx;
   height: auto;
   overflow: hidden;
-  background-color: #C21A1B;
+  /* background-color: #C21A1B; */
   border-radius: 20rpx;
-  border: 2rpx solid #FF666D;
+  border: 2rpx solid #6A562E;
 }
 .header_content>view:first-of-type{
   display: flex;
@@ -27,7 +27,7 @@ page{
 .header_content>view:first-of-type>image{
   width: 60rpx;
   height: 60rpx;
-  border: 2rpx solid #FF666D;
+  border: 2rpx solid #6A562E;
   border-radius: 50%;
   margin-right: 10rpx;
 }
@@ -47,7 +47,7 @@ page{
   height: 150rpx;
   margin: 20rpx;
   border-radius: 50%;
-  border: 2rpx solid #FF666D;
+  border: 2rpx solid #6A562E;
 }
 .userinfo-nickname {
   font-size: 11pt;

@@ -7,16 +7,27 @@
         <text class='iconfont icon-sousuo'></text>
       </view>
     </view>
-  </view>
-  <view class='content'>
-    <scroll-view scroll-y="true">
+    <!-- <scroll-view scroll-y="true" class="scroll">
       <block wx:for="{{classList}}" wx:key="index">
         <view class="item {{item.id==idx ? 'selected' : ''}}" bindtap='selected' data-title="{{item.title}}" data-idx="{{item.id}}">{{item.title}}</view>
       </block>
-    </scroll-view>
+    </scroll-view> -->
+
+    <view class='navList'>
+      <scroll-view scroll-x="true">
+        <block wx:for="{{classList}}" wx:key="index">
+          <view bindtap='selected' class="navItem {{item.id==idx ? 'selected' : ''}}" data-title="{{item.title}}" data-idx="{{item.id}}">
+            {{item.title}}
+          </view>
+        </block>
+      </scroll-view>
+    </view>
+  </view>
+  <view class='content'>
+    
     <view class='right'>
-      <text>{{showShopListTitle}}</text>
-      <scroll-view scroll-y="true" wx:if="{{showShopList.length!=0}}" bindscrolltolower="getMoreData">
+      <!-- <text>{{showShopListTitle}}</text> -->
+      <view wx:if="{{showShopList.length!=0}}">
         <block wx:for="{{showShopList}}" wx:key="index">
           <view class='shopItem'>
             <image bindtap='goShopDetails' data-shopid="{{item.id}}" src='{{item.thumbnailUrl}}' mode='widthFix'></image>
@@ -31,7 +42,7 @@
                   <text>￥{{item.beforeprice}}</text>
                 </view>
                 <view bindtap="selectSpec" data-selecteditem="{{item}}">
-                  <text>选规格</text>
+                  <text>去购买</text>
                 </view>
               </view>
             </view>
@@ -40,7 +51,7 @@
         <view class='isButtom' wx:if="{{isBottom}}">
           <text>别拉了~到底了</text>
         </view>
-      </scroll-view>
+      </view>
       <!-- 暂无数据 -->
       <view class='isNull' wx:else>
         <text class='iconfont icon-zanwushuju'></text>

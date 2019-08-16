@@ -1,0 +1,43 @@
+<!--index.wxml-->
+<view class="container">
+  <!-- 顶部tab部分 -->
+  <!-- 订单列表 -->
+  <view class='orderList' wx:if="{{orderList.length!=0}}">
+    <block wx:for="{{orderList}}" wx:key="{{index}}">
+      <view class='item' bindtap='goOrderDetails' data-id="{{item.id}}">
+        <view class='item_top'>
+          <view>
+            <text>订单编号：{{item.ordernumber}}</text>
+            <text>兑换时间：{{item.datetime}}</text>
+          </view>
+        </view>
+        <view class='item_center'>
+          <view class='foritem'>
+            <image src='{{item.goods.pic}}' mode='widthFix'></image>
+            <view>
+              <text>{{item.goods.title}}</text>
+              <view>
+                <!-- <text>{{item2.specs.title}}<text style='margin-right:20rpx;'>({{item2.specs.price}})</text></text> -->
+                <text>x1</text>
+              </view>
+            </view>
+          </view>
+          <view>
+            <text>{{item.sumintegral}}积分</text>
+          </view>
+        </view>
+      
+      </view>
+    </block>
+    <view class='isButtom' wx:if="{{isBottom}}">
+      <text>别拉了~到底了</text>
+    </view>
+  </view>
+  <view class='isnull' wx:else>
+    <view>
+      <image src="{{imgUrl}}order_none_03.png" mode='widthFix'></image>
+    </view>
+    <text>暂无订单数据</text>
+  </view>
+  
+</view>

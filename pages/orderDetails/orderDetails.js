@@ -43,7 +43,7 @@ Page({
       method: 'POST',
       success: function (result) {
         let results = result.data;
-        //console.log(results);
+        // console.log(results);
         if (results.success == true) {
           _this.setData({
             orderDetails: results.data

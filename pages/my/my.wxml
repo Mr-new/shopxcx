@@ -1,6 +1,6 @@
 <!--index.wxml-->
 <view class="container">
-  <view class='header'>
+  <view class='header' style="background:url({{publicImgUrl + 'myBack.jpg?id=8'}});background-size: 100% 100%;">
     <view class='header_content'>
       <view>
         <image src='{{HospitalMsg.logo}}'></image>
@@ -33,19 +33,19 @@
       </view>
       <view class='my_menu'>
         <navigator url='/pages/order/order?idx=1'>
-          <image src='http://xaxcx.17mall.cc/Public/uploadImages/default/my_icon_03.png' mode='widthFix'></image>
+          <image src='{{publicImgUrl}}my_icon_03.png' mode='widthFix'></image>
           <text>待支付</text>
         </navigator>
         <navigator url='/pages/order/order?idx=2'>
-          <image src='http://xaxcx.17mall.cc/Public/uploadImages/default/my_icon_05.png' mode='widthFix'></image>
+          <image src='{{publicImgUrl}}my_icon_05.png' mode='widthFix'></image>
           <text>已支付</text>
         </navigator>
         <navigator url='/pages/order/order?idx=3'>
-          <image src='http://xaxcx.17mall.cc/Public/uploadImages/default/my_icon_07.png' mode='widthFix'></image>
+          <image src='{{publicImgUrl}}my_icon_07.png' mode='widthFix'></image>
           <text>已取消</text>
         </navigator>
         <navigator url='/pages/order/order?idx=4'>
-          <image src='http://xaxcx.17mall.cc/Public/uploadImages/default/my_icon_09.png' mode='widthFix'></image>
+          <image src='{{publicImgUrl}}my_icon_09.png' mode='widthFix'></image>
           <text>退款订单</text>
         </navigator>
       </view>
@@ -55,26 +55,26 @@
         <text>必备工具</text>
       </view>
       <view class='my_menu'>
+        <navigator url="/pages/integralOrder/integralOrder">
+          <image src='{{publicImgUrl}}my_icon_03.png' mode='widthFix'></image>
+          <text>积分订单</text>
+        </navigator>
         <navigator url='/pages/shopCart/shopCart'>
-          <image src='http://xaxcx.17mall.cc/Public/uploadImages/default/my_icon_15.png' mode='widthFix'></image>
+          <image src='{{publicImgUrl}}my_icon_15.png' mode='widthFix'></image>
           <text>购物车</text>
         </navigator>
-        <!-- <navigator>
-          <image src='http://xaxcx.17mall.cc/Public/uploadImages/default/my_icon_16.png' mode='widthFix'></image>
-          <text>站内信</text>
-        </navigator> -->
         <navigator url="/pages/myCollection/myCollection?idx=1">
-          <image src='http://xaxcx.17mall.cc/Public/uploadImages/default/my_icon_19.png' mode='widthFix'></image>
+          <image src='{{publicImgUrl}}my_icon_19.png' mode='widthFix'></image>
           <text>商品收藏</text>
         </navigator>
         <navigator url="/pages/myCollection/myCollection?idx=2">
-          <image src='http://xaxcx.17mall.cc/Public/uploadImages/default/my_icon_20.png' mode='widthFix'></image>
+          <image src='{{publicImgUrl}}my_icon_20.png' mode='widthFix'></image>
           <text>日记收藏</text>
         </navigator>
-        <!-- <navigator>
-          <image src='http://xaxcx.17mall.cc/Public/uploadImages/default/my_icon1_03.png' mode='widthFix'></image>
+        <navigator url="/pages/myCouponList/myCouponList">
+          <image src='{{publicImgUrl}}my_icon1_03.png' mode='widthFix'></image>
           <text>我的优惠券</text>
-        </navigator> -->
+        </navigator>
       </view>
     </view>
   </view>

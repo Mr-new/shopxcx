@@ -1,0 +1,19 @@
+<!--index.wxml-->
+<view class="container" style="background:url({{publicImgUrl + 'coupon_back.jpg'}});background-size: 100% 100%;">
+  <view class='main'>
+    <image src="{{publicImgUrl + 'yestar_logo.png'}}" class='yestar_logo' mode='widthFix'></image>
+    <view class='content' style="background:url({{publicImgUrl + 'coupon_details_back.png'}});background-size: 100% 100%;">
+      <view>
+        <text>代金券</text>
+        <text>￥<text style='font-size:40pt; color:#FC575A'>{{couponDetails.reduce}}</text></text>
+        <text>满{{couponDetails.full}}元使用</text>
+      </view>
+      <view>
+        <image style="opacity:{{hideBtn==1 ? '0' : '1'}}" bindtap="{{hideBtn==1 ? '' : 'ReceiveCoupon'}}" src="{{publicImgUrl + 'coupon_btn.png'}}" mode='widthFix'></image>
+      </view>
+      <view>
+        <text>有效期：{{couponDetails.startdate}}~{{couponDetails.enddate}}</text>
+      </view>
+    </view>
+  </view>
+</view>

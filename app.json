@@ -1,6 +1,13 @@
 {
   "pages": [
+    
     "pages/index/index",
+    "pages/confirmIntegralOrder/confirmIntegralOrder",
+    "pages/integral/integral",
+    "pages/integralDetails/integralDetails",
+    "pages/integralSuccess/integralSuccess",
+    "pages/integralOrder/integralOrder",
+    "pages/integralOrderDetails/integralOrderDetails",
     "pages/smashAge/smashAge",
     "pages/step/lottery",
     "pages/confirmOrder/confirmOrder",
@@ -23,7 +30,15 @@
     "pages/pay/pay",
     "pages/commentOrder/commentOrder",
     "pages/lookComment/lookComment",
-    "pages/bannerDetails/bannerDetails"
+    "pages/bannerDetails/bannerDetails",
+    "pages/online/online",
+    "pages/couponList/couponList",
+    "pages/myCouponList/myCouponList",
+    "pages/choiceCoupon/choiceCoupon",
+    "pages/couponDetails/couponDetails",
+    "pages/yestarDetails/yestarDetails",
+    "pages/doct/list/list",
+    "pages/doct/details/details"
     
   ],
   "window": {
@@ -49,6 +64,12 @@
         "selectedIconPath": "/images/cart_selected.png"
       },
       {
+        "pagePath": "pages/doct/list/list",
+        "text": "医生",
+        "iconPath": "/images/doctor.png",
+        "selectedIconPath": "/images/doctor_selected.png"
+      },
+      {
         "pagePath": "pages/case/case",
         "text": "日记",
         "iconPath": "/images/case.png",
@@ -62,5 +83,8 @@
       }
     ]
   },
-  "sitemapLocation": "sitemap.json"
+  "sitemapLocation": "sitemap.json",
+  "navigateToMiniProgramAppIdList": [
+    "wx6f4dff03fc7e3934"
+  ]
 }

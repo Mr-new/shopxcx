@@ -1,0 +1,63 @@
+/**index.wxss**/
+.header{
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 50rpx 0;
+}
+.header>text:first-of-type{
+  font-size: 12pt;
+  color: #545055;
+  line-height: 70rpx;
+}
+.header>text:last-of-type{
+  font-size: 16pt;
+  color: #ED762E;
+}
+.list{
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+.list>view{
+  display: flex;
+  width: 94%;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 auto;
+  height: 80rpx;
+  border-top: 2rpx solid #F5F2F6;
+}
+.list>view:last-of-type{
+  border-bottom: 2rpx solid #F5F2F6;
+}
+.list>view>text:first-of-type{
+  font-size: 11pt;
+  color: #6A656B;
+}
+.list>view>text:last-of-type{
+  font-size: 11pt;
+  color: #333333;
+}
+.botton{
+  width: 94%;
+  height: auto;
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 50rpx auto 0;
+}
+.botton>button{
+  width: 46%;
+  height: 80rpx;
+  line-height: 80rpx;
+  margin-bottom: 20rpx;
+  font-size: 12pt;
+}

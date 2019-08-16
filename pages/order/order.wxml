@@ -39,7 +39,7 @@
             </view>
           </block>
           <view>
-            <text>￥{{item.sumprice}}</text>
+            <text>￥{{item.payprice}}</text>
           </view>
         </view>
         <view class='item_bottom' wx:if="{{item.status==1}}">

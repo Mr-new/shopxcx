@@ -107,6 +107,13 @@ App({
   },
   //判断用户是否授权用户信息：如果为授权则跳转到授权页面，已授权则执行接下来操作
   authorUserInfo:function(){
+    let userid=wx.getStorageSync('userid');
+    if(!userid){
+      console.log("未授权，跳转到授权页面")
+      wx.reLaunch({
+        url: '/pages/author/author',
+      })
+    }
     wx.getSetting({
       success: function (res) {
         if (!res.authSetting['scope.userInfo']) {
@@ -135,10 +142,12 @@ App({
     //健步挑战赛接口地址
     // stepRequestUrl: "http://shopxcx.com/index.php/Step/",  //测试地址
     stepRequestUrl: "https://xaxcx.17mall.cc/index.php/Step/",  //线上地址
-    publicImgUrl: "http://shopxcx.com/Public/uploadImages/default/",
+    //公共图片路径
+    publicImgUrl: "https://xaxcx.17mall.cc/Public/uploadImages/default/",
     //商城接口地址
     // shopRequestUrl: "http://shopxcx.com/index.php/Shop/",  //测试地址
     shopRequestUrl: "https://xaxcx.17mall.cc/index.php/Shop/",  //线上地址
     HospitalMsg:null, //医院基本信息配置
+    urlpath: "https://wxxcx.17mall.cc",
   }
 })

@@ -1,0 +1,7 @@
+<template name="BottomNavigation">
+  <view style="width:100%;height:110rpx;"></view>
+  <view class='BottomNavigation'>
+    <button class='nav consultation' open-type="contact"><text>在线咨询</text></button>
+    <navigator url='/pages/online/online' class='nav online'><text>立即预约</text></navigator>
+  </view>
+</template>

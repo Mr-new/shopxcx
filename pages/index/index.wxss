@@ -120,9 +120,10 @@
   color: #333333;
   font-size: 13pt;
   width: 100%;
+  margin-top: 10rpx;
   text-align: center;
 }
-.list>navigator>view:first-of-type>text:last-of-type{
+/* .list>navigator>view:first-of-type>text:last-of-type{
   font-size: 8pt;
   color: #A0A0A0;
   width: 100%;
@@ -130,12 +131,12 @@
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-}
+} */
 .list>navigator>view:nth-of-type(2){
-  width: 90%;
+  width: 100%;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   margin-top: 10rpx
 }
@@ -146,7 +147,7 @@
 .list>navigator>view:nth-of-type(2)>view>text{
   font-size: 16pt;
 }
-.list>navigator>view:nth-of-type(2)>text{
+/* .list>navigator>view:nth-of-type(2)>text{
   color: #ffffff;
   font-size: 25rpx;
   width: 70rpx;
@@ -158,7 +159,7 @@
   align-items: center;
   text-align: center;
 
-}
+} */
 .more{
   width: 100%;
   display: flex;
@@ -245,7 +246,7 @@
   align-items: center;
 }
 .caseList_top>view:first-of-type{
-  width: 50%;
+  width: 75%;
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
@@ -260,9 +261,14 @@
 .caseList_top>view:first-of-type>text{
   font-size: 11pt;
   color: #646464;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+
+
 }
 .caseList_top>view:nth-of-type(2){
-  width: 50%;
+  width: 20%;
   display: flex;
   flex-direction: row;
   justify-content: flex-end;

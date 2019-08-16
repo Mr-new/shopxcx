@@ -1,0 +1,54 @@
+<!--online.wxml-->
+<view class="container container_online">
+  <form bindsubmit="MyfromSubmit" report-submit="true">
+  <view class="Myfrom clear">
+    <view class='clear'>
+      <view class="form-text">
+        <label>您的姓名：</label>
+        <input type="text" placeholder='请输入您的姓名' name="patients" value='{{postData.patients}}' maxlength="32" class="input" />
+      </view>
+      <view class="form-text">
+        <label>您的性别：</label>
+        <radio-group class="radio-group" bindchange="radioChange">
+          <label class="radio" style='width:18%' wx:for="{{items}}" wx:key="{{index}}">
+            <view class="tui-menu-list"><radio color="#09BB07" value="{{item.name}}" checked="{{item.checked}}"/>{{item.value}}</view>
+          </label>
+        </radio-group>
+      </view>
+      <view class="form-text">
+        <label>您的电话：</label>
+        <input type="text" placeholder='请输入您的电话' name="tel" maxlength="32" value='{{postData.tel}}' class="input" />
+        <button class='getPhoneNumber' open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">获取手机号码</button>
+      </view>
+      <view class="form-text">
+        <label>预约日期：</label>
+        <picker mode="date" value="{{datetimes}}" start="{{today}}" name="yydate"  bindchange="bindDateChange" class="input" >
+          <view class="dateoption">
+            {{datetimes}}
+          </view>
+        </picker>
+      </view>
+      <view class="form-text">
+        <label style="width:100%;">目前困扰你的问题：</label>
+      </view>
+      <checkbox-group bindchange="checkboxChange" class="checkbox1">
+        <label class="checkbox" wx:for="{{list}}" wx:key="{{index}}">
+          <checkbox value="{{item.name}}" checked="{{item.checked}}"/>{{item.value}}
+        </label>
+      </checkbox-group>
+      <view class="form-text ">
+        <textarea maxlength="200" name="content" value='{{postData.content}}' class='input textarea' placeholder="（非必填）可简单描述您的需求" />
+      </view>
+    </view>
+    <view class="form-text">
+        <label style="width:100%;">你还在意哪些问题：</label>
+      </view>
+      <checkbox-group bindchange="checkboxChange1" class="checkbox1">
+        <label class="checkbox" wx:for="{{list1}}" wx:key="{{index}}">
+          <checkbox value="{{item.name}}" checked="{{item.checked}}"/>{{item.value}}
+        </label>
+      </checkbox-group>
+    <button class="from_submit" form-type="submit">立即预约</button>
+  </view>
+  </form>
+</view>

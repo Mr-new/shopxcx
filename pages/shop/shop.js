@@ -13,7 +13,7 @@ Page({
     isBottom: false,  //是否到底
     searchValue:"",  //搜索关键字
     classList:[  //商品分类列表
-      { title: "全部商品", id: 0},
+      { title: "全部", id: 0},
     ],
     idx:0,  //当前选中分类
     showShopListTitle:"全部商品",  //商品列表标题
@@ -185,19 +185,32 @@ Page({
     })
   },
   //上拉加载更多数据
-  getMoreData:function(){
-    if(this.data.pageIndex == this.data.sumPage){
+  onReachBottom: function () {
+    if (this.data.pageIndex == this.data.sumPage) {
       this.setData({
         isBottom: true
       })
-    }else{
+    } else {
       this.setData({
         pageIndex: this.data.pageIndex + 1
       })
       this.getCommodityList();
     }
-    // console.log("我到底了",this.data.pageIndex);
   },
+  
+  // getMoreData:function(){
+  //   if(this.data.pageIndex == this.data.sumPage){
+  //     this.setData({
+  //       isBottom: true
+  //     })
+  //   }else{
+  //     this.setData({
+  //       pageIndex: this.data.pageIndex + 1
+  //     })
+  //     this.getCommodityList();
+  //   }
+  //   // console.log("我到底了",this.data.pageIndex);
+  // },
   //用户点击选规格操作
   selectSpec:function(e){
     let selectedItem = e.currentTarget.dataset.selecteditem;

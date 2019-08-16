@@ -55,10 +55,18 @@
           <text>商品总额</text>
           <text>￥{{orderDetails.sumprice}}</text>
         </view>
-        <!-- <view>
+        <view>
           <text>优惠</text>
-          <text>-￥5.00</text>
-        </view> -->
+          <text>-￥{{orderDetails.reduceprice}}</text>
+        </view>
+        <view wx:if="{{orderDetails.status==1}}">
+          <text>待支付金额：</text>
+          <text>￥{{orderDetails.payprice}}</text>
+        </view>
+        <view wx:else>
+          <text>实际支付金额：</text>
+          <text>￥{{orderDetails.payprice}}</text>
+        </view>
       </view>
     </view>
     <view class='remarks'>

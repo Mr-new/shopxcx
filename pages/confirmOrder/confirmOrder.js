@@ -16,7 +16,9 @@ Page({
     orderDetails: null,  //订单详细信息
     tel: "",  //手机号码 
     remarks: "",  //备注内容
+    couponid: 0,  //优惠券领取记录id
   },
+  
   onLoad: function (options) {
     if(options){
       let orderArr=JSON.parse(options.orderArr);
@@ -29,10 +31,6 @@ Page({
     this.setData({
       HospitalMsg: app.globalData.HospitalMsg
     })
-    //获取订单详情数据
-    this.getOrderMsg();
-
-
     if (app.globalData.userInfo) {
       this.setData({
         userInfo: app.globalData.userInfo,
@@ -60,6 +58,18 @@ Page({
       })
     }
   },
+  onShow: function () {
+    //获取用户选择的优惠券
+    let pages = getCurrentPages();
+    let currPage = pages[pages.length - 1];
+    if (currPage.data.couponid) {
+      this.setData({
+        couponid: currPage.data.couponid,
+      });
+    }
+    //获取订单详情数据
+    this.getOrderMsg();
+  },
   //获取订单详情数据
   getOrderMsg: function () {
     let _this = this;
@@ -69,7 +79,8 @@ Page({
     wx.request({
       url: app.globalData.shopRequestUrl + "Order/getOrderMsg",
       data: {
-        'orderArr': JSON.stringify(_this.data.orderArr)
+        'orderArr': JSON.stringify(_this.data.orderArr),
+        'couponid': _this.data.couponid
       },
       header: {
         "Content-Type": "application/x-www-form-urlencoded"
@@ -77,7 +88,6 @@ Page({
       method: 'POST',
       success: function (result) {
         let results = result.data;
-        console.log(results);
         if (results.success == true) {
           _this.setData({
             orderDetails: results.data
@@ -130,9 +140,15 @@ Page({
                   tel: results.data
                 })
               } else {
-                wx.showToast({
-                  icon: 'none',
-                  title: results.msg,
+                wx.showModal({
+                  title: '提示',
+                  content: '当前授权状态已失效，请重新授权!',
+                  showCancel: false,
+                  success: function () {
+                    wx.reLaunch({
+                      url: '/pages/author/author',
+                    })
+                  }
                 })
               }
             },
@@ -212,7 +228,14 @@ Page({
         'orderArr': JSON.stringify(_this.data.orderArr),
         'tel': _this.data.tel,
         'remarks': _this.data.remarks,
-        'sumprice': _this.data.orderDetails.sumPrice,
+        //总金额：实际支付金额+优惠减免金额
+        'sumprice': _this.data.couponid != 0 ? parseFloat(_this.data.orderDetails.sumPrice) + parseFloat(_this.data.orderDetails.coupon.reduce) : _this.data.orderDetails.sumPrice,
+        //实际支付金额
+        'payprice': _this.data.orderDetails.sumPrice,
+        //优惠减免金额
+        'reduceprice': _this.data.orderDetails.coupon ? _this.data.orderDetails.coupon.reduce : 0,
+        //优惠券记录id
+        'couponid': _this.data.couponid
       }
       wx.request({
         url: app.globalData.shopRequestUrl + "Order/submitOrder",
@@ -273,5 +296,11 @@ Page({
     // wx.navigateTo({
     //   url: '/pages/paySuccess/paySuccess',
     // })
+  },
+  //跳转到选择优惠券页面
+  goChoiceCoupon:function(){
+    wx.navigateTo({
+      url: '/pages/choiceCoupon/choiceCoupon?orderArr=' + JSON.stringify(this.data.orderArr),
+    })
   }
 })

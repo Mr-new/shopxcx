@@ -1,0 +1,44 @@
+<!--index.wxml-->
+<view class="container">
+  <view class='tab'>
+    <block wx:for="{{tabList}}" wx:key="{{index}}">
+      <view class="{{item.id == idx ? 'selected' : ''}}" data-id="{{item.id}}" bindtap='switchTab'>
+        <text>{{item.title}}</text>
+      </view>
+    </block>
+  </view>
+
+  <view class='couponList' wx:if="{{couponList.length!=0}}">
+    <block wx:for="{{couponList}}" wx:key="{{index}}">
+      <view bindtap='goCouponDetails' data-item="{{item}}" class='item' style="background:url({{publicImgUrl + 'coupon_list_back.png'}});background-size: 100% 100%;">
+        <view>
+          <view>
+            <text>￥<text style='font-size:22pt;'>{{item.reduce}}</text></text>
+            <text>满{{item.full}}</text>
+          </view>
+          <view>
+            <view>
+              <text>{{item.title}}</text>
+              <text>{{item.startdate}}~{{item.enddate}}</text>
+            </view>
+            <view>
+              <!-- <text>剩余{{item.number}}张</text> -->
+              <view wx:if="{{idx==1}}" catchtap='goShopList' data-couponid="{{item.id}}">
+                <text>立即使用</text>
+              </view>
+
+            </view>
+          </view>
+        </view>
+        <view>
+          <text>西安艺星医疗美容医院</text>
+        </view>
+      </view>
+    </block>
+  </view>
+  <!-- 暂无数据 -->
+  <view class='isNull' wx:else>
+    <text class='iconfont icon-zanwushuju'></text>
+    <text>没有找到相关优惠券哟</text>
+  </view>  
+</view>

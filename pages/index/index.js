@@ -337,7 +337,30 @@ Page({
   //检测是否有跳转路径，没有则提示功能未开放
   showTos:function(e){
     let url=e.currentTarget.dataset.url;
-    if(url==null){
+    if (url == "/pages/case/case"){
+      wx.switchTab({
+        url: '/pages/case/case',
+      })
+    } else if (url == "/pages/doct/list/list"){
+      wx.switchTab({
+        url: '/pages/doct/list/list',
+      })
+    } else if (url == "/pages/groupon/list/list"){
+      wx.navigateToMiniProgram({
+        appId: 'wx6f4dff03fc7e3934',
+        path: 'pages/groupon/list/list',
+        extraData: {
+          
+        },
+        envVersion: 'develop',
+        success(res) {
+          // 打开其他小程序成功同步触发
+          // wx.showToast({
+          //   title: '跳转成功'
+          // })
+        }
+      })
+    } else if (!url){
       wx.showModal({
         title: '提示',
         content: '此功能暂未开放哟',

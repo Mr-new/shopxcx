@@ -1,0 +1,29 @@
+<!--index.wxml-->
+<view class="container">
+  <view class='list' wx:if="{{list.length!=0}}">
+    <block wx:for="{{list}}" wx:key="{{index}}">
+      <view class='item' bindtap='goDetails' data-shopid="{{item.id}}">
+        <view>
+          <image src='{{item.pic}}' mode='widthFix'></image>
+        </view>
+        <view>
+          <text>{{item.title}}</text>
+          <view>
+            <text>{{item.integral}}积分</text>
+            <view bindtap='goDetails' data-shopid="{{item.id}}">
+              <text>兑换</text>
+            </view>
+          </view>
+        </view>
+      </view>
+    </block>
+    <view class='isButtom' wx:if="{{isBottom}}">
+      <text>别拉了~到底了</text>
+    </view>
+  </view>
+  <!-- 暂无数据 -->
+  <view class='isNull' wx:else>
+    <text class='iconfont icon-zanwushuju'></text>
+    <text>暂无积分商品</text>
+  </view>
+</view>

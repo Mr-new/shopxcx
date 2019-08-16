@@ -1,0 +1,39 @@
+<!--doctinfo.wxml-->
+<view>
+  <view class="doct_head">
+    <image src="{{imgpath}}doc-art-ban.jpg" mode="widthFix"></image>
+    <!--医生简介-->
+    <view class="introduce"> 
+      <wxs module="Common" src="../../Common/Common.wxs"/>
+      <view class="browse">
+        <icon></icon>
+        浏览：<text>{{details.browse}}</text>
+      </view>
+      <view class="doctor_infos">
+        <view class="face"><image src="{{details.doctor_face}}" mode="widthFix"></image></view>
+        <text>{{details.doctor_name}}</text>
+      </view>
+      <view class="praise" bindtap="showMsg" wx:if='{{details.isFabulous}}'>
+        <icon></icon>
+        已点赞：<text>{{details.praise}}</text>
+      </view>
+      <view class="praise" wx:else bindtap="goGraise">
+        <icon></icon>
+        点赞：<text>{{details.praise}}</text>
+      </view>
+    </view>
+  </view>
+  <view class="art-content">
+    <import src="../../Common/wxParse/wxParse.wxml"/>
+    <template is="wxParse" data="{{wxParseData:article.nodes}}"/>
+  </view>
+  <!--公共底部-->
+  <import src="/pages/Template/BottomNavigation.wxml"/>
+  <template is="BottomNavigation" data="{{projectType}}"/>
+  <view class='share'>
+    <button open-type='share'>
+      <image src='/images/share.png' mode='widthFix'></image>
+      <text>分享</text>
+    </button>
+  </view>
+</view>

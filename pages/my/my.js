@@ -9,6 +9,7 @@ Page({
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
     HospitalMsg:null,  //医院基本配置信息
     integral: 0,  //积分
+    publicImgUrl: app.globalData.publicImgUrl,  //公共图片路径
   },
   onShow: function(){
     //获取用户积分

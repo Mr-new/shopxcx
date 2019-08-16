@@ -1,0 +1,22 @@
+<!--index.wxml-->
+<view class="container">
+  <view class='header'>
+    <icon type="success" size="80" />
+    <text>兑换成功</text>
+    <text>消费积分{{sumPrice}}</text>
+  </view>
+  <view class='list'>
+    <view>
+      <text>支付方式</text>
+      <text>积分支付</text>
+    </view>
+    <view>
+      <text>订单编号</text>
+      <text>{{orderNumber}}</text>
+    </view>
+  </view>
+  <view class='botton'>
+    <button type="primary" bindtap='goOrder'>查看订单详情</button>
+    <button bindtap='goHome'>返回首页</button>
+  </view>
+</view>

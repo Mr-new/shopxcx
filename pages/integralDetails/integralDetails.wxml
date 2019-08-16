@@ -1,0 +1,99 @@
+<!--index.wxml-->
+<view class="container">
+  <swiper class='swiper' indicator-dots="{{indicatorDots}}" 
+        autoplay="{{autoplay}}" indicator-active-color='#ffffff' indicator-color='rgba(255,255,255,0.5)' interval="{{interval}}" duration="{{duration}}" circular="true"> 
+      <block wx:for="{{shopDetails.imglist}}" wx:key="index"> 
+        <swiper-item> 
+            <image src="{{item}}" mode='widthFix' class="slide-image" /> 
+        </swiper-item> 
+      </block>
+  </swiper>
+  <view class='title'>
+    <view>
+      <view>
+        <text>{{shopDetails.title}}</text>
+        <!-- <text>{{shopDetails.title}}</text> -->
+        <text>
+          <text>{{shopDetails.integral}}积分</text>
+        </text>
+      </view>
+      <!-- <view bindtap='deleteShopCollection' wx:if="{{shopDetails.isCollection}}">
+        <text class='iconfont icon-shoucang' style='color:#EC7E3B'></text>
+        <text style='color:#EC7E3B'>已收藏</text>
+      </view> -->
+      <!-- <view bindtap='addShopCollection' wx:else>
+        <text class='iconfont icon-shoucang1'></text>
+        <text>收藏商品</text>
+      </view> -->
+      
+    </view>
+    <view>
+      <text>可用积分： {{shopDetails.userIntegral}}</text>
+      <text>销量： {{shopDetails.salesvolume}}笔</text>
+    </view>
+  </view>
+  <!-- <view class='spec' data-selected="3" bindtap='selectSpec'>
+    <text wx:if="{{PurchaseMsgIdx==null}}">商品规格</text>
+    <text wx:else>已选择：{{PurchaseMsgIdx.title}}</text>
+    <text class='iconfont icon-iconfontjiantou4'></text>
+  </view> -->
+  <view class='spec'>
+    <text>由<text style='color:#EC7E3B'>西安艺星整形医院</text>为您提供</text>
+    <text class='iconfont icon-iconfontjiantou4'></text>
+  </view>
+  <view class='details'>
+    <!-- <view class='details_top'>
+      <view>
+        <text bindtap='switchTab' data-id="1" class="{{idx==1 ? 'selected' : ''}}">商品详情</text>
+      </view>
+      <view>
+        <text bindtap='switchTab' data-id="2" class="{{idx==2 ? 'selected' : ''}}">用户评价({{shopDetails.comment}})</text>
+      </view>
+    </view> -->
+    <view class='details_content'>
+      <view class='detailsCC'>
+        <view class="detailsTitle">
+          <text>商品描述：</text>
+        </view>
+        <!-- <rich-text wx:if="{{shopDetails.details}}" nodes="{{shopDetails.details}}"></rich-text> -->
+        <import src="../../wxParse/wxParse.wxml"/>
+        <template is="wxParse" wx:if="{{shopDetails.details}}" data="{{wxParseData:article.nodes}}"/>
+        <!-- 暂无数据 -->
+        <view class='isNull' wx:else>
+          <text class='iconfont icon-zanwushuju'></text>
+          <text>暂无数据</text>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class='exchange' bindtap='goConfirmIntegralOrder'>
+    <text>立即兑换</text>
+  </view>
+
+  <!-- 右侧按钮 -->
+  <view class="rightMenu" style="right:{{rightMenuShow ? '0' : '-80rpx'}}">
+    <view bindtap='goHome'>
+      <image src='http://xaxcx.17mall.cc/Public/uploadImages/default/icon_03.png' mode='widthFix'></image>
+    </view>
+    <view bindtap='goMy'>
+      <image src='http://xaxcx.17mall.cc/Public/uploadImages/default/icon_06.png' mode='widthFix'></image>
+    </view>
+    <view bindtap='goTel' data-tel="{{HospitalMsg.tel}}">
+      <image src='http://xaxcx.17mall.cc/Public/uploadImages/default/icon_08.png' mode='widthFix'></image>
+    </view>
+    <view class='line'></view>
+    <button open-type="contact">
+       <image src='http://xaxcx.17mall.cc/Public/uploadImages/default/icon_10.png' mode='widthFix'></image>
+    </button>
+    <view bindtap='goTop'>
+      <image src='http://xaxcx.17mall.cc/Public/uploadImages/default/icon_top.png' mode='widthFix'></image>
+    </view>
+    <view class='line'></view>
+    <view bindtap='hideRightMenu'>
+      <image src='http://xaxcx.17mall.cc/Public/uploadImages/default/icon_hide.png' mode='widthFix'></image>
+    </view>  
+  </view>
+  <view class='showRightMenuBtn' style="right:{{rightMenuShow ? '-80rpx' : '0'}}" bindtap='showRightMenu'>
+    <image src='http://xaxcx.17mall.cc/Public/uploadImages/default/icon_show_03.png' mode='widthFix'></image>
+  </view>
+</view>

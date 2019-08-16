@@ -1,0 +1,58 @@
+<!--doctlist.wxml-->
+<wxs src="../../Common/Common.wxs" module="Common" />
+<view class="doctlist clear" wx:if="{{doctlist.length!=0}}">
+  <view class="doct_li" wx:for="{{doctlist}}" wx:for-item="item" wx:for-index='index' wx:key="*.this">
+    <view class='hospital'>
+      <view class="hospital_face"><image src="{{item.doctor_face}}"></image></view>
+      <view class='hospital_info'>
+        <view class="doctor_title">{{item.doctor_name}}</view>
+        <view class="hospital_address">
+          <icon></icon>
+          {{HospitalMsg.address}}
+        </view>
+        <!-- <view class='btn_tel' bindtap='onMakePhone'>
+          <icon></icon>
+          拨打电话
+        </view> -->
+        <button open-type="contact" class="btn_tel">
+          <icon></icon>
+          在线咨询
+        </button>
+      </view><!-- hospital_info end -->
+    </view>
+    <view class='doctor_card' data-doctor_id='{{item.id}}' bindtap="goDoctDetails">
+      <image src="{{item.doctor_card}}" mode='widthFix'></image>
+    </view>
+    <view class="doctor_btn clear">
+      <view class='btn browse'>
+        <icon style="margin-right:5rpx"></icon>
+        <text>{{item.browse}}</text>人浏览
+      </view>
+      <block wx:if="{{item.isFabulous}}">
+        <view class='btn praise have' data-list_index='{{index}}' data-doctor_id='{{item.id}}' bindtap='bindcancelPraise'>
+          <icon style="margin-right:10rpx;"></icon>
+          <text>{{item.praise}}</text>人点赞
+        </view>
+      </block>
+      <block wx:else>
+        <view class='btn praise' data-list_index='{{index}}' data-doctor_id='{{item.id}}' bindtap='bindPraise'>
+          <icon style="margin-right:10rpx;"></icon>
+          <text>{{item.praise}}</text>人点赞
+        </view>
+      </block>
+      <navigator data-list_index='{{index}}' data-doctor_id='{{item.id}}' url="/pages/doct/details/details?doctorid={{item.id}}" class="btn look" open-type="navigate" hover-class="none">
+        <icon></icon>
+        查看详情
+      </navigator>
+    </view>
+  </view>
+  <!--doct-li end-->
+</view>
+<!-- 暂无数据 -->
+<view class='isNull' wx:else>
+  <text class='iconfont icon-zanwushuju'></text>
+  <text>暂无专家</text>
+</view>
+<view class='isButtom' wx:if="{{isBottom}}">
+  <text>别拉了~到底了</text>
+</view>
