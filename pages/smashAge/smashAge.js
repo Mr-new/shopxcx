@@ -1,7 +1,7 @@
 //index.js
 //获取应用实例
 const app = getApp()
-let imagesUrl ="https://xaxcx.17mall.cc/Public/uploadImages/default/";
+let imagesUrl ="https://xaxcx.yixingtb.com/Public/uploadImages/default/";
 
 Page({
   data: {
@@ -57,7 +57,7 @@ Page({
     isShowBtn:false,  //是否显示领奖按钮
     PrizeTitle:"", //领奖弹框标题
     PrizeImgUrl:"", //领奖弹框图片地址
-   
+    publicImgUrl: app.globalData.publicImgUrl,  //公共图片路径
   },
   //执行登陆操作
   goLogin: function (topId, callback) {
@@ -103,6 +103,16 @@ Page({
     })
   },
   onLoad: function (options) {
+    wx.showModal({
+      title: '提示',
+      content: '活动暂未开始哟！',
+      showCancel: false,
+      success:function(){
+        wx.navigateBack({
+        
+        })
+      }
+    })
     let _this = this;
     let topId=0;  //上级id
     if(options.topId){

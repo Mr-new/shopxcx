@@ -128,6 +128,11 @@ Page({
   },
   //获取订单数据
   getOrderList: function () {
+    //判断用户是否授权登陆
+    if (!wx.getStorageSync('userid')) {
+      app.NoLogin("请先登陆授权后在来查看积分订单哟！");
+      return;
+    }
     let _this = this;
     wx.showLoading({
       title: '加载中',

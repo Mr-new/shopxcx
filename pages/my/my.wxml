@@ -1,31 +1,46 @@
 <!--index.wxml-->
 <view class="container">
-  <view class='header' style="background:url({{publicImgUrl + 'myBack.jpg?id=8'}});background-size: 100% 100%;">
+  <view class='header' style="background:url({{publicImgUrl + 'myBack.png?id=10'}});background-size: 100% 100%;">
     <view class='header_content'>
-      <view>
-        <image src='{{HospitalMsg.logo}}'></image>
-        <text>{{HospitalMsg.hospitalname}}</text>
-      </view>
       <view class="userinfo">
-        <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
+        <button wx:if="{{userid==null || !userid}}" class="loginBtn" bindtap="goLogin"> 去登陆 </button>
         <block wx:else>
-          <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
-          <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+          <!-- <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+          <text class="userinfo-nickname">{{userInfo.nickName}}</text> -->
+          <open-data class="userinfo-avatar" type="userAvatarUrl"></open-data>
+          <open-data class="userinfo-nickname" type="userNickName"></open-data>
           <!-- <text>电话：16621299974</text> -->
         </block>
       </view>
     </view>
+
+    <view class="header_bottom">
+      <view bindtap="goMyCouponList">
+        <text>0</text>
+        <text>优惠券</text>
+      </view>
+      <view>
+        <text>{{integral}}</text>
+        <text>积分</text>
+      </view>
+      <view bindtap='addUserIntegral'>
+        <text style="font-size:15pt; font-weight: bold;">签到</text>
+      </view>
+      
+    </view>
+    
+
   </view>
   <view class='content'>
-    <view class='item1'>
+    <!-- <view class='item1'>
       <view>
-        <!-- <text>余额：<text style='color:#E9783D'>0</text></text> -->
+        <text>余额：<text style='color:#E9783D'>0</text></text>
         <text>积分：<text style='color:#E9783D'>{{integral}}</text></text>
       </view>
       <view bindtap='addUserIntegral'>
         <text>签到</text>
       </view>
-    </view>
+    </view> -->
     <view class='item2 mt25'>
       <view class='title'>
         <text>我的订单</text>

@@ -82,6 +82,11 @@ Page({
   },
   //获取积分商品详情数据
   getIntegralGoodsDetails:function(){
+    //判断用户是否授权登陆
+    if (!wx.getStorageSync('userid')) {
+      app.NoLogin("请先登陆授权后在来兑换商品哟！");
+      return;
+    }
     let _this = this;
     wx.showLoading({
       title: '加载中',
@@ -201,6 +206,11 @@ Page({
   },
   //跳转到提交积分订单页面
   goConfirmIntegralOrder:function(){
+    //判断用户是否授权登陆
+    if (!wx.getStorageSync('userid')) {
+      app.NoLogin("请先登陆授权后在来兑换商品哟！");
+      return;
+    }
     let _this=this;
     if (parseInt(_this.data.shopDetails['userIntegral']) < parseInt(_this.data.shopDetails['integral'])){
       wx.showModal({

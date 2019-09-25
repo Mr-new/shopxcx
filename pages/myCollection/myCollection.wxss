@@ -228,6 +228,7 @@ page{
   background-color: #EAEAEA;
 }
 .isButtom{
+  width: 100%;
   margin: 20rpx 0;
   display: flex;
   justify-content: center;
@@ -236,4 +237,75 @@ page{
 .isButtom>text{
   font-size: 10pt;
   color: #888888;
+}
+
+.ListWrap{
+  width: 50%;
+  float: left;
+}
+.listItem{
+  display: flex;
+  width: 94%;
+  margin: 15rpx 3%;
+  flex-direction: column;
+  border-radius: 15rpx;
+  height: auto;
+  overflow: hidden;
+  background-color: #ffffff;
+  /* float: left; */
+  
+}
+.listItem>image{
+  width: 100%;
+}
+.listItem>text{
+  font-size: 10pt;
+  color: #000000;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  line-height: 70rpx;
+  padding: 0 4%;
+}
+.listItem>view{
+  width: 92%;
+  padding: 0 4%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10rpx;
+}
+.listItem>view>view:first-of-type{
+  width: 65%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+.listItem>view>view:first-of-type>image{
+  width: 40rpx;
+  height: 40rpx;
+  border-radius: 50%;
+  margin-right: 10rpx;
+}
+.listItem>view>view:first-of-type>text{
+  width: 60%;
+  font-size: 9pt;
+  color: #666666;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.listItem>view>view:last-of-type{
+  width: 35%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+}
+.listItem>view>view:last-of-type>text:last-of-type{
+  font-size: 10pt;
+  margin-left: 4rpx;
+  color: #666666;
 }

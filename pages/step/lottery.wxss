@@ -20,7 +20,7 @@ page{
   width: 100%;
   height: auto;
   overflow: hidden;
-  background: url("https://xaxcx.17mall.cc/Public/uploadImages/default/step_back2.jpg") repeat-y;
+  background: url("https://xaxcx.yixingtb.com/Public/uploadImages/default/step_back2.jpg") repeat-y;
   background-size: 100% auto;
 }
 /* 开奖礼品 */

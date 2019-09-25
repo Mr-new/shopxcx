@@ -2,6 +2,7 @@
 //获取应用实例
 const app = getApp()
 var WxParse = require('../../wxParse/wxParse.js');
+var util = require('../../utils/util.js');
 Page({
   data: {
     indicatorDots: false,
@@ -27,6 +28,7 @@ Page({
     rightMenuShow: false,  //是否显示右侧菜单
     floorstatus: false,
     HospitalMsg: null,  //医院基本配置信息
+    publicImgUrl: app.globalData.publicImgUrl,  //公共图片路径
   },
   onLoad: function (options) {
     let _this=this;
@@ -252,13 +254,20 @@ Page({
   },
   //跳转到提交订单页面
   goConfirmOrder: function () {
-    if (this.data.PurchaseMsgIdx==null){
+    //判断用户是否授权登陆
+    if (!wx.getStorageSync('userid')) {
+      app.NoLogin("请先登陆授权后在来购买商品哟！");
+      return;
+    }
+   
+    //普通商品购买：需要选择规格
+    if (this.data.PurchaseMsgIdx == null) {
       wx.showToast({
         icon: 'none',
         title: '请选择商品规格',
       })
-    }else{
-      let temp=[{
+    } else {
+      let temp = [{
         'shopId': this.data.shopId,  //商品id
         'specsId': this.data.PurchaseMsgIdx.id,  //规格id
         'number': this.data.num,  //数量
@@ -268,9 +277,15 @@ Page({
         url: '/pages/confirmOrder/confirmOrder?orderArr=' + orderArr,
       })
     }
+    
   },
   //加入购物车
   addShopCart: function () {
+    //判断用户是否授权登陆
+    if (!wx.getStorageSync('userid')) {
+      app.NoLogin("请先登陆授权后在来加入购物车哟！");
+      return;
+    }
     if (this.data.PurchaseMsgIdx == null) {
       wx.showToast({
         icon: 'none',
@@ -330,6 +345,11 @@ Page({
   },
   //加入收藏
   addShopCollection:function(){
+    //判断用户是否授权登陆
+    if (!wx.getStorageSync('userid')) {
+      app.NoLogin("请先登陆授权后在来加入收藏哟！");
+      return;
+    }
     let _this = this;
     wx.showLoading({
       title: '加载中',
@@ -371,6 +391,11 @@ Page({
   },
   //取消收藏
   deleteShopCollection:function(){
+    //判断用户是否授权登陆
+    if (!wx.getStorageSync('userid')) {
+      app.NoLogin("请先登陆授权后在来取消收藏哟！");
+      return;
+    }
     let _this = this;
     wx.showLoading({
       title: '加载中',

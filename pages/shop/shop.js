@@ -22,13 +22,27 @@ Page({
     shopItem: null,  //选中商品项
     PurchaseMsgIdx: null,  //选中购买项 
     num:1,  //数量
+    recomdList: [],  //商家推荐商品列表
+    publicImgUrl: app.globalData.publicImgUrl,  //公共图片路径
+    categoryList:[],  //整外专场、微整专场、皮肤专场等商品列表
+  },
+  onShow: function(){
+    if (typeof this.getTabBar === 'function' &&
+      this.getTabBar()) {
+      this.getTabBar().setData({
+        selected: 1
+      })
+    }
   },
   onLoad: function () {
     //获取商品分类列表
     this.getCommodityMenuList();
     //获取商品列表
     this.getCommodityList();
-
+    //获取推荐商品列表
+    this.getRecomdCommodityList();
+     //获取整外专场、微整专场、皮肤专场信息
+    this.getSpecializedList();
     if (app.globalData.userInfo) {
       this.setData({
         userInfo: app.globalData.userInfo,
@@ -184,6 +198,45 @@ Page({
       }
     })
   },
+  //获取推荐商品列表
+  getRecomdCommodityList: function () {
+    let _this = this;
+    wx.showLoading({
+      title: '加载中',
+    })
+    wx.request({
+      url: app.globalData.shopRequestUrl + "Commodity/getRecomdCommodityList",
+      data: {
+      
+      },
+      header: {
+        "Content-Type": "application/x-www-form-urlencoded"
+      },
+      method: 'POST',
+      success: function (result) {
+        let results = result.data;
+        // console.log(results);
+        if (results.success == true) {
+          _this.setData({
+            recomdList: results.data,
+          })
+        } else {
+          _this.setData({
+            recomdList: []
+          })
+        }
+      },
+      fail: function (err) {
+        wx.showToast({
+          icon: 'none',
+          title: '网络似乎走丢了哟',
+        })
+      },
+      complete: function () {
+        wx.hideLoading();
+      }
+    })
+  },
   //上拉加载更多数据
   onReachBottom: function () {
     if (this.data.pageIndex == this.data.sumPage) {
@@ -261,6 +314,11 @@ Page({
   },
   //跳转到提交订单页面
   goConfirmOrder:function(){
+    //判断用户是否授权登陆
+    if (!wx.getStorageSync('userid')) {
+      app.NoLogin("请先登陆授权后在来购买哟！");
+      return;
+    }
     if (this.data.PurchaseMsgIdx==null){
       wx.showToast({
         icon: 'none',
@@ -280,6 +338,11 @@ Page({
   },
   //加入购物车
   addShopCart:function(){
+    //判断用户是否授权登陆
+    if (!wx.getStorageSync('userid')) {
+      app.NoLogin("请先登陆授权后在来加入购物车哟！");
+      return;
+    }
     if (this.data.PurchaseMsgIdx == null) {
       wx.showToast({
         icon: 'none',
@@ -336,5 +399,44 @@ Page({
       title: "商品列表",
       path: '/pages/shop/shop'
     }
+  },
+  //获取整外专场、微整专场、皮肤专场信息
+  getSpecializedList: function () {
+    let _this = this;
+    wx.showLoading({
+      title: '加载中',
+    })
+    wx.request({
+      url: app.globalData.shopRequestUrl + "Commodity/getSpecializedList",
+      data: {
+
+      },
+      header: {
+        "Content-Type": "application/x-www-form-urlencoded"
+      },
+      method: 'POST',
+      success: function (result) {
+        let results = result.data;
+        console.log(results);
+        if (results.success == true) {
+          _this.setData({
+            categoryList: results.data,
+          })
+        } else {
+          _this.setData({
+            categoryList: []
+          })
+        }
+      },
+      fail: function (err) {
+        wx.showToast({
+          icon: 'none',
+          title: '网络似乎走丢了哟',
+        })
+      },
+      complete: function () {
+        wx.hideLoading();
+      }
+    })
   },
 })

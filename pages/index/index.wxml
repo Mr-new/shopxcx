@@ -1,84 +1,221 @@
 <!--index.wxml-->
 <view class="container">
-  <swiper class='swiper' indicator-dots="{{indicatorDots}}" 
+  
+  <view class="headerFixed" style="height:{{statusBarHeight+78}}px; background:url({{publicImgUrl + 'zhounianqing_banner.jpg?id=99'}}) no-repeat; background-size: 100%;">
+    <view style="margin-top: {{statusBarHeight+10}}px">
+      <image src="{{publicImgUrl}}yestar_title.png?id=11" mode="widthFix"></image>
+      <text>西安艺星医疗美容医院</text>
+    </view>
+    <view class="navList">
+      <scroll-view scroll-x="true">
+        <block wx:for="{{headerOption}}" wx:key="{{index}}">
+          <view bindtap='selectedNavItem' data-item="{{item}}" class="navItem {{item.id==idx ? 'selected' : ''}}" data-id="{{item.id}}">
+            {{item.title}}
+          </view>
+        </block>
+      </scroll-view>
+    </view> 
+  </view>
+  <view class="bannerImg" bindtap="goWebView">
+    <image src="{{publicImgUrl}}zhounianqing_banner.jpg?id=90" mode="widthFix" />
+    <image src="{{publicImgUrl}}zhounianqing_titile.png" mode="widthFix"></image>
+  </view>
+  
+  <!-- <swiper class='swiper' style='height:{{Hei}}' indicator-dots="{{indicatorDots}}" 
         autoplay="{{autoplay}}" indicator-active-color='#ffffff' indicator-color='rgba(255,255,255,0.5)' interval="{{interval}}" duration="{{duration}}" circular="true"> 
       <block wx:for="{{bannerList}}" wx:key="index"> 
-        <swiper-item> 
-          <navigator url='/pages/bannerDetails/bannerDetails?id={{item.id}}'>
-            <image src="{{item.imgUrl}}" class="slide-image" mode='widthFix' /> 
+        <swiper-item wx:if="{{index==1}}"> 
+         
+          <navigator bindtap="goDoct">
+            <image src="{{item.imgUrl}}" bindload='imgH' class="slide-image" mode='widthFix' /> 
           </navigator>
         </swiper-item> 
+        <swiper-item wx:else> 
+          
+          <button open-type="contact" style="border-radius: 0;">
+            <image src="{{item.imgUrl}}" bindload='imgH' class="slide-image" mode='widthFix' /> 
+          </button>
+        </swiper-item> 
       </block>
-  </swiper>
-  <view class='menu'>
-    <block wx:for="{{menuList}}" wx:key="index">
-      <navigator url='{{item.url}}' bindtap="{{item.id==4 ? 'goMap' : 'showTos'}}" data-url="{{item.url}}">
-        <image src="{{item.img}}" mode="widthFix"></image>
-        <text style="color:{{item.fontcolor ? item.fontcolor : '#333333'}}">{{item.title}}</text>
-        <text style="color:{{item.fontcolor ? item.fontcolor : '#333333'}}">{{item.engtitle}}</text>
-      </navigator>
-    </block>
-  </view>
-  <view class='content'>
-    <!-- <view class='top'>
-      <navigator>
-        <image mode='widthFix' src='http://xaxcx.17mall.cc/Public/uploadImages/default/huodong_02.png'></image>
-      </navigator>
-      <view>
-        <text>AAAAA级医疗美容医院</text>
-        <view>
-          <block wx:for="{{details}}" wx:key="index">
-            <navigator>
-              <image src='{{item.src}}' mode='widthFix'></image>
-            </navigator>
-          </block>
-        </view>
-      </view>
-    </view> -->
-    <view class='bottom'>
-      <view class='header'>
-        <text>热门爆品</text>
-        <image src='http://xaxcx.17mall.cc/Public/uploadImages/default/xing.png' mode='widthFix'></image>
-      </view>
-      <view class='list'> 
-        <block wx:for="{{baopin}}" wx:key="index">
-          <navigator url='/pages/shopDetails/shopDetails?shopId={{item.id}}'>
-            <image src='{{item.thumbnailUrl}}' mode='widthFix'></image>
-            <view>
-              <text>{{item.name}}</text>
-              <!-- <text>{{item.title}}</text> -->
-            </view>
-            <view>
-              <view>
-                ￥<text>{{item.specslist[item.specslist.length-1].price}}</text>元
-              </view>
-              <!-- <text>立即购买</text> -->
-            </view>
-          </navigator>
-        </block>
-        <!-- <view class='more'>
-          <navigator>
-            <text>查看更多 ></text>
-          </navigator>
-        </view> -->
-      </view>
-    </view>
-  </view>
-  <view class='case'>
-    <view class='title'>
-      <view>
-        <text>日记</text>
-      </view>
-    </view>
-    <view class='caseMenu'>
-      <block wx:for="{{caseMenu}}" wx:key="index">
-        <navigator bindtap='goCase' data-id="{{item.id}}">
-          <image src='{{item.imgUrl}}' mode='widthFix'></image>
-          <text>{{item.title}}</text>
+  </swiper> -->
+  <view class="hdback">
+    <image src="{{publicImgUrl}}zhounianqingbackimg.jpg?id=41" mode="widthFix"></image>
+    <view class='menu'>
+      <block wx:for="{{menuList}}" wx:key="index">
+        <navigator url='{{item.url}}' bindtap="{{item.id==4 ? 'goMap' : 'showTos'}}" data-url="{{item.url}}">
+          <image src="{{item.img}}" mode="widthFix"></image>
+          <text style="color:{{item.fontcolor ? item.fontcolor : '#333333'}}">{{item.title}}</text>
+          <text style="color:{{item.fontcolor ? item.fontcolor : '#333333'}}">{{item.engtitle}}</text>
         </navigator>
       </block>
     </view>
-    <view class='caseList'>
+    <view class="huichang">
+      <navigator bindtap="goWebView">
+        <image src="{{publicImgUrl}}zhounianqing_left.png?id=9" mode="widthFix"></image>
+      </navigator>
+      <navigator bindtap="goWebView">
+        <image src="{{publicImgUrl}}zhounianqing_center.png" mode="widthFix"></image>
+      </navigator>
+      <navigator bindtap="goWebView">
+        <image src="{{publicImgUrl}}zhounianqing_right.png?id=1" mode="widthFix"></image>
+      </navigator>
+    </view>
+
+    <view class='content'>
+      <!-- <view class='top'>
+        <navigator>
+          <image mode='widthFix' src='http://xaxcx.17mall.cc/Public/uploadImages/default/huodong_02.png'></image>
+        </navigator>
+        <view>
+          <text>AAAAA级医疗美容医院</text>
+          <view>
+            <block wx:for="{{details}}" wx:key="index">
+              <navigator>
+                <image src='{{item.src}}' mode='widthFix'></image>
+              </navigator>
+            </block>
+          </view>
+        </view>
+      </view> -->
+      <view class='bottom'>
+        <!-- <view class='header'>
+          <text>热门爆品</text>
+          <image src='{{publicImgUrl}}xing.png' mode='widthFix'></image>
+        </view> -->
+        
+
+
+        <view class='list'>
+          <swiper class='goodsSwiper' indicator-dots="{{indicatorDots}}" 
+        autoplay="{{autoplay}}" indicator-active-color='#FFB7D4' indicator-color='#FFE3EE' interval="{{interval}}" duration="{{duration}}" circular="true"> 
+              <block wx:for="{{baopin}}" wx:key="{{index}}"> 
+                <swiper-item class="goodsPage">
+                  <block wx:for="{{item}}" wx:key="{{index}}">
+                    <navigator url='/pages/shopDetails/shopDetails?shopId={{item.id}}'>
+                      <image src='{{item.thumbnailUrl}}' bindload='imgH' class="slide-image" mode='widthFix'></image>
+                    </navigator>
+                  </block> 
+                </swiper-item> 
+              </block>
+          </swiper> 
+          <!-- <block wx:for="{{baopin}}" wx:key="index">
+            <navigator url='/pages/shopDetails/shopDetails?shopId={{item.id}}'>
+              <image src='{{item.thumbnailUrl}}' mode='widthFix'></image>
+              <view>
+                <text>{{item.name}}</text>
+              </view>
+              <view>
+                <text>￥{{item.specslist[item.specslist.length-1].price}}</text>
+                <text>已售{{item.salenumber}}件</text>
+              </view>
+            </navigator>
+          </block> -->
+          <!-- <view class='more'>
+            <navigator>
+              <text>查看更多 ></text>
+            </navigator>
+          </view> -->
+        </view>
+      </view>
+    </view>
+  </view>
+  
+  <view class="activityImg">
+    <view>
+      <navigator target="miniProgram" url="/pages/groupon/list/list" app-id="wx6f4dff03fc7e3934">
+        <image src="{{publicImgUrl}}pintuan.png" mode="widthFix"></image>
+      </navigator>
+    </view>
+    <view>
+      <navigator url="/pages/seckillList/seckillList">
+        <image src="{{publicImgUrl}}miaosha.png" mode="widthFix"></image>
+      </navigator>
+      <navigator bindtap="showM">
+        <image src="{{publicImgUrl}}kanjia.png" mode="widthFix"></image>
+      </navigator>
+    </view>
+  </view>
+  <view class='case'>
+    <view class='caseNavList'>
+      <scroll-view scroll-x="true">
+        <block wx:for="{{navList}}" wx:key="index">
+          <view bindtap='selectedCaseNavItem' class="caseNavItem {{item.id==caseIdx ? 'caseSelected' : ''}}" data-id="{{item.id}}">
+            {{item.title}}
+          </view>
+        </block>
+      </scroll-view>
+    </view>
+    <view class="diaryList">
+      <view class="ListWrap">
+        <block wx:for="{{caseList}}" wx:if="{{index%2==0}}" wx:key="index">
+          <view class='listItem' data-caseid="{{item.id}}" bindtap='goCaseDetails'>
+            <view class="imgWrap">
+              <image src="{{item.afterImgUrl}}" mode="widthFix"></image>
+              <view>
+                <text>{{item.project}}</text>
+                <image src="{{item.imglist[0]}}" mode="widthFix"></image>
+              </view>
+            </view>
+            <text>{{item.title}}</text>
+            <view class="itemBottom">
+              <view>
+                <image src='{{HospitalMsg.logo}}'></image>
+                <text>{{HospitalMsg.hospitalname}}</text>
+              </view>
+              <view catchtap='delfabulous' data-id='{{item.id}}' data-index="{{index}}" wx:if="{{item.isFabulous}}">
+                <text class='iconfont icon-dianzan' style='font-size:11pt; color:#E45452'></text>
+                <text>{{item.fabulousnumber}}</text>
+              </view>
+              <view catchtap='addfabulous' data-id='{{item.id}}' data-index="{{index}}" wx:else>
+                <text class='iconfont icon-dianzan1'></text>
+                <text>{{item.fabulousnumber}}</text>
+              </view>
+
+            </view>
+          </view>
+        </block>
+      </view>
+      <view class="ListWrap" wx:if="{{caseList.length>0}}">
+        <block wx:for="{{caseList}}" wx:if="{{index%2==1}}" wx:key="index">
+          <view class='listItem' data-caseid="{{item.id}}" bindtap='goCaseDetails'>
+            <view class="imgWrap">
+              <image src="{{item.afterImgUrl}}" mode="widthFix"></image>
+              <view>
+                <text>{{item.project}}</text>
+                <image src="{{item.imglist[0]}}" mode="widthFix"></image>
+              </view>
+            </view>
+            <text>{{item.title}}</text>
+            <view class="itemBottom">
+              <view>
+                <image src='{{HospitalMsg.logo}}'></image>
+                <text>{{HospitalMsg.hospitalname}}</text>
+              </view>
+              <view catchtap='delfabulous' data-id='{{item.id}}' data-index="{{index}}" wx:if="{{item.isFabulous}}">
+                <text class='iconfont icon-dianzan' style='font-size:11pt; color:#E45452'></text>
+                <text>{{item.fabulousnumber}}</text>
+              </view>
+              <view catchtap='addfabulous' data-id='{{item.id}}' data-index="{{index}}" wx:else>
+                <text class='iconfont icon-dianzan1'></text>
+                <text>{{item.fabulousnumber}}</text>
+              </view>
+
+            </view>
+          </view>
+        </block>
+      </view>
+      <!-- 暂无数据 -->
+      <view class='isNull' wx:else>
+        <text class='iconfont icon-zanwushuju'></text>
+        <text>暂无数据</text>
+      </view>  
+      <view class='showMore' data-id="0" bindtap='goCase'>
+        <text decode="{{true}}">查看更多&nbsp;&nbsp;></text>
+      </view>
+    </view>  
+
+
+    <!-- <view class='caseList'>
       <block wx:for="{{caseList}}" wx:key="index">
         <navigator url='/pages/caseDetails/caseDetails?caseId={{item.id}}'>
           <view class='caseList_top'>
@@ -105,20 +242,11 @@
               <image src='http://xaxcx.17mall.cc/Public/uploadImages/default/doctor.png' mode='widthFix'></image>
               <text>主治医生：{{item.doctor}}</text>
             </view>
-            <!-- <view>
-              <text>{{item.productName}}</text>
-              <view>
-                <text>￥{{item.price}}</text>
-                <image src='http://xaxcx.17mall.cc/Public/uploadImages/default/addCart_03.png' mode='widthFix'></image>
-              </view>
-            </view> -->
           </view>
         </navigator>
       </block>
-      <view class='showMore' data-id="0" bindtap='goCase'>
-        <text decode="{{true}}">查看更多&nbsp;&nbsp;></text>
-      </view>
-    </view>
+      
+    </view> -->
   </view>
   <view class='footer'>
     <view>
@@ -134,7 +262,7 @@
     </view>
     <view class='footer_bottom'>
       <view>
-        <view class='topTitle'>
+        <view class='topTitle' style="margin-top: 20rpx;">
           <view>
             <text>医院环境</text>
           </view>
@@ -149,53 +277,51 @@
         </view>
         <view>
           <view>
-            <image src='http://xaxcx.17mall.cc/Public/uploadImages/default/hospital_1.png' mode='widthFix'></image>
+            <image src='{{publicImgUrl}}hospital_1.png' mode='widthFix'></image>
             <text>营业时间： {{HospitalMsg.time}}</text>
           </view>
           <view>
-            <image  bindtap='goMap' src='http://xaxcx.17mall.cc/Public/uploadImages/default/hospital_2.png' mode='widthFix'></image>
+            <image  bindtap='goMap' src='{{publicImgUrl}}hospital_2.png' mode='widthFix'></image>
             <text>地址： {{HospitalMsg.address}}</text>
           </view>
           <view bindtap='goTel' data-tel="{{HospitalMsg.tel}}">
-            <image src='http://xaxcx.17mall.cc/Public/uploadImages/default/hospital_3.png' mode='widthFix'></image>
+            <image src='{{publicImgUrl}}hospital_3.png' mode='widthFix'></image>
             <text>点击拨打电话： {{HospitalMsg.tel}}</text>
           </view>
           <view bindtap='goMap' data-lng='{{HospitalMsg.lng}}' data-lat='{{HospitalMsg.lat}}'>
-            <image src='http://xaxcx.17mall.cc/Public/uploadImages/default/hospital_4.png' mode='widthFix'></image>
+            <image src='{{publicImgUrl}}hospital_4.png' mode='widthFix'></image>
             <text>点击导航到院</text>
           </view>
         </view>
       </view>
     </view>
   </view>
-  <view class="rightMenu" style="right:{{rightMenuShow ? '0' : '-80rpx'}}">
-    <view bindtap='hideRightMenu'>
-      <image src='http://xaxcx.17mall.cc/Public/uploadImages/default/icon_03.png' mode='widthFix'></image>
-    </view>
-    <view bindtap='goMy'>
-      <image src='http://xaxcx.17mall.cc/Public/uploadImages/default/icon_06.png' mode='widthFix'></image>
-    </view>
-    <view bindtap='goTel' data-tel="{{HospitalMsg.tel}}">
-      <image src='http://xaxcx.17mall.cc/Public/uploadImages/default/icon_08.png' mode='widthFix'></image>
-    </view>
-    <view class='line'></view>
-    <button open-type="contact">
-       <image src='http://xaxcx.17mall.cc/Public/uploadImages/default/icon_10.png' mode='widthFix'></image>
+  
+  <!-- 侧边栏 -->
+  <view class="rightMenu" wx:if="{{rightMenuShow}}">
+    <button bindtap="goOnline">
+      <image src="{{publicImgUrl}}yuyue.png" mode="widthFix"></image>
+      <text>预约</text>
     </button>
-    <view bindtap='goTop'>
-      <image src='http://xaxcx.17mall.cc/Public/uploadImages/default/icon_top.png' mode='widthFix'></image>
-    </view>
-    <view class='line'></view>
-    <view bindtap='hideRightMenu'>
-      <image src='http://xaxcx.17mall.cc/Public/uploadImages/default/icon_hide.png' mode='widthFix'></image>
-    </view>  
+    <button bindtap='goTel' data-tel="{{HospitalMsg.tel}}">
+      <image src="{{publicImgUrl}}dianhua.png" mode="widthFix"></image>
+      <text>电话</text>
+    </button>
+    <button open-type="contact">
+      <image src="{{publicImgUrl}}kefu2.png" mode="widthFix"></image>
+      <text>客服</text>
+    </button>
+    <button bindtap="hideRightMenu">
+      <text class="iconfont icon-guanbi"></text>
+    </button>
   </view>
-  <view class='showRightMenuBtn' style="right:{{rightMenuShow ? '-80rpx' : '0'}}" bindtap='showRightMenu'>
-    <image src='http://xaxcx.17mall.cc/Public/uploadImages/default/icon_show_03.png' mode='widthFix'></image>
+  <view class="showMenu" style="right:{{floorstatus}}; background:url({{publicImgUrl + 'homeRight.png?id=99'}}); background-size:100% 100%;" animation="{{ani}}" bindtap="showRightMenu" wx:else>
   </view>
-  <button class='kefu' open-type="contact">
-    <image src='http://xaxcx.17mall.cc/Public/uploadImages/default/kefu.png' mode='widthFix'></image>
-    <text>客服</text>
-  </button>
+
   <!-- <text class='iconfont icon-sousuo' style='width:50rpx; height:50rpx; color:red'>111</text> -->
+  <!-- 周年庆弹框 -->
+  <view class="tankuang" wx:if="{{tankuang}}">
+    <image src="{{publicImgUrl}}tankuang.png?id=0" bindtap="goWebView" mode="widthFix"></image>
+    <image src="{{publicImgUrl}}close.png" bindtap="hidetankuang" mode="widthFix"></image>
+  </view>
 </view>

@@ -1,0 +1,77 @@
+<!--index.wxml-->
+<view class="container">
+  <view class="header">
+    <view class="header_top">
+      <view>
+        <text>砍价中</text>
+        <text wx:if="{{details.isuser}}">快邀请好友帮你砍吧，越砍越少！</text>
+        <text wx:else>帮好友立即砍价</text>
+      </view>
+      <image src="{{publicImgUrl}}kan_icon.jpg" mode="widthFix"></image>
+    </view>
+    <view class="header_bottom">
+      <image src="{{details.goods.thumbnailUrl}}" mode="widthFix"></image>
+      <view>
+        <text>{{details.goods.name}}</text>
+        <text>最低可砍至￥{{details.minprice}}</text>
+        <text>￥<text style="font-weight:bold; font-size:14pt;">{{details.minprice}}</text> <text style="text-decoration: line-through; color:#666666; margin-left:15rpx;">￥{{details.goods.defaultbargainprice}}</text></text>
+      </view>
+    </view>
+  </view>
+  <view class="content">
+    <view>剩余<text>{{countDownList[0].day}}</text>天<text>{{countDownList[0].hou}}</text>时<text>{{countDownList[0].min}}</text>分<text>{{countDownList[0].sec}}</text>秒结束</view>
+    <view>已砍至<text>￥{{details.price}}</text>还差<text>￥{{details.surplus}}</text></view>
+    <button open-type="share" wx:if="{{details.isuser}}">
+      <image src="{{publicImgUrl}}kanjia_icon_1.jpg" mode="widthFix"></image>
+      <text>邀请好友帮我砍价</text>
+    </button>
+    <button wx:else bindtap="doBargain">
+      <image src="{{publicImgUrl}}kanjia_icon_1.jpg" mode="widthFix"></image>
+      <text>帮好友立即砍价</text>
+    </button>
+    <view wx:if="{{details.isuser}}">
+      <image src="{{publicImgUrl}}kanjia_icon_2.jpg" mode="widthFix"></image>
+      <text>立即购买</text>
+    </view>
+    <view wx:else>
+      <image src="{{publicImgUrl}}kanjia_icon_2.jpg" mode="widthFix"></image>
+      <text>我也要砍</text>
+    </view>
+    <button open-type="share">
+      <image src="{{publicImgUrl}}kanjia_icon_3.jpg" mode="widthFix"></image>
+      <text>分享给好友</text>
+    </button>
+  </view>
+  <view class="footer">
+    <view class="tab">
+      <view>
+        <text data-id="1" bindtap="tabSwitch" class="{{idx == 1 ? 'selected' : ''}}">砍价帮</text>
+      </view>
+      <view>
+        <text data-id="2" bindtap="tabSwitch" class="{{idx == 2 ? 'selected' : ''}}">规则</text>
+      </view>
+    </view>
+    <view class="main">
+      <view class="list" wx:if="{{idx==1}}">
+        <view class="friendList">
+          <block wx:for="{{details.friendsList}}" wx:key="{{index}}">
+            <view class="item">
+              <view>
+                <image src="{{item.avatarurl}}"></image>
+                <text>{{item.nickname}}</text>
+              </view>
+              <text>帮砍{{item.price}}元</text>
+            </view>
+          </block>
+        </view>
+        <!-- <view class="nullFirend">
+          <text>还没有人帮你砍价，快邀请小伙伴帮忙吧！</text>
+        </view> -->
+      </view>
+      <view class="rule" wx:else>
+        <text>1.点击邀请好友参加砍价，分享给单个好友或群组。</text>
+        <text>2.你也可以立即购买对应的商品或者分享给其他好友，并且你也可以点击"我也要砍"，分享给你的好友帮你砍价。</text>
+      </view>
+    </view>
+  </view>
+</view>

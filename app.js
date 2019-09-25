@@ -5,8 +5,13 @@ App({
     //获取医院配置信息
     this.getHospitalMsg();  
     //检测用户是否授权
-    this.authorUserInfo();
-    
+    // this.authorUserInfo();
+    //获取用户设备状态栏高度并记录
+    wx.getSystemInfo({
+      success: function (res) {
+        _this.globalData.statusBarHeight = res.statusBarHeight;
+      }
+    })
 
 
 
@@ -105,49 +110,71 @@ App({
       })
     });
   },
-  //判断用户是否授权用户信息：如果为授权则跳转到授权页面，已授权则执行接下来操作
-  authorUserInfo:function(){
-    let userid=wx.getStorageSync('userid');
-    if(!userid){
-      console.log("未授权，跳转到授权页面")
-      wx.reLaunch({
-        url: '/pages/author/author',
-      })
-    }
-    wx.getSetting({
-      success: function (res) {
-        if (!res.authSetting['scope.userInfo']) {
-          console.log("未授权，跳转到授权页面")
-          wx.reLaunch({
-            url: '/pages/author/author',
-          })
-        }
-      },
-      fail:function(){
-        wx.reLaunch({
+  //未登陆:弹出提示框并跳转到登陆授权页面
+  NoLogin:function(msg){
+    wx.showModal({
+      title: '提示',
+      content: msg,
+      showCancel: false,
+      success: function () {
+        wx.navigateTo({
           url: '/pages/author/author',
         })
       }
     })
   },
+  //兼容ios时间转换
+  dateFromString:function(time){
+    time = time.replace(/-/g, ':').replace(' ', ':')
+    time = time.split(':')
+    var time1 = new Date(time[0], (time[1] - 1), time[2], time[3], time[4], time[5])
+    return time1
+  },
+  //判断用户是否授权用户信息：如果为授权则跳转到授权页面，已授权则执行接下来操作
+  // authorUserInfo:function(){
+  //   let userid=wx.getStorageSync('userid');
+  //   if(!userid){
+  //     console.log("未授权，跳转到授权页面")
+  //     // wx.reLaunch({
+  //     //   url: '/pages/author/author',
+  //     // })
+  //   }
+  //   wx.getSetting({
+  //     success: function (res) {
+  //       if (!res.authSetting['scope.userInfo']) {
+  //         console.log("未授权，跳转到授权页面")
+  //         // wx.reLaunch({
+  //         //   url: '/pages/author/author',
+  //         // })
+  //       }
+  //     },
+  //     fail:function(){
+  //       wx.reLaunch({
+  //         url: '/pages/author/author',
+  //       })
+  //     }
+  //   })
+  // },
 
   //全局变量
   globalData: {
+    statusBarHeight: 0,  //顶部状态栏高度
     userInfo: null,  //用户信息
     caseMenuIdx:0,  //日记选中菜单
+    wendaMenuIdx:0,  //颜值馆默认选中菜单
     frequency:0, //砸蛋次数
     // 砸金蛋接口地址
     // testRequestUrl:"http://shopxcx.com/index.php/Api/",  //测试地址
-    testRequestUrl: "https://xaxcx.17mall.cc/index.php/Api/",  //线上地址
+    testRequestUrl: "https://xaxcx.yixingtb.com/index.php/Api/",  //线上地址
     //健步挑战赛接口地址
     // stepRequestUrl: "http://shopxcx.com/index.php/Step/",  //测试地址
-    stepRequestUrl: "https://xaxcx.17mall.cc/index.php/Step/",  //线上地址
+    stepRequestUrl: "https://xaxcx.yixingtb.com/index.php/Step/",  //线上地址
     //公共图片路径
-    publicImgUrl: "https://xaxcx.17mall.cc/Public/uploadImages/default/",
+    publicImgUrl: "https://xaxcx.yixingtb.com/Public/uploadImages/default/",
     //商城接口地址
     // shopRequestUrl: "http://shopxcx.com/index.php/Shop/",  //测试地址
-    shopRequestUrl: "https://xaxcx.17mall.cc/index.php/Shop/",  //线上地址
+    shopRequestUrl: "https://xaxcx.yixingtb.com/index.php/Shop/",  //线上地址
     HospitalMsg:null, //医院基本信息配置
-    urlpath: "https://wxxcx.17mall.cc",
+    urlpath: "https://wxxcx.yixingtb.com",
   }
 })

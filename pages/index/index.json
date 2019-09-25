@@ -4,5 +4,6 @@
   "navigationBarTextStyle": "black",
   "navigationBarTitleText": "西安艺星医疗美容医院",
   "backgroundColor": "#eeeeee",
-  "backgroundTextStyle": "light"
+  "backgroundTextStyle": "light",
+  "navigationStyle": "custom"
 }

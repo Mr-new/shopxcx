@@ -1,0 +1,9 @@
+{
+  "usingComponents": {},
+  "navigationBarBackgroundColor": "#FB743D",
+  "navigationBarTextStyle": "white",
+  "navigationBarTitleText": "邀请好友砍价",
+  "backgroundColor": "#eeeeee",
+  "backgroundTextStyle": "light",
+  "enablePullDownRefresh": true
+}

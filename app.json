@@ -1,7 +1,11 @@
 {
   "pages": [
-    
     "pages/index/index",
+    "pages/seckillList/seckillList",
+    "pages/seckillDetails/seckillDetails",
+    "pages/bargainShare/bargainShare",
+    "pages/bargainList/bargainList",
+    "pages/bargainDetails/bargainDetails",
     "pages/confirmIntegralOrder/confirmIntegralOrder",
     "pages/integral/integral",
     "pages/integralDetails/integralDetails",
@@ -38,7 +42,11 @@
     "pages/couponDetails/couponDetails",
     "pages/yestarDetails/yestarDetails",
     "pages/doct/list/list",
-    "pages/doct/details/details"
+    "pages/doct/details/details",
+    "pages/yanzhi/yanzhi",
+    "pages/webView/webView",
+    "pages/askAnswer/askAnswer",
+    "pages/askDetails/askDetails"
     
   ],
   "window": {
@@ -48,6 +56,7 @@
     "navigationBarTextStyle": "black"
   },
   "tabBar": {
+
     "color": "#B2000B",
     "selectedColor": "#B2000B",
     "list": [
@@ -64,14 +73,14 @@
         "selectedIconPath": "/images/cart_selected.png"
       },
       {
-        "pagePath": "pages/doct/list/list",
-        "text": "医生",
+        "pagePath": "pages/webView/webView",
+        "text": "5A周年庆",
         "iconPath": "/images/doctor.png",
-        "selectedIconPath": "/images/doctor_selected.png"
+        "selectedIconPath": "/images/doctor.png"
       },
       {
-        "pagePath": "pages/case/case",
-        "text": "日记",
+        "pagePath": "pages/yanzhi/yanzhi",
+        "text": "颜值馆",
         "iconPath": "/images/case.png",
         "selectedIconPath": "/images/case_selected.png"
       },
@@ -86,5 +95,6 @@
   "sitemapLocation": "sitemap.json",
   "navigateToMiniProgramAppIdList": [
     "wx6f4dff03fc7e3934"
-  ]
+  ],
+  "usingComponents": {}
 }

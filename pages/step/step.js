@@ -1,12 +1,12 @@
 //index.js
 //获取应用实例
 const app = getApp()
-let PublicImgUrl = "https://xaxcx.17mall.cc/Public/uploadImages/default/";
+let PublicImgUrl = "https://xaxcx.yixingtb.com/Public/uploadImages/default/";
 Page({
   data: {
     motto: 'Hello World',
     userInfo: {},
-    imgUrl: "https://xaxcx.17mall.cc/Public/uploadImages/default/",
+    imgUrl: "https://xaxcx.yixingtb.com/Public/uploadImages/default/",
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
     sumStep:0,  //用户运动总步数
@@ -19,12 +19,12 @@ Page({
     myPrizeList: null,  //我的卡券列表
     issharepyq: false,  //是否显示保存分享图弹框
     shareQrImg:null,  //小程序二维码（包含userid）
-    shareCoverImg: 'https://xaxcx.17mall.cc/Public/uploadImages/default/step_share_back_01.png', // 分享封面图
+    shareCoverImg: 'https://xaxcx.yixingtb.com/Public/uploadImages/default/step_share_back_01.png', // 分享封面图
     isShowSharePage:false,  //是否显示分享页面
     isShowsy:true,  //是否显示剩余多少步达成下一个目标
     isLogin:true, //是否显示授权弹框
     isAuthor:1,  //授权状态：1仅显示用户信息授权，2仅显示用户手机号授权
-    src: "https://xaxcx.17mall.cc/Public/music/stepBackMusic.mp3",  //背景音乐地址
+    src: "https://xaxcx.yixingtb.com/Public/music/stepBackMusic.mp3",  //背景音乐地址
     isShowRole: false,  //是否显示规则弹框
     activityDetails: null,  //活动规则内容
   },
@@ -102,6 +102,16 @@ Page({
     })
   },
   onLoad: function (options) {
+    wx.showModal({
+      title: '提示',
+      content: '活动暂未开始哟！',
+      showCancel: false,
+      success: function () {
+        wx.navigateBack({
+
+        })
+      }
+    })
     this.getStepRules();
     let myAudio = wx.createAudioContext('myAudio');
     myAudio.play();  //自动播放背景音乐

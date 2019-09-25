@@ -13,11 +13,10 @@ Page({
   },
   
   onLoad: function () {
-    
-    
-    
+  
   },
   onShow: function(){
+    
     this.getCouponList();  //获取当前可领取优惠券列表
   },
   //获取当前可领取优惠券列表
@@ -72,6 +71,11 @@ Page({
   },
   //领取优惠券
   ReceiveCoupon:function(e){
+    //判断用户是否授权登陆
+    if (!wx.getStorageSync('userid')) {
+      app.NoLogin("请先登陆授权后在来领取优惠券哟！");
+      return;
+    }
     let _this = this;
     let couponid = e.currentTarget.dataset.couponid;
     wx.showLoading({
@@ -114,5 +118,13 @@ Page({
         wx.hideLoading();
       }
     })
-  }
+  },
+  //分享
+  onShareAppMessage(res) {
+    let _this = this;
+    return {
+      title: "优惠券列表",
+      path: '/pages/couponList/couponList'
+    }
+  },
 })

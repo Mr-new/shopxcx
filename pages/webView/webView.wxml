@@ -1,0 +1,174 @@
+<!--index.wxml-->
+<view class="container">
+  <view class="item">
+    <image src="{{publicImgUrl}}5a/tp_01.jpg" mode="widthFix"></image>
+    <button open-type="contact">
+      <image src="{{publicImgUrl}}5a/btn_03.png" mode="widthFix"></image>
+    </button>
+  </view>
+  <view class="item">
+    <image src="{{publicImgUrl}}5a/tp_02.jpg" mode="widthFix"></image>
+  </view>
+  <view class="item">
+    <image src="{{publicImgUrl}}5a/tp_03.jpg" mode="widthFix"></image>
+  </view>
+  <view class="item">
+    <image src="{{publicImgUrl}}5a/tp_04.jpg" mode="widthFix"></image>
+    <button open-type="contact" style="width:20%; left:13%; bottom: 20rpx;">
+      <image src="{{publicImgUrl}}5a/btn_09.png" mode="widthFix"></image>
+    </button>
+    <button open-type="contact" style="width:20%; left:40%; bottom: 20rpx;">
+      <image src="{{publicImgUrl}}5a/btn_09.png" mode="widthFix"></image>
+    </button>
+    <button open-type="contact" style="width:20%; left:67%; bottom: 20rpx;">
+      <image src="{{publicImgUrl}}5a/btn_09.png" mode="widthFix"></image>
+    </button>
+  </view>
+  <view class="item">
+    <image src="{{publicImgUrl}}5a/tp_05.jpg" mode="widthFix"></image>
+    <button open-type="contact" style="width:20%; left:13%; bottom: 20rpx;">
+      <image src="{{publicImgUrl}}5a/btn_09.png" mode="widthFix"></image>
+    </button>
+    <button open-type="contact" style="width:20%; left:40%; bottom: 20rpx;">
+      <image src="{{publicImgUrl}}5a/btn_09.png" mode="widthFix"></image>
+    </button>
+    <button open-type="contact" style="width:20%; left:67%; bottom: 20rpx;">
+      <image src="{{publicImgUrl}}5a/btn_09.png" mode="widthFix"></image>
+    </button>
+  </view>
+  <view class="item">
+    <image src="{{publicImgUrl}}5a/tp_06.jpg" mode="widthFix"></image>
+    <button open-type="contact" style="width:20%; left:13%; bottom: 95rpx;">
+      <image src="{{publicImgUrl}}5a/btn_09.png" mode="widthFix"></image>
+    </button>
+    <button open-type="contact" style="width:20%; left:40%; bottom: 95rpx;">
+      <image src="{{publicImgUrl}}5a/btn_09.png" mode="widthFix"></image>
+    </button>
+    <button open-type="contact" style="width:20%; left:67%; bottom: 95rpx;">
+      <image src="{{publicImgUrl}}5a/btn_09.png" mode="widthFix"></image>
+    </button>
+  </view>
+  <view class="item">
+    <image src="{{publicImgUrl}}5a/tp_07.jpg" mode="widthFix"></image>
+  </view>
+  <view class="item">
+    <image src="{{publicImgUrl}}5a/tp_08.jpg" mode="widthFix"></image>
+    <button open-type="contact" style="width:23%; right: 11%; bottom: 75rpx;">
+      <image src="{{publicImgUrl}}5a/btn_14.png" mode="widthFix"></image>
+    </button>
+  </view>
+  <view class="item">
+    <image src="{{publicImgUrl}}5a/tp_09.jpg" mode="widthFix"></image>
+    <button open-type="contact" style="width:23%; right: 11%; bottom: 75rpx;">
+      <image src="{{publicImgUrl}}5a/btn_14.png" mode="widthFix"></image>
+    </button>
+  </view>
+  <view class="item">
+    <image src="{{publicImgUrl}}5a/tp_10.jpg" mode="widthFix"></image>
+    <button open-type="contact" style="width:23%; right: 11%; bottom: 95rpx;">
+      <image src="{{publicImgUrl}}5a/btn_14.png" mode="widthFix"></image>
+    </button>
+  </view>
+  <view class="item">
+    <image src="{{publicImgUrl}}5a/tp_11.jpg" mode="widthFix"></image>
+    <button open-type="contact" style="width:44%; right: 28%; bottom: 55rpx;">
+      <image src="{{publicImgUrl}}5a/btn_18.png" mode="widthFix"></image>
+    </button>
+  </view>
+  <view class="item">
+    <image src="{{publicImgUrl}}5a/tp_12.jpg" mode="widthFix"></image>
+  </view>
+  <view class="item">
+    <image src="{{publicImgUrl}}5a/tp_13.jpg" mode="widthFix"></image>
+    <button open-type="contact" style="width:23%; right: 11%; bottom: 50rpx;">
+      <image src="{{publicImgUrl}}5a/btn_14.png" mode="widthFix"></image>
+    </button>
+  </view>
+  <view class="item">
+    <image src="{{publicImgUrl}}5a/tp_14.jpg" mode="widthFix"></image>
+    <button open-type="contact" style="width:23%; right: 11%; bottom: 75rpx;">
+      <image src="{{publicImgUrl}}5a/btn_14.png" mode="widthFix"></image>
+    </button>
+  </view>
+  <view class="item">
+    <image src="{{publicImgUrl}}5a/tp_15.jpg" mode="widthFix"></image>
+    <button open-type="contact" style="width:23%; right: 11%; bottom: 75rpx;">
+      <image src="{{publicImgUrl}}5a/btn_14.png" mode="widthFix"></image>
+    </button>
+  </view>
+  <view class="item">
+    <image src="{{publicImgUrl}}5a/tp_16.jpg" mode="widthFix"></image>
+    <button open-type="contact" style="width:44%; right: 28%; bottom: 55rpx;">
+      <image src="{{publicImgUrl}}5a/btn_23.png" mode="widthFix"></image>
+    </button>
+  </view>
+  <view class="item">
+    <image src="{{publicImgUrl}}5a/tp_17.jpg" mode="widthFix"></image>
+  </view>
+  <view class="item">
+    <image src="{{publicImgUrl}}5a/tp_18.jpg" mode="widthFix"></image>
+    <button open-type="contact" style="width:22%; left:19%; bottom: 75rpx;">
+      <image src="{{publicImgUrl}}5a/btn_14.png" mode="widthFix"></image>
+    </button>
+    <button open-type="contact" style="width:22%; right:19%; bottom: 75rpx;">
+      <image src="{{publicImgUrl}}5a/btn_14.png" mode="widthFix"></image>
+    </button>
+  </view>
+  <view class="item">
+    <image src="{{publicImgUrl}}5a/tp_19.jpg" mode="widthFix"></image>
+    <button open-type="contact" style="width:44%; right: 28%; bottom: 75rpx;">
+      <image src="{{publicImgUrl}}5a/btn_28.png" mode="widthFix"></image>
+    </button>
+  </view>
+  <view class="item">
+    <image src="{{publicImgUrl}}5a/tp_20.jpg" mode="widthFix"></image>
+  </view>
+  <view class="item">
+    <image src="{{publicImgUrl}}5a/tp_21.jpg" mode="widthFix"></image>
+    <button open-type="contact" style="width:23%; right: 11%; bottom: 75rpx;">
+      <image src="{{publicImgUrl}}5a/btn_14.png" mode="widthFix"></image>
+    </button>
+  </view>
+  <view class="item">
+    <image src="{{publicImgUrl}}5a/tp_22.jpg" mode="widthFix"></image>
+    <button open-type="contact" style="width:23%; right: 11%; bottom: 75rpx;">
+      <image src="{{publicImgUrl}}5a/btn_14.png" mode="widthFix"></image>
+    </button>
+  </view>
+  <view class="item">
+    <image src="{{publicImgUrl}}5a/tp_23.jpg" mode="widthFix"></image>
+    <button open-type="contact" style="width:23%; right: 11%; bottom: 75rpx;">
+      <image src="{{publicImgUrl}}5a/btn_14.png" mode="widthFix"></image>
+    </button>
+  </view>
+  <view class="item">
+    <image src="{{publicImgUrl}}5a/tp_24.jpg" mode="widthFix"></image>
+    <button open-type="contact" style="width:23%; right: 11%; bottom: 85rpx;">
+      <image src="{{publicImgUrl}}5a/btn_14.png" mode="widthFix"></image>
+    </button>
+  </view>
+  <view class="item">
+    <image src="{{publicImgUrl}}5a/tp_25.jpg" mode="widthFix"></image>
+    <button open-type="contact" style="width:54%; right: 23%; bottom: 35rpx;">
+      <image src="{{publicImgUrl}}5a/btn_33.png" mode="widthFix"></image>
+    </button>
+  </view>
+  <view class="item">
+    <image src="{{publicImgUrl}}5a/tp_26.jpg" mode="widthFix"></image>
+  </view>
+  <view class="item">
+    <image src="{{publicImgUrl}}5a/tp_27.jpg" mode="widthFix"></image>
+    <button open-type="contact" style="width:44%; right: 28%; bottom: 75rpx;">
+      <image src="{{publicImgUrl}}5a/btn_39.png" mode="widthFix"></image>
+    </button>
+  </view>
+   <view class="item">
+    <image src="{{publicImgUrl}}5a/tp_28.jpg" mode="widthFix"></image>
+  </view>
+  <view class="item">
+    <image src="{{publicImgUrl}}5a/tp_29.jpg" mode="widthFix"></image>
+    <button open-type="contact" style="width:44%; right: 28%; bottom: 55rpx;">
+      <image src="{{publicImgUrl}}5a/btn_44.png" mode="widthFix"></image>
+    </button>
+  </view>
+</view>

@@ -2,178 +2,178 @@
 icon.icon,icon{background-position:center;background-repeat: no-repeat;background-size: 100% auto;}
 
 /* pages/search/search.wxss */
-.search_head .search-bar .icon-search{background-image: url(https://wxxcx.17mall.cc/images/icon/icon-search.svg);}
-.search_keyword .clear_history_search{background-image: url(https://wxxcx.17mall.cc/images/icon/icon_delete.svg);}
+.search_head .search-bar .icon-search{background-image: url(https://wxxcx.yixingtb.com/images/icon/icon-search.svg);}
+.search_keyword .clear_history_search{background-image: url(https://wxxcx.yixingtb.com/images/icon/icon_delete.svg);}
 
 /**** BottomNavigation ***/
-.BottomNavigation .nav.consultation text::before{background-image: url(https://wxxcx.17mall.cc/images/icon/icon_BottomNavigation_consultation.svg);}
-.BottomNavigation .nav.online text::before{background-image: url(https://wxxcx.17mall.cc/images/icon/icon_online.svg);}
+.BottomNavigation .nav.consultation text::before{background-image: url(https://wxxcx.yixingtb.com/images/icon/icon_BottomNavigation_consultation.svg);}
+.BottomNavigation .nav.online text::before{background-image: url(https://wxxcx.yixingtb.com/images/icon/icon_online.svg);}
 /**** BottomNavigation end ***/
 /*** index **/
-.search .location .icon-location{background-image: url(https://wxxcx.17mall.cc/images/icon/color-3bccbd/location.svg);}
-.search .search-bar .icon-search{background-image: url(https://wxxcx.17mall.cc/images/icon/icon-search.svg);}
+.search .location .icon-location{background-image: url(https://wxxcx.yixingtb.com/images/icon/color-3bccbd/location.svg);}
+.search .search-bar .icon-search{background-image: url(https://wxxcx.yixingtb.com/images/icon/icon-search.svg);}
 
-.index_doctor .title icon{background-image: url(https://wxxcx.17mall.cc/images/icon/icon_index_doctor.svg);}
-.tc .tc_body .close::before{background-image: url(https://wxxcx.17mall.cc/images/icon/icon_close.svg);}
-.case_body .case_li .label::before{background-image: url(https://wxxcx.17mall.cc/images/icon/icon_index_label.svg);}
-.case_body .case_li .parameter view icon.browse{background-image: url(https://wxxcx.17mall.cc/images/icon/icon_index_browse.svg);background-size:auto 100%;}
-.case_body .case_li .parameter view icon.comment{background-image: url(https://wxxcx.17mall.cc/images/icon/icon_index_comment.svg);}
-.case_body .case_li .parameter view icon.fabulous{background-image: url(https://wxxcx.17mall.cc/images/icon/icon_index_fabulous.svg);background-size:auto 95%;}
+.index_doctor .title icon{background-image: url(https://wxxcx.yixingtb.com/images/icon/icon_index_doctor.svg);}
+.tc .tc_body .close::before{background-image: url(https://wxxcx.yixingtb.com/images/icon/icon_close.svg);}
+.case_body .case_li .label::before{background-image: url(https://wxxcx.yixingtb.com/images/icon/icon_index_label.svg);}
+.case_body .case_li .parameter view icon.browse{background-image: url(https://wxxcx.yixingtb.com/images/icon/icon_index_browse.svg);background-size:auto 100%;}
+.case_body .case_li .parameter view icon.comment{background-image: url(https://wxxcx.yixingtb.com/images/icon/icon_index_comment.svg);}
+.case_body .case_li .parameter view icon.fabulous{background-image: url(https://wxxcx.yixingtb.com/images/icon/icon_index_fabulous.svg);background-size:auto 95%;}
 
-.case_body .case_li .case_video::before{background-image:url(https://wxxcx.17mall.cc/images/icon/icon_video_play_btn.png); }
+.case_body .case_li .case_video::before{background-image:url(https://wxxcx.yixingtb.com/images/icon/icon_video_play_btn.png); }
 /** pages/doct/index/index.wxss **/
-.doct_li .hospital .hospital_info .hospital_address icon{background-image:url(https://wxxcx.17mall.cc/images/icon/icon_doct_list_address.svg);}
-.doct_li .hospital .hospital_info .btn_tel icon{background-image:url(https://wxxcx.17mall.cc/images/contact-wechat.svg); }
-.doct_li .doctor_btn .browse icon{background-image:url(https://wxxcx.17mall.cc/images/icon/icon_doct_list_browse.svg); }
-.doct_li .doctor_btn .praise icon{background-image:url(https://wxxcx.17mall.cc/images/icon/icon_doct_list_praise.svg); }
-.doct_li .doctor_btn .praise.have icon{background-image:url(https://wxxcx.17mall.cc/images/icon/icon_doct_list_praise_have.svg); }
-.doct_li .doctor_btn .look icon{background-image:url(https://wxxcx.17mall.cc/images/icon/icon_doct_list_look.svg); }
+.doct_li .hospital .hospital_info .hospital_address icon{background-image:url(https://wxxcx.yixingtb.com/images/icon/icon_doct_list_address.svg);}
+.doct_li .hospital .hospital_info .btn_tel icon{background-image:url(https://wxxcx.yixingtb.com/images/contact-wechat.svg); }
+.doct_li .doctor_btn .browse icon{background-image:url(https://wxxcx.yixingtb.com/images/icon/icon_doct_list_browse.svg); }
+.doct_li .doctor_btn .praise icon{background-image:url(https://wxxcx.yixingtb.com/images/icon/icon_doct_list_praise.svg); }
+.doct_li .doctor_btn .praise.have icon{background-image:url(https://wxxcx.yixingtb.com/images/icon/icon_doct_list_praise_have.svg); }
+.doct_li .doctor_btn .look icon{background-image:url(https://wxxcx.yixingtb.com/images/icon/icon_doct_list_look.svg); }
 
-.doct_head .introduce .browse icon{background-image:url(https://wxxcx.17mall.cc/images/icon/icon_doct_details_browse.svg);}
-.doct_head .introduce .praise icon{background-image:url(https://wxxcx.17mall.cc/images/icon/icon_doct_details_praise.svg);}
+.doct_head .introduce .browse icon{background-image:url(https://wxxcx.yixingtb.com/images/icon/icon_doct_details_browse.svg);}
+.doct_head .introduce .praise icon{background-image:url(https://wxxcx.yixingtb.com/images/icon/icon_doct_details_praise.svg);}
 
 /* online.wxss */
-.container_online{background-image:url(https://wxxcx.17mall.cc/images/online_bg.jpg);}
+.container_online{background-image:url(https://wxxcx.yixingtb.com/images/online_bg.jpg);}
 /** pages/personal/index/index.wxss **/
-.menu_nav .nav_li.my_order icon{background-image: url(https://wxxcx.17mall.cc/images/icon/icon_my_order.png);background-size:90% auto;}
+.menu_nav .nav_li.my_order icon{background-image: url(https://wxxcx.yixingtb.com/images/icon/icon_my_order.png);background-size:90% auto;}
 .menu_nav .nav_li.shopping_cart icon{
-  background-image: url(https://wxxcx.17mall.cc/images/icon/icon_shopping_cart.png);background-size:100% auto;
+  background-image: url(https://wxxcx.yixingtb.com/images/icon/icon_shopping_cart.png);background-size:100% auto;
 }
 .menu_nav .nav_li.my_register icon{
-  background-image: url(https://wxxcx.17mall.cc/images/icon/icon_my_register.png);background-size:100% auto;
+  background-image: url(https://wxxcx.yixingtb.com/images/icon/icon_my_register.png);background-size:100% auto;
   }
 .menu_nav .nav_li.my_groups icon{
-  background-image: url(https://wxxcx.17mall.cc/images/icon/icon_my_groups.png);background-size:90% auto;
+  background-image: url(https://wxxcx.yixingtb.com/images/icon/icon_my_groups.png);background-size:90% auto;
   }
 
-.Personal .nav.my_address::before{background-image: url(https://wxxcx.17mall.cc/images/icon/icon_my_address.png);background-size:100% auto;}
-.Personal .nav.my_case::before{background-image: url(https://wxxcx.17mall.cc/images/icon/icon_my_case.png);background-size:100% auto;}
-.Personal .nav.my_article::before{background-image: url(https://wxxcx.17mall.cc/images/icon/icon_my_article.png);background-size:100% auto;}
+.Personal .nav.my_address::before{background-image: url(https://wxxcx.yixingtb.com/images/icon/icon_my_address.png);background-size:100% auto;}
+.Personal .nav.my_case::before{background-image: url(https://wxxcx.yixingtb.com/images/icon/icon_my_case.png);background-size:100% auto;}
+.Personal .nav.my_article::before{background-image: url(https://wxxcx.yixingtb.com/images/icon/icon_my_article.png);background-size:100% auto;}
 /* pages/goods/list/list.wxss */
-.goods_li .add_shopping_cart{background-image: url(https://wxxcx.17mall.cc/images/icon/icon_add_shopping_cart.svg);}
-.nav_shopping_cart icon{background-image: url(https://wxxcx.17mall.cc/images/icon/icon_add_shopping_cart.svg);}
+.goods_li .add_shopping_cart{background-image: url(https://wxxcx.yixingtb.com/images/icon/icon_add_shopping_cart.svg);}
+.nav_shopping_cart icon{background-image: url(https://wxxcx.yixingtb.com/images/icon/icon_add_shopping_cart.svg);}
 /*******  pages/goods/details/details  ***/
-.content.nursing .title::before{background-image: url(https://wxxcx.17mall.cc/images/icon/icon_project_nursing.svg);}
-.content.summary .title::before{background-image: url(https://wxxcx.17mall.cc/images/icon/icon_project_summary.svg);background-size: 80% auto;}
-.goods_infos .share icon{background-image: url(https://wxxcx.17mall.cc/images/icon/icon_details_share.svg);}
+.content.nursing .title::before{background-image: url(https://wxxcx.yixingtb.com/images/icon/icon_project_nursing.svg);}
+.content.summary .title::before{background-image: url(https://wxxcx.yixingtb.com/images/icon/icon_project_summary.svg);background-size: 80% auto;}
+.goods_infos .share icon{background-image: url(https://wxxcx.yixingtb.com/images/icon/icon_details_share.svg);}
 
-.bottom_suspension .home{background-image:url(https://wxxcx.17mall.cc/images/icon/icon_tabbar_nav_home.svg);}
-.bottom_suspension button.consultation{background-image:url(https://wxxcx.17mall.cc/images/icon/icon_details_consultation.svg);}
+.bottom_suspension .home{background-image:url(https://wxxcx.yixingtb.com/images/icon/icon_tabbar_nav_home.svg);}
+.bottom_suspension button.consultation{background-image:url(https://wxxcx.yixingtb.com/images/icon/icon_details_consultation.svg);}
 /**** pages/Payment/ClipCoupons/ClipCoupons ***/
-.coupons.selected::before{background-image:url(https://wxxcx.17mall.cc/images/icon/icon_radio.svg);}
-.coupon_null{background-image: url(https://wxxcx.17mall.cc/images/icon/coupon_null.png);}
+.coupons.selected::before{background-image:url(https://wxxcx.yixingtb.com/images/icon/icon_radio.svg);}
+.coupon_null{background-image: url(https://wxxcx.yixingtb.com/images/icon/coupon_null.png);}
 
-.groupon_personnel .yes.null{background-image: url(https://wxxcx.17mall.cc/images/icon/groupon_personnel_null_bg.png);background-position: center;background-repeat: no-repeat;background-size: 100%;}
+.groupon_personnel .yes.null{background-image: url(https://wxxcx.yixingtb.com/images/icon/groupon_personnel_null_bg.png);background-position: center;background-repeat: no-repeat;background-size: 100%;}
 
-.groupon_success icon{background-image: url(https://wxxcx.17mall.cc/images/icon/icon_radio.svg);}
+.groupon_success icon{background-image: url(https://wxxcx.yixingtb.com/images/icon/icon_radio.svg);}
 
 
 /**** pages/road/road ***/
-.address::before{background-image: url(https://wxxcx.17mall.cc/images/icon/icon_road_address.svg);}
-.route::before{background-image: url(https://wxxcx.17mall.cc/images/icon/icon_road_route.svg);}
-.route::before{background-image: url(https://wxxcx.17mall.cc/images/icon/icon_road_metro.svg);}
+.address::before{background-image: url(https://wxxcx.yixingtb.com/images/icon/icon_road_address.svg);}
+.route::before{background-image: url(https://wxxcx.yixingtb.com/images/icon/icon_road_route.svg);}
+.route::before{background-image: url(https://wxxcx.yixingtb.com/images/icon/icon_road_metro.svg);}
 /* pages/case/list/list.wxss */
 
 /* pages/case/details/details.wxss */
-.case_details .collection icon{background-image: url(https://wxxcx.17mall.cc/images/icon/icon_collection.svg);}
-.case_details .collection.already icon{background-image: url(https://wxxcx.17mall.cc/images/icon/icon_collection_already.svg);}
-.case_details .online icon{background-image: url(https://wxxcx.17mall.cc/images/icon/icon_online.svg);}
+.case_details .collection icon{background-image: url(https://wxxcx.yixingtb.com/images/icon/icon_collection.svg);}
+.case_details .collection.already icon{background-image: url(https://wxxcx.yixingtb.com/images/icon/icon_collection_already.svg);}
+.case_details .online icon{background-image: url(https://wxxcx.yixingtb.com/images/icon/icon_online.svg);}
 /* pages/personal/myaddress/myaddress */
-.myaddress_li .footer .default.is icon{background-image: url(https://wxxcx.17mall.cc/images/icon/icon_radio.svg);}
-.myaddress_li .footer .edit icon{background-image: url(https://wxxcx.17mall.cc/images/icon/icon_my_address_edit.svg);}
-.myaddress_li .footer .del icon{background-image: url(https://wxxcx.17mall.cc/images/icon/icon_my_address_del.svg);}
-.add_address_del icon{background-image: url(https://wxxcx.17mall.cc/images/icon/icon_my_address_add.svg);}
+.myaddress_li .footer .default.is icon{background-image: url(https://wxxcx.yixingtb.com/images/icon/icon_radio.svg);}
+.myaddress_li .footer .edit icon{background-image: url(https://wxxcx.yixingtb.com/images/icon/icon_my_address_edit.svg);}
+.myaddress_li .footer .del icon{background-image: url(https://wxxcx.yixingtb.com/images/icon/icon_my_address_del.svg);}
+.add_address_del icon{background-image: url(https://wxxcx.yixingtb.com/images/icon/icon_my_address_add.svg);}
 /* pages/personal/myaddress/myaddress end */
 
 /* pages/assisting_activity/details/details.wxss */
-.assisting_activity_details{background-image: url(https://wxxcx.17mall.cc/images/assisting_details_bg.jpg);background-size:100% auto;}
+.assisting_activity_details{background-image: url(https://wxxcx.yixingtb.com/images/assisting_details_bg.jpg);background-size:100% auto;}
 
 
 /* pages/assisting_activity/ConfirmOrder/ConfirmOrder.wxss */
-.address_infos::before{background-image: url(https://wxxcx.17mall.cc/images/icon/icon_assisting_address.svg);background-size:100% auto;}
+.address_infos::before{background-image: url(https://wxxcx.yixingtb.com/images/icon/icon_assisting_address.svg);background-size:100% auto;}
 /* pages/personal/myorder_details/myorder_details.wxss */
-.personal view.full_name::before{background-image: url(https://wxxcx.17mall.cc/images/icon/icon_order_personal.svg);background-size:100% auto;}
+.personal view.full_name::before{background-image: url(https://wxxcx.yixingtb.com/images/icon/icon_order_personal.svg);background-size:100% auto;}
 /* pages/find/index/index.wxss */
-.find_body .find_li .set_top icon{background-image:url(https://wxxcx.17mall.cc/images/icon/icon_set_top.svg);}
-.find_li .find_video::before{background-image:url(https://wxxcx.17mall.cc/images/icon/icon_video_play_btn.png); }
-.find_li .label::before{background-image: url(https://wxxcx.17mall.cc/images/icon/icon_index_label.svg);}
-.find_li .parameter icon.browse{background-image: url(https://wxxcx.17mall.cc/images/icon/icon_index_browse.svg);background-size:auto 100%;}
-.find_li .parameter icon.comment{background-image: url(https://wxxcx.17mall.cc/images/icon/icon_index_comment.svg);}
-.find_li .parameter icon.fabulous{background-image: url(https://wxxcx.17mall.cc/images/icon/icon_index_fabulous.svg);background-size:auto 95%;}
+.find_body .find_li .set_top icon{background-image:url(https://wxxcx.yixingtb.com/images/icon/icon_set_top.svg);}
+.find_li .find_video::before{background-image:url(https://wxxcx.yixingtb.com/images/icon/icon_video_play_btn.png); }
+.find_li .label::before{background-image: url(https://wxxcx.yixingtb.com/images/icon/icon_index_label.svg);}
+.find_li .parameter icon.browse{background-image: url(https://wxxcx.yixingtb.com/images/icon/icon_index_browse.svg);background-size:auto 100%;}
+.find_li .parameter icon.comment{background-image: url(https://wxxcx.yixingtb.com/images/icon/icon_index_comment.svg);}
+.find_li .parameter icon.fabulous{background-image: url(https://wxxcx.yixingtb.com/images/icon/icon_index_fabulous.svg);background-size:auto 95%;}
 /* pages/find/ask_details/ask_details.wxss */
-.footer .browse_number icon.browse{background-image: url(https://wxxcx.17mall.cc/images/icon/icon_index_browse.svg);background-size:auto 100%;}
+.footer .browse_number icon.browse{background-image: url(https://wxxcx.yixingtb.com/images/icon/icon_index_browse.svg);background-size:auto 100%;}
 /* pages/assisting_activity/assisting_poster/assisting_poster.wxss */
-.save_poster_btn .download{background-image: url(https://wxxcx.17mall.cc/images/icon/icon_download.svg);}
+.save_poster_btn .download{background-image: url(https://wxxcx.yixingtb.com/images/icon/icon_download.svg);}
 /* pages/Payment/ConfirmOrder/ConfirmOrder.wxss */
-.confirm_order_head .btn.tel icon{background-image:url(https://wxxcx.17mall.cc/images/icon/icon_white_tel.svg);}
-.confirm_order_head .btn.lcation icon{background-image:url(https://wxxcx.17mall.cc/images/icon/icon_white_lcation.svg);}
-.payment_method view.wechat_payment::before{background-image:url(https://wxxcx.17mall.cc/images/icon/icon_wechat_payment.svg);}
-.payment_method view.wechat_payment::after{background-image:url(https://wxxcx.17mall.cc/images/icon/icon_radio.svg);}
-.coupon .coupon_price::after{background-image:url(https://wxxcx.17mall.cc/images/icon/icon_right_gray.svg);}
+.confirm_order_head .btn.tel icon{background-image:url(https://wxxcx.yixingtb.com/images/icon/icon_white_tel.svg);}
+.confirm_order_head .btn.lcation icon{background-image:url(https://wxxcx.yixingtb.com/images/icon/icon_white_lcation.svg);}
+.payment_method view.wechat_payment::before{background-image:url(https://wxxcx.yixingtb.com/images/icon/icon_wechat_payment.svg);}
+.payment_method view.wechat_payment::after{background-image:url(https://wxxcx.yixingtb.com/images/icon/icon_radio.svg);}
+.coupon .coupon_price::after{background-image:url(https://wxxcx.yixingtb.com/images/icon/icon_right_gray.svg);}
 /* pages/integral_mall/list/list.wxss */
-.tc .tc_body .tel icon{background-image: url(https://wxxcx.17mall.cc/images/icon/icon_tel.svg);}
-.tc .tc_body .close::before{background-image: url(https://wxxcx.17mall.cc/images/icon/icon_close_integral_mall.svg);}
+.tc .tc_body .tel icon{background-image: url(https://wxxcx.yixingtb.com/images/icon/icon_tel.svg);}
+.tc .tc_body .close::before{background-image: url(https://wxxcx.yixingtb.com/images/icon/icon_close_integral_mall.svg);}
 /* /pages/Payment/ShoppingCart/ShoppingCart.wxss  */
-.project_li .delete{width: 0;height: 190rpx; float: left;background-color: #3bccbd;background-image:url(https://wxxcx.17mall.cc/images/icon/icon_delete_fff.svg);background-size:auto 45rpx;background-position:center; background-repeat: no-repeat;position: absolute;right: 0;}
-.project_li .radio{background-image:url(https://wxxcx.17mall.cc/images/icon/icon_radio.svg);}
-.shopping_cart_null{background-image: url(https://wxxcx.17mall.cc/images/icon/icon_empty_shopping_cart.svg);}
-.bottom_btn .radio_all.selected::before{background-image:url(https://wxxcx.17mall.cc/images/icon/icon_radio.svg);}
+.project_li .delete{width: 0;height: 190rpx; float: left;background-color: #3bccbd;background-image:url(https://wxxcx.yixingtb.com/images/icon/icon_delete_fff.svg);background-size:auto 45rpx;background-position:center; background-repeat: no-repeat;position: absolute;right: 0;}
+.project_li .radio{background-image:url(https://wxxcx.yixingtb.com/images/icon/icon_radio.svg);}
+.shopping_cart_null{background-image: url(https://wxxcx.yixingtb.com/images/icon/icon_empty_shopping_cart.svg);}
+.bottom_btn .radio_all.selected::before{background-image:url(https://wxxcx.yixingtb.com/images/icon/icon_radio.svg);}
 
 /* pages/personal/coupon/coupon.wxss */
-.coupon_null{background-image: url(https://wxxcx.17mall.cc/images/icon/coupon_null.png);}
+.coupon_null{background-image: url(https://wxxcx.yixingtb.com/images/icon/coupon_null.png);}
 /* pages/personal/myorder/myorder.wxss  */
-.myorder_null{background-image: url(https://wxxcx.17mall.cc/images/icon/icon_no_order.svg);}
+.myorder_null{background-image: url(https://wxxcx.yixingtb.com/images/icon/icon_no_order.svg);}
 
 /* pages/step_number/index/index.wxml  */
-.top .share icon{background-image: url(https://wxxcx.17mall.cc/images/icon/icon_step_number_share.svg);}
-.top .star_coin icon{background-image: url(https://wxxcx.17mall.cc/images/icon/icon_step_number_star_coin.png);}
+.top .share icon{background-image: url(https://wxxcx.yixingtb.com/images/icon/icon_step_number_share.svg);}
+.top .star_coin icon{background-image: url(https://wxxcx.yixingtb.com/images/icon/icon_step_number_star_coin.png);}
 
 /* pages/step_number/index/index.wxml  */
-.step_number_tab_bar .index icon{background-image: url(https://wxxcx.17mall.cc/images/step_number/icon_step_number_tab_bar_index.svg);}
-.step_number_tab_bar .index.selected icon{background-image: url(https://wxxcx.17mall.cc/images/step_number/icon_step_number_tab_bar_index_selected.svg);}
-.step_number_tab_bar .exchange icon{background-image: url(https://wxxcx.17mall.cc/images/step_number/icon_step_number_tab_bar_exchange.svg);}
-.step_number_tab_bar .exchange.selected icon{background-image: url(https://wxxcx.17mall.cc/images/step_number/icon_step_number_tab_bar_exchange_selected.svg);}
-.step_number_tab_bar .challenge icon{background-image: url(https://wxxcx.17mall.cc/images/step_number/icon_step_number_tab_bar_challenge.svg);}
-.step_number_tab_bar .personal icon{background-image: url(https://wxxcx.17mall.cc/images/step_number/icon_step_number_tab_bar_personal.svg);}
-.step_number_tab_bar .personal.selected icon{background-image: url(https://wxxcx.17mall.cc/images/step_number/icon_step_number_tab_bar_personal_selected.svg);}
-.step_number_bottom_nav .back_index icon{background-image: url(https://wxxcx.17mall.cc/images/step_number/icon_step_number_back_index.svg);}
+.step_number_tab_bar .index icon{background-image: url(https://wxxcx.yixingtb.com/images/step_number/icon_step_number_tab_bar_index.svg);}
+.step_number_tab_bar .index.selected icon{background-image: url(https://wxxcx.yixingtb.com/images/step_number/icon_step_number_tab_bar_index_selected.svg);}
+.step_number_tab_bar .exchange icon{background-image: url(https://wxxcx.yixingtb.com/images/step_number/icon_step_number_tab_bar_exchange.svg);}
+.step_number_tab_bar .exchange.selected icon{background-image: url(https://wxxcx.yixingtb.com/images/step_number/icon_step_number_tab_bar_exchange_selected.svg);}
+.step_number_tab_bar .challenge icon{background-image: url(https://wxxcx.yixingtb.com/images/step_number/icon_step_number_tab_bar_challenge.svg);}
+.step_number_tab_bar .personal icon{background-image: url(https://wxxcx.yixingtb.com/images/step_number/icon_step_number_tab_bar_personal.svg);}
+.step_number_tab_bar .personal.selected icon{background-image: url(https://wxxcx.yixingtb.com/images/step_number/icon_step_number_tab_bar_personal_selected.svg);}
+.step_number_bottom_nav .back_index icon{background-image: url(https://wxxcx.yixingtb.com/images/step_number/icon_step_number_back_index.svg);}
 
-.signed_in icon{background-image: url(https://wxxcx.17mall.cc/images/step_number/bg_index_signed_in.png);}
-.poster icon{background-image: url(https://wxxcx.17mall.cc/images/step_number/bg_index_poster.png);}
+.signed_in icon{background-image: url(https://wxxcx.yixingtb.com/images/step_number/bg_index_signed_in.png);}
+.poster icon{background-image: url(https://wxxcx.yixingtb.com/images/step_number/bg_index_poster.png);}
 
-.collected_box .bubble icon{background-image: url(https://wxxcx.17mall.cc/images/step_number/bg_bubble.png);}
-.star_coin_price icon{background-image: url(https://wxxcx.17mall.cc/images/step_number/icon_star_coin_price.svg);}
-.exchange_details .share icon{background-image: url(https://wxxcx.17mall.cc/images/step_number/icon_exchange_details_share.svg);}
+.collected_box .bubble icon{background-image: url(https://wxxcx.yixingtb.com/images/step_number/bg_bubble.png);}
+.star_coin_price icon{background-image: url(https://wxxcx.yixingtb.com/images/step_number/icon_star_coin_price.svg);}
+.exchange_details .share icon{background-image: url(https://wxxcx.yixingtb.com/images/step_number/icon_exchange_details_share.svg);}
 
-.redeem_tc .tc_body .tc_head{background-image: url(https://wxxcx.17mall.cc/images/step_number/exchange_details_tc_head.png);}
-.redeem_tc .tc_body .close::before{background-image: url(https://wxxcx.17mall.cc/images/icon/icon_close.svg);}
+.redeem_tc .tc_body .tc_head{background-image: url(https://wxxcx.yixingtb.com/images/step_number/exchange_details_tc_head.png);}
+.redeem_tc .tc_body .close::before{background-image: url(https://wxxcx.yixingtb.com/images/icon/icon_close.svg);}
 
-.share_tc .tc_body .tc_head{background-image: url(https://wxxcx.17mall.cc/images/step_number/exchange_details_share_tc_head.png);}
-.share_tc .tc_body .close::before{background-image: url(https://wxxcx.17mall.cc/images/icon/icon_close.svg);}
+.share_tc .tc_body .tc_head{background-image: url(https://wxxcx.yixingtb.com/images/step_number/exchange_details_share_tc_head.png);}
+.share_tc .tc_body .close::before{background-image: url(https://wxxcx.yixingtb.com/images/icon/icon_close.svg);}
 
-.step_tips_tc .tc_body .tc_head{background-image: url(https://wxxcx.17mall.cc/images/step_number/step_tips_tc_head.png);}
-.step_tips_tc .tc_body .close::before{background-image: url(https://wxxcx.17mall.cc/images/icon/icon_close.svg);}
+.step_tips_tc .tc_body .tc_head{background-image: url(https://wxxcx.yixingtb.com/images/step_number/step_tips_tc_head.png);}
+.step_tips_tc .tc_body .close::before{background-image: url(https://wxxcx.yixingtb.com/images/icon/icon_close.svg);}
 /* pages/step_number/personal/index/index.wxss */
-.personal .nav.my_exchange icon{background-image: url(https://wxxcx.17mall.cc/images/step_number/icon_step_number_my_exchange.svg);}
-.personal .nav.rule_description icon{background-image: url(https://wxxcx.17mall.cc/images/step_number/icon_step_number_rule_description.svg);background-size:85% auto;}
-.personal .nav.common_problem icon{background-image: url(https://wxxcx.17mall.cc/images/step_number/icon_step_number_common_problem.svg);background-size:90% auto;}
-.personal .nav.customer_service icon{background-image: url(https://wxxcx.17mall.cc/images/step_number/icon_step_number_customer_service.svg);background-size:90% auto;}
-.personal .nav.set_up icon{background-image: url(https://wxxcx.17mall.cc/images/step_number/icon_step_number_set_up.svg);background-size:90% auto;}
+.personal .nav.my_exchange icon{background-image: url(https://wxxcx.yixingtb.com/images/step_number/icon_step_number_my_exchange.svg);}
+.personal .nav.rule_description icon{background-image: url(https://wxxcx.yixingtb.com/images/step_number/icon_step_number_rule_description.svg);background-size:85% auto;}
+.personal .nav.common_problem icon{background-image: url(https://wxxcx.yixingtb.com/images/step_number/icon_step_number_common_problem.svg);background-size:90% auto;}
+.personal .nav.customer_service icon{background-image: url(https://wxxcx.yixingtb.com/images/step_number/icon_step_number_customer_service.svg);background-size:90% auto;}
+.personal .nav.set_up icon{background-image: url(https://wxxcx.yixingtb.com/images/step_number/icon_step_number_set_up.svg);background-size:90% auto;}
 /* pages/step_number/challenge/index/index.wxml */
-.challenge .top .share icon{background-image: url(https://wxxcx.17mall.cc/images/step_number/icon_challenge_share.svg);}
-.challenge .top .rule icon{background-image: url(https://wxxcx.17mall.cc/images/step_number/icon_challenge_rule.svg);background-size:75% auto;}
-.challenge .challenge_box{background-image: url(https://wxxcx.17mall.cc/images/step_number/challenge_bg.jpg);}
-.challenge .challenge_body{background-image: url(https://wxxcx.17mall.cc/images/step_number/challenge_body_bg.jpg);}
+.challenge .top .share icon{background-image: url(https://wxxcx.yixingtb.com/images/step_number/icon_challenge_share.svg);}
+.challenge .top .rule icon{background-image: url(https://wxxcx.yixingtb.com/images/step_number/icon_challenge_rule.svg);background-size:75% auto;}
+.challenge .challenge_box{background-image: url(https://wxxcx.yixingtb.com/images/step_number/challenge_bg.jpg);}
+.challenge .challenge_body{background-image: url(https://wxxcx.yixingtb.com/images/step_number/challenge_body_bg.jpg);}
 /* pages/step_number/challenge/sign_up/sign_up */
-.challenge_sign_up{background-image: url(https://wxxcx.17mall.cc/images/step_number/challenge_bg.jpg);}
-.challenge_sign_up .redeem_tc .tc_body .tc_head{background-image: url(https://wxxcx.17mall.cc/images/step_number/challenge_sign_up_tc_head.png);}
+.challenge_sign_up{background-image: url(https://wxxcx.yixingtb.com/images/step_number/challenge_bg.jpg);}
+.challenge_sign_up .redeem_tc .tc_body .tc_head{background-image: url(https://wxxcx.yixingtb.com/images/step_number/challenge_sign_up_tc_head.png);}
 /* pages/employee_welfare/index/index.wxss */
-.employee_welfare .notice icon{background-image: url(https://wxxcx.17mall.cc/images/employee_welfare/icon_employee_welfare_notice.svg);}
-.commodity_li .count_down icon{background-image: url(https://wxxcx.17mall.cc/images/employee_welfare/icon_employee_welfare_count_down.svg);}
+.employee_welfare .notice icon{background-image: url(https://wxxcx.yixingtb.com/images/employee_welfare/icon_employee_welfare_notice.svg);}
+.commodity_li .count_down icon{background-image: url(https://wxxcx.yixingtb.com/images/employee_welfare/icon_employee_welfare_count_down.svg);}
 
-.employee_welfare_tc .tc_body .close::before{background-image: url(https://wxxcx.17mall.cc/images/icon/icon_close.svg);}
-.employee_welfare_tc .tc_body .tc_head{background-image: url(https://wxxcx.17mall.cc/images/employee_welfare/employee_welfare_tc_bg.png);}
+.employee_welfare_tc .tc_body .close::before{background-image: url(https://wxxcx.yixingtb.com/images/icon/icon_close.svg);}
+.employee_welfare_tc .tc_body .tc_head{background-image: url(https://wxxcx.yixingtb.com/images/employee_welfare/employee_welfare_tc_bg.png);}
 /* pages/employee_welfare/login/login */
-.employee_welfare_login{background-image: url(https://wxxcx.17mall.cc/images/employee_welfare/employee_welfare_login_bg.jpg);}
+.employee_welfare_login{background-image: url(https://wxxcx.yixingtb.com/images/employee_welfare/employee_welfare_login_bg.jpg);}
 
-.poster_refresh icon{background-image: url(https://wxxcx.17mall.cc/images/step_number/icon_poster_refresh.svg);}
+.poster_refresh icon{background-image: url(https://wxxcx.yixingtb.com/images/step_number/icon_poster_refresh.svg);}

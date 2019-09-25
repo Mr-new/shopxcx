@@ -1,14 +1,14 @@
 //index.js
 //获取应用实例
 const app = getApp()
-let PublicImgUrl = "https://xaxcx.17mall.cc/Public/uploadImages/default/";
+let PublicImgUrl = "https://xaxcx.yixingtb.com/Public/uploadImages/default/";
 Page({
   data: {
     motto: 'Hello World',
     userInfo: {},
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
-    imgUrl: "https://xaxcx.17mall.cc/Public/uploadImages/default/",  //公共图片路径
+    imgUrl: "https://xaxcx.yixingtb.com/Public/uploadImages/default/",  //公共图片路径
     percentage: "0%",  //达成目标百分比
     satisfy: 0,  //达成目标总人数
     giftList: [],  //礼品列表

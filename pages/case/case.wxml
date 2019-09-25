@@ -1,17 +1,19 @@
 <!--index.wxml-->
 <view class="container">
+  <view class="telAuthor" wx:if="{{!telAuthor}}">
+    <view>
+      <text class='iconfont icon-shoujihao'></text>
+      <button open-type='getPhoneNumber' bindgetphonenumber="getPhoneNumber">点击手机号授权</button>
+    </view>
+  </view>
   <view class='header'>
     <view class='search'>
       <view>
-        <text class='iconfont icon-weizhi'></text>
-        <text>{{HospitalMsg.city}}</text>
+        <open-data type="userAvatarUrl"></open-data>
       </view>
       <view>
         <text class='iconfont icon-sousuo'></text>
-        <input bindinput='getSearchValue' placeholder='请输入搜索内容'></input>
-      </view>
-      <view bindtap='goSearch'>
-        <text>搜索</text>
+        <input bindinput='getSearchValue' type="text" confirm-type='search' placeholder-class="plaColor" placeholder='请输入搜索内容' bindconfirm="goSearch"></input>
       </view>
     </view>
     <view class='navList'>
@@ -25,50 +27,64 @@
     </view>
   </view>
   <scroll-view class='caseList' wx:if="{{caseList.length!=0}}" scroll-y="true" bindscrolltolower="getMoreData">
-    <block wx:for="{{caseList}}" wx:key="index">
-      <view class='listItem' data-caseid="{{item.id}}" bindtap='goCaseDetails'>
-        <view class='top'>
-          <image src='{{item.headerimg}}'></image>
-          <view>
-            <text>{{item.name}}</text>
-            <text>{{item.title}}</text>
-          </view>
-        </view>
-        <view class='center'>
-          <view>
-            <block wx:for="{{item.imglist}}" wx:key="index">
-              <image src='{{item}}' mode='widthFix'></image>
-            </block>
-          </view>
-          <view>
-            <text>{{item.datetime}}发布</text>
+    <view class="ListWrap">
+      <block wx:for="{{caseList}}" wx:if="{{index%2==0}}" wx:key="index">
+        <view class='listItem' data-caseid="{{item.id}}" bindtap='goCaseDetails'>
+          <view class="imgWrap">
+            <image src="{{item.afterImgUrl}}" mode="widthFix"></image>
             <view>
-              <text class='iconfont icon-weizhi'></text>
-              <text>{{item.address}}</text>
+              <text>{{item.project}}</text>
+              <image src="{{item.imglist[0]}}" mode="widthFix"></image>
             </view>
           </view>
-        </view>
-        <view class='line'></view>
-        <view class='bottom'>
-          <view>
-            <text class='iconfont icon-chakan'></text>
-            <text><text style='color:#E45452'>{{item.looknumber}}</text>人浏览</text>
-          </view>
-          <view catchtap='delfabulous' data-id='{{item.id}}' data-index="{{index}}" wx:if="{{item.isFabulous}}">
-            <text class='iconfont icon-dianzan' style='font-size:11pt; color:#E45452'></text>
-            <text><text style='color:#E45452'>{{item.fabulousnumber}}</text>人点赞</text>
-          </view>
-          <view catchtap='addfabulous' data-id='{{item.id}}' data-index="{{index}}" wx:else>
-            <text class='iconfont icon-dianzan1'></text>
-            <text><text style='color:#E45452'>{{item.fabulousnumber}}</text>人点赞</text>
-          </view>
-          <view>
-            <text class='iconfont icon-xiangqing'></text>
-            <text>查看详情</text>
+          <text>{{item.title}}</text>
+          <view class="itemBottom">
+            <view>
+              <image src='{{HospitalMsg.logo}}'></image>
+              <text>{{HospitalMsg.hospitalname}}</text>
+            </view>
+            <view catchtap='delfabulous' data-id='{{item.id}}' data-index="{{index}}" wx:if="{{item.isFabulous}}">
+              <text class='iconfont icon-dianzan' style='font-size:11pt; color:#E45452'></text>
+              <text>{{item.fabulousnumber}}</text>
+            </view>
+            <view catchtap='addfabulous' data-id='{{item.id}}' data-index="{{index}}" wx:else>
+              <text class='iconfont icon-dianzan1'></text>
+              <text>{{item.fabulousnumber}}</text>
+            </view>
+
           </view>
         </view>
-      </view>
-    </block>
+      </block>
+    </view>
+    <view class="ListWrap">
+      <block wx:for="{{caseList}}" wx:if="{{index%2==1}}" wx:key="index">
+        <view class='listItem' data-caseid="{{item.id}}" bindtap='goCaseDetails'>
+          <view class="imgWrap">
+            <image src="{{item.afterImgUrl}}" mode="widthFix"></image>
+            <view>
+              <text>{{item.project}}</text>
+              <image src="{{item.imglist[0]}}" mode="widthFix"></image>
+            </view>
+          </view>
+          <text>{{item.title}}</text>
+          <view class="itemBottom">
+            <view>
+              <image src='{{HospitalMsg.logo}}'></image>
+              <text>{{HospitalMsg.hospitalname}}</text>
+            </view>
+            <view catchtap='delfabulous' data-id='{{item.id}}' data-index="{{index}}" wx:if="{{item.isFabulous}}">
+              <text class='iconfont icon-dianzan' style='font-size:11pt; color:#E45452'></text>
+              <text>{{item.fabulousnumber}}</text>
+            </view>
+            <view catchtap='addfabulous' data-id='{{item.id}}' data-index="{{index}}" wx:else>
+              <text class='iconfont icon-dianzan1'></text>
+              <text>{{item.fabulousnumber}}</text>
+            </view>
+
+          </view>
+        </view>
+      </block>
+    </view>  
     <view class='isButtom' wx:if="{{isBottom}}">
       <text>别拉了~到底了</text>
     </view>
@@ -78,4 +94,5 @@
     <text class='iconfont icon-zanwushuju'></text>
     <text>暂无数据</text>
   </view>
+  
 </view>

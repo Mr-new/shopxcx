@@ -54,5 +54,13 @@ Page({
       }
     })
   },
+  //分享
+  onShareAppMessage(res) {
+    let _this = this;
+    return {
+      title: "Yestar艺星",
+      path: '/pages/yestarDetails/yestarDetails'
+    }
+  },
 
 })

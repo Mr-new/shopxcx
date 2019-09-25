@@ -1,8 +1,52 @@
 <!--doctinfo.wxml-->
-<view>
-  <view class="doct_head">
+<view class="container">
+  <view class="doctor_header">
+    <view class="doctor_top">
+      <image src="{{details.doctor_face}}"></image>
+      <view>
+        <view>
+          <view>
+            <text>{{details.ordernum ? details.ordernum : 0}}</text>
+            <text>接单</text>
+          </view>
+          <view>
+            <text>{{details.follow}}</text>
+            <text>粉丝</text>
+          </view>
+          <view>
+            <text>{{details.praise}}</text>
+            <text>被赞</text>
+          </view>
+        </view>
+        <view>
+          <view bindtap="delFollow" wx:if="{{details.isFollow}}">
+            <text>已关注</text>
+          </view>
+          <view bindtap="addFollow" wx:else>
+            <text>关注</text>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="doctor_bottom">
+      <view>
+        <text>{{details.doctor_name}}</text>
+        <text class="iconfont icon-renzhengguanli"></text>
+      </view>
+      <view>
+        <text>{{details.doctor_title}} | </text>
+        <text>从业{{details.year ? details.year : 0}}年 | </text>
+        <text>评分</text>
+        <text wx:for="{{details.score}}" wx:key="{{index}}" class="iconfont icon-pingjia pingfen"></text>
+      </view>
+      <view>
+        <text>擅长：{{details.goodat ? details.goodat : '暂无'}}</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- <view class="doct_head">
     <image src="{{imgpath}}doc-art-ban.jpg" mode="widthFix"></image>
-    <!--医生简介-->
     <view class="introduce"> 
       <wxs module="Common" src="../../Common/Common.wxs"/>
       <view class="browse">
@@ -22,10 +66,69 @@
         点赞：<text>{{details.praise}}</text>
       </view>
     </view>
+  </view> -->
+  <view class="tab">
+    <block wx:for="{{tab}}" wx:key="{{index}}">
+      <view bindtap="tabswitch" class="{{item.id==idx ? 'selected' : ''}}" data-id="{{item.id}}">
+        <text class="{{item.icon}}" style="font-size:{{item.size}}px"></text>
+        <text>{{item.title}}</text>
+      </view>
+    </block>
+    
+    
   </view>
   <view class="art-content">
     <import src="../../Common/wxParse/wxParse.wxml"/>
-    <template is="wxParse" data="{{wxParseData:article.nodes}}"/>
+    <!-- 加载案例信息 -->
+    <view wx:if="{{idx==5 && details.caseList.length!=0}}" class="diaryList">
+      <view class="ListWrap">
+        <block wx:for="{{details.caseList}}" wx:if="{{index%2==0}}" wx:key="index">
+          <view class='listItem' data-caseid="{{item.id}}" bindtap='goCaseDetails'>
+            <image src="{{item.imglist[0]}}" mode="widthFix"></image>
+            <text>{{item.name}}</text>
+            <view>
+              <view>
+                <image src='{{HospitalMsg.logo}}'></image>
+                <text>{{HospitalMsg.hospitalname}}</text>
+              </view>
+              <view catchtap='delfabulous' data-id='{{item.id}}' data-index="{{index}}" wx:if="{{item.isFabulous}}">
+                <text class='iconfont icon-dianzan' style='font-size:11pt; color:#E45452'></text>
+                <text>{{item.fabulousnumber}}</text>
+              </view>
+              <view catchtap='addfabulous' data-id='{{item.id}}' data-index="{{index}}" wx:else>
+                <text class='iconfont icon-dianzan1'></text>
+                <text>{{item.fabulousnumber}}</text>
+              </view>
+            </view>
+          </view>
+        </block>
+      </view>
+      <view class="ListWrap">
+        <block wx:for="{{details.caseList}}" wx:if="{{index%2==1}}" wx:key="index">
+          <view class='listItem' data-caseid="{{item.id}}" bindtap='goCaseDetails'>
+            <image src="{{item.imglist[0]}}" mode="widthFix"></image>
+            <text>{{item.name}}</text>
+            <view>
+              <view>
+                <image src='{{HospitalMsg.logo}}'></image>
+                <text>{{HospitalMsg.hospitalname}}</text>
+              </view>
+              <view catchtap='delfabulous' data-id='{{item.id}}' data-index="{{index}}" wx:if="{{item.isFabulous}}">
+                <text class='iconfont icon-dianzan' style='font-size:11pt; color:#E45452'></text>
+                <text>{{item.fabulousnumber}}</text>
+              </view>
+              <view catchtap='addfabulous' data-id='{{item.id}}' data-index="{{index}}" wx:else>
+                <text class='iconfont icon-dianzan1'></text>
+                <text>{{item.fabulousnumber}}</text>
+              </view>
+
+            </view>
+          </view>
+        </block>
+      </view>  
+    </view>
+    <!-- 加载档案、证书、项目、评价等信息 -->
+    <template wx:else is="wxParse" data="{{wxParseData:article.nodes}}"/>
   </view>
   <!--公共底部-->
   <import src="/pages/Template/BottomNavigation.wxml"/>

@@ -39,7 +39,54 @@
   <view class='dayList' wx:if="{{idx==2}}">
     <!-- 日记收藏列表 -->
     <view class='dayList_content' wx:if="{{caseList.length!=0}}">
-      <block wx:for="{{caseList}}" wx:key="index">
+      <view class="ListWrap">
+        <block wx:for="{{caseList}}" wx:if="{{index%2==0}}" wx:key="index">
+          <view class='listItem' data-caseid="{{item.id}}" bindtap='goCaseDetails'>
+            <image src="{{item.imglist[0]}}" mode="widthFix"></image>
+            <text>{{item.name}}</text>
+            <view>
+              <view>
+                <image src='{{HospitalMsg.logo}}'></image>
+                <text>{{HospitalMsg.hospitalname}}</text>
+              </view>
+              <view catchtap='delfabulous' data-id='{{item.id}}' data-index="{{index}}" wx:if="{{item.isFabulous}}">
+                <text class='iconfont icon-dianzan' style='font-size:11pt; color:#E45452'></text>
+                <text>{{item.fabulousnumber}}</text>
+              </view>
+              <view catchtap='addfabulous' data-id='{{item.id}}' data-index="{{index}}" wx:else>
+                <text class='iconfont icon-dianzan1'></text>
+                <text>{{item.fabulousnumber}}</text>
+              </view>
+
+            </view>
+          </view>
+        </block>
+      </view>
+      <view class="ListWrap">
+        <block wx:for="{{caseList}}" wx:if="{{index%2==1}}" wx:key="index">
+          <view class='listItem' data-caseid="{{item.id}}" bindtap='goCaseDetails'>
+            <image src="{{item.imglist[0]}}" mode="widthFix"></image>
+            <text>{{item.name}}</text>
+            <view>
+              <view>
+                <image src='{{HospitalMsg.logo}}'></image>
+                <text>{{HospitalMsg.hospitalname}}</text>
+              </view>
+              <view catchtap='delfabulous' data-id='{{item.id}}' data-index="{{index}}" wx:if="{{item.isFabulous}}">
+                <text class='iconfont icon-dianzan' style='font-size:11pt; color:#E45452'></text>
+                <text>{{item.fabulousnumber}}</text>
+              </view>
+              <view catchtap='addfabulous' data-id='{{item.id}}' data-index="{{index}}" wx:else>
+                <text class='iconfont icon-dianzan1'></text>
+                <text>{{item.fabulousnumber}}</text>
+              </view>
+
+            </view>
+          </view>
+        </block>
+      </view>  
+
+      <!-- <block wx:for="{{caseList}}" wx:key="index">
         <view class='listItem' bindtap='goCaseDetails' data-id="{{item.id}}">
           <view class='top'>
             <image src='{{item.headerimg}}'></image>
@@ -82,7 +129,7 @@
             </view>
           </view>
         </view>
-      </block>
+      </block> -->
       <view class='isButtom' wx:if="{{isBottom}}">
         <text>别拉了~到底了</text>
       </view>

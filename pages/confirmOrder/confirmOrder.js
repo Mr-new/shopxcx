@@ -17,15 +17,25 @@ Page({
     tel: "",  //手机号码 
     remarks: "",  //备注内容
     couponid: 0,  //优惠券领取记录id
+    isseckill: 0,  //是否是秒杀
   },
   
   onLoad: function (options) {
     if(options){
       let orderArr=JSON.parse(options.orderArr);
-      console.log(orderArr);
+      console.log(options);
       this.setData({
         orderArr: orderArr
       })
+      if (options.isseckill){
+        this.setData({
+          isseckill: 1
+        })
+      }else{
+        this.setData({
+          isseckill: 0
+        })
+      }
     }
     //获取医院基本配置信息
     this.setData({
@@ -80,7 +90,8 @@ Page({
       url: app.globalData.shopRequestUrl + "Order/getOrderMsg",
       data: {
         'orderArr': JSON.stringify(_this.data.orderArr),
-        'couponid': _this.data.couponid
+        'couponid': _this.data.couponid,
+        'isseckill': _this.data.isseckill
       },
       header: {
         "Content-Type": "application/x-www-form-urlencoded"
@@ -145,7 +156,7 @@ Page({
                   content: '当前授权状态已失效，请重新授权!',
                   showCancel: false,
                   success: function () {
-                    wx.reLaunch({
+                    wx.redirectTo({
                       url: '/pages/author/author',
                     })
                   }
@@ -235,7 +246,8 @@ Page({
         //优惠减免金额
         'reduceprice': _this.data.orderDetails.coupon ? _this.data.orderDetails.coupon.reduce : 0,
         //优惠券记录id
-        'couponid': _this.data.couponid
+        'couponid': _this.data.couponid,
+        'isseckill': _this.data.isseckill
       }
       wx.request({
         url: app.globalData.shopRequestUrl + "Order/submitOrder",

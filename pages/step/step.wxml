@@ -132,7 +132,7 @@
   <view class='activity_role' style="display:{{isShowRole ? 'flex' : 'none'}}">
     <view>
       <view class='back'>
-        <image src='https://xaxcx.17mall.cc/Public/uploadImages/default/role_back_03.png' mode='widthFix'></image>
+        <image src='https://xaxcx.yixingtb.com/Public/uploadImages/default/role_back_03.png' mode='widthFix'></image>
         <text bindtap='hideRole' class='iconfont icon-Close'></text>
       </view>
       <view class='text'>

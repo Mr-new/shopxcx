@@ -1,0 +1,279 @@
+/**index.wxss**/
+page{
+  background-color: #F5F5F5;
+}
+.header{
+  width: 100%;
+  height: 350rpx;
+  background-color: #FB743D;
+  position: relative;
+}
+.header_top{
+  width: 90%;
+  margin: 0 auto;
+  padding: 50rpx 0;
+  height: 120rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.header_top>view{
+  width: 70%;
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+.header_top>view>text:first-of-type{
+  font-size: 14pt;
+  font-weight: bold;
+  color: #ffffff;
+}
+.header_top>view>text:last-of-type{
+  font-size: 10pt;
+  color: #ffffff;
+}
+.header_top>image{
+  width: 20%;
+  display: block;
+}
+.header_bottom{
+  width: 88%;
+  margin: 0 auto;
+  height: 180rpx;
+  background-color: #FFFFFF;
+  border-radius: 20rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15rpx 3%;
+  position: absolute;
+  bottom: -105rpx;
+  left: 3%;
+}
+.header_bottom>image{
+  width: 25%;
+  display: block;
+  border-radius: 10rpx;
+}
+.header_bottom>view{
+  width: 70%;
+  /* display: flex;
+  flex-direction: column; */
+}
+.header_bottom>view>text:first-of-type{
+  font-size: 12pt;
+  color: #333333;
+  text-overflow: -o-ellipsis-lastline;/*css3中webkit内核提供的一个方法类似ellipsis*/
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;/*自适应盒子*/
+  -webkit-line-clamp: 1;/*此处为1行,如果是两行就改成2*/
+  -webkit-box-orient: vertical;
+}
+.header_bottom>view>text:nth-of-type(2){
+  background-color: #FDF5F7;
+  display: inline-block;
+  /* max-width: 50%; */
+  padding: 5rpx 10rpx;
+  font-size: 10pt;
+  color: #EE7C99;
+  margin: 10rpx 0 20rpx;
+}
+.header_bottom>view>text:nth-of-type(3){
+  display: block;
+  font-size: 10pt;
+  color: #EC5F80;
+  
+}
+.content{
+  width: 94%;
+  height: auto;
+  overflow: hidden;
+  margin: 130rpx auto 0;
+  background-color: #ffffff;
+  border-radius: 20rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 50rpx 0;
+}
+.content>view:first-of-type{
+  font-size: 12pt;
+  color: #333333;
+  margin: 20rpx 0;
+}
+.content>view:first-of-type>text{
+  color: #ffffff;
+  background-color: #000000;
+  padding: 3rpx 5rpx;
+  display: inline-block;
+  margin: 0 10rpx;
+  border-radius: 7rpx;
+}
+.content>view:nth-of-type(2){
+  font-size: 12pt;
+  color: #333333;
+  margin: 20rpx 0;
+}
+.content>view:nth-of-type(2)>text{
+  font-size: 16pt;
+  font-weight: bold;
+  color: #EC5F80;
+}
+button::after{
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+.content>button,.content>view:nth-of-type(3){
+  width: 550rpx;
+  height: 95rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50rpx;
+  box-sizing: border-box;
+  margin: 15rpx 0;
+}
+.content>button>image,.content>view:nth-of-type(3)>image{
+  width: 45rpx;
+  display: block;
+  margin-right: 10rpx;
+}
+.content>button>text,.content>view:nth-of-type(3)>text{
+  font-size: 12pt;
+  font-weight: bold;
+}
+.content>button:first-of-type{
+  background-color: #FB743D;
+}
+.content>button:first-of-type>text{
+  color: #ffffff;
+}
+.content>button:last-of-type{
+  background-color: transparent;
+  border: 2rpx solid #6AC477;
+}
+.content>button:last-of-type>text{
+  color: #6AC477;
+}
+.content>view:nth-of-type(3){
+  background-color: transparent;
+  border: 2rpx solid #FA743C;
+}
+.content>view:nth-of-type(3)>text{
+  color: #FA743C;
+}
+.footer{
+  width: 88%;
+  margin: 25rpx auto;
+  height: auto;
+  overflow: hidden;
+  background-color: #ffffff;
+  border-radius: 20rpx;
+  padding: 0 3%;
+}
+.tab{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  height: 80rpx;
+  padding: 10rpx 0;
+}
+.tab>view{
+  width: 50%;
+  display: flex;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+}
+.tab>view>text{
+  font-size: 12pt;
+  color:#333333;
+  height: 100%;
+  line-height: 80rpx;
+  border-bottom: 5rpx solid transparent;
+}
+.selected{
+  color: #000000 !important;
+  font-weight: bold;
+  border-bottom: 5rpx solid #EC5F80 !important;
+}
+.rule{
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+  padding: 20rpx 0 30rpx;
+  display: flex;
+  flex-direction: column;
+}
+.rule>text{
+  font-size: 11pt;
+  color: #999999;
+  margin-bottom: 20rpx;
+}
+.list{
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+}
+.nullFirend{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20rpx 0 30rpx;
+}
+.nullFirend>text{
+  font-size: 11pt;
+  color: #999999;
+  line-height: 70rpx;
+}
+.friendList{
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+  padding: 20rpx 0 30rpx;
+  display: flex;
+  flex-direction: column;
+}
+.item{
+  width: 100%;
+  display: flex;
+  height: auto;
+  overflow: hidden;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30rpx;
+}
+.item>view{
+  width: 50%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+.item>view>image{
+  width: 70rpx;
+  height: 70rpx;
+  border-radius: 50%;
+  display: block;
+  margin-right: 15rpx;
+}
+.item>view>text{
+  font-size: 11pt;
+  color: #333333;
+}
+.item>text{
+  font-size: 12pt;
+  color: #EC5F80;
+}

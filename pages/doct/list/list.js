@@ -14,6 +14,7 @@ Page({
     sumPage: 1,  //总页数
     isBottom: false,  //是否到底
     HospitalMsg: null,
+    publicImgUrl: app.globalData.publicImgUrl,  //公共图片路径
   },
   onLoad: function (options) {
     //当app.js中的getHospitalMsg方法执行完后设置医院基本配置信息
@@ -24,8 +25,6 @@ Page({
         HospitalMsg: app.globalData.HospitalMsg
       })
     })
-  },
-  onShow:function(){
     this.setData({
       doctlist: [],
       pageIndex: 1,
@@ -33,8 +32,22 @@ Page({
     })
     this.loadDoctList();
   },
+  onShow:function(){
+    if (typeof this.getTabBar === 'function' &&
+      this.getTabBar()) {
+      this.getTabBar().setData({
+        selected: 2
+      })
+    }
+    
+  },
   //点赞
   bindPraise: function (e) {
+    //判断用户是否授权登陆
+    if (!wx.getStorageSync('userid')) {
+      app.NoLogin("请先登陆授权后在来点赞哟！");
+      return;
+    }
     let doctorid = e.currentTarget.dataset.doctor_id;
     var index = e.currentTarget.dataset.list_index
     let _this = this;
@@ -81,6 +94,11 @@ Page({
   },
   //取消点赞
   bindcancelPraise: function (e) {
+    //判断用户是否授权登陆
+    if (!wx.getStorageSync('userid')) {
+      app.NoLogin("请先登陆授权后在来取消点赞哟！");
+      return;
+    }
     var doctorid = e.currentTarget.dataset.doctor_id
     var index = e.currentTarget.dataset.list_index
     let _this = this;
@@ -145,6 +163,12 @@ Page({
   },
   //跳转到医生详情页面
   goDoctDetails:function(e){
+    let index = e.currentTarget.dataset.index;
+    let looknum = "doctlist[" + index + "].browse";
+    let afterLookNum = parseInt(this.data.doctlist[index].browse);
+    this.setData({
+      [looknum]: afterLookNum + 1,
+    })
     let doctor_id = e.currentTarget.dataset.doctor_id;
     wx.navigateTo({
       url: '/pages/doct/details/details?doctorid='+doctor_id,
@@ -190,5 +214,13 @@ Page({
         wx.hideLoading();
       }
     })
-  }
+  },
+  //分享
+  onShareAppMessage(res) {
+    let _this = this;
+    return {
+      title: "医生",
+      path: '/pages/doct/list/list'
+    }
+  },
 })

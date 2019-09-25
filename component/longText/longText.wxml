@@ -1,0 +1,5 @@
+<!--index.wxml-->
+<view class="inner">
+  <text class="{{isShow ? 'unellipsis' : 'ellipsis'}}">{{innerText}}</text>
+  <image bindtap="changeisShow" wx:if="{{innerText.length>56}}" src="{{isShow ? '/images/jiantou_top.png' : '/images/jiantou_bottom.png'}}" mode="widthFix"></image>
+</view>

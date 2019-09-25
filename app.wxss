@@ -20,7 +20,6 @@
 .projectType .swiper-dots .dot.current{background: #3bccbd;}   */
 /**** projectType end ***/
 /* .wxParse-p{overflow: hidden;} */
-
 /**** BottomNavigation ***/
 .BottomNavigation{width: 100%;position: fixed;bottom: 0;display:flex;justify-content:space-between;flex-wrap:wrap;z-index: 999;}
 .BottomNavigation .nav{width: 50%;line-height: 100rpx;text-align: center;color: #fff;font-size: 32rpx;letter-spacing: 4rpx;}

@@ -1,0 +1,26 @@
+/**index.wxss**/
+.inner{
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+  margin-top: 10rpx;
+}
+.inner>text:first-of-type{
+  font-size: 10pt;
+  color: #333333;
+  display: -webkit-box;
+  -webkit-box-orient:vertical;
+  text-overflow: ellipsis;
+  overflow:hidden;
+}
+.inner>image{
+  width: 40rpx;
+  display: block;
+  margin: 20rpx auto;
+}
+.ellipsis{
+  -webkit-line-clamp:2;
+}
+.unellipsis{
+  -webkit-line-clamp:0;
+}

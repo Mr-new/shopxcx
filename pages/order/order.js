@@ -128,6 +128,11 @@ Page({
   },
   //获取订单数据
   getOrderList: function () {
+    //判断用户是否授权登陆
+    if (!wx.getStorageSync('userid')) {
+      app.NoLogin("请先登陆授权后在来查看订单哟！");
+      return;
+    }
     let _this = this;
     wx.showLoading({
       title: '加载中',
@@ -175,6 +180,11 @@ Page({
   },
   //取消订单
   canceOrder: function (e) {
+    //判断用户是否授权登陆
+    if (!wx.getStorageSync('userid')) {
+      app.NoLogin("请先登陆授权后在来取消订单哟！");
+      return;
+    }
     let _this = this;
     wx.showModal({
       title: '提示',
@@ -222,6 +232,11 @@ Page({
   },
   //申请退款
   refund:function(e){
+    //判断用户是否授权登陆
+    if (!wx.getStorageSync('userid')) {
+      app.NoLogin("请先登陆授权后在来申请退款哟！");
+      return;
+    }
     let _this = this;
     wx.showModal({
       title: '提示',
@@ -282,6 +297,11 @@ Page({
   },
   //提交评论
   comment:function(e){
+    //判断用户是否授权登陆
+    if (!wx.getStorageSync('userid')) {
+      app.NoLogin("请先登陆授权后在来提交评论哟！");
+      return;
+    }
     let orderId=e.currentTarget.dataset.id;
     let shopId=e.currentTarget.dataset.shopid;
     wx.navigateTo({
@@ -290,6 +310,11 @@ Page({
   },
   //跳转到查看评论页面
   goComment:function(e){
+    //判断用户是否授权登陆
+    if (!wx.getStorageSync('userid')) {
+      app.NoLogin("请先登陆授权后在来查看评论哟！");
+      return;
+    }
     let commentId=e.currentTarget.dataset.id;
     wx.navigateTo({
       url: '/pages/lookComment/lookComment?commentId='+commentId,

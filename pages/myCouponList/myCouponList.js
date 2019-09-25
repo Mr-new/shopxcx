@@ -37,6 +37,11 @@ Page({
   },
   //获取优惠券列表
   getMyCouponList: function () {
+    //判断用户是否授权登陆
+    if (!wx.getStorageSync('userid')) {
+      app.NoLogin("请先登陆授权后在来查看优惠券哟！");
+      return;
+    }
     let _this = this;
     wx.showLoading({
       title: '加载中',

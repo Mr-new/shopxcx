@@ -2,12 +2,12 @@
 <view class="container">
   <view class='share_back'>
     <text decode="{{true}}">做任务&nbsp;&nbsp;领取次数</text>
-    <image mode='widthFix' src='https://xaxcx.17mall.cc/Public/uploadImages/default/share_back_02.png'></image>
+    <image mode='widthFix' src='{{publicImgUrl}}share_back_02.png'></image>
   </view>
   <view class='list'>
     <official-account></official-account>
     <view>
-      <image src='https://xaxcx.17mall.cc/Public/uploadImages/default/share_icon_03.png'></image>
+      <image src='{{publicImgUrl}}share_icon_03.png'></image>
       <view>
         <text>关注公众号</text>
         <text>奖励：2次</text>
@@ -15,7 +15,7 @@
       <button bindtap='isPublicAddress'>做任务</button>
     </view>
     <view>
-      <image src='https://xaxcx.17mall.cc/Public/uploadImages/default/share_icon_06.png'></image>
+      <image src='{{publicImgUrl}}share_icon_06.png'></image>
       <view>
         <text>分享朋友</text>
         <text>奖励：5次</text>
@@ -23,7 +23,7 @@
       <button bindtap='showsharepyq'>做任务</button>
     </view>
     <view>
-      <image src='https://xaxcx.17mall.cc/Public/uploadImages/default/share_icon_08.png'></image>
+      <image src='{{publicImgUrl}}share_icon_08.png'></image>
       <view>
         <text>分享给好友</text>
         <text>奖励：每邀请1位获1次</text>
@@ -32,7 +32,7 @@
     </view>
     
     <view>
-      <image src='https://xaxcx.17mall.cc/Public/uploadImages/default/share_icon_10.png'></image>
+      <image src='{{publicImgUrl}}share_icon_10.png'></image>
       <view>
         <text>内部码</text>
         <text>输入内部码获得砸蛋机会</text>

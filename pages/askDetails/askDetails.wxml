@@ -1,0 +1,24 @@
+<!--index.wxml-->
+<view class="container">
+  <view class="title">
+    <text>{{askDetails.ask}}</text>
+  </view>
+  <view class="content">
+    <view>
+      <image src="{{HospitalMsg.logo}}"></image>
+      <text>西安艺星美丽顾问</text>
+    </view>
+    <view>
+      <text>{{askDetails.answer}}</text>
+    </view>
+  </view>
+  <view class="fixed">
+    <button open-type="contact">有疑问，点击立即咨询客服</button>
+  </view>
+  <view class='share'>
+    <button open-type='share'>
+      <image src='/images/share.png' mode='widthFix'></image>
+      <text>分享</text>
+    </button>
+  </view>
+</view>

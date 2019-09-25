@@ -1,0 +1,36 @@
+<!--index.wxml-->
+<view class="container">
+  <view class="header">
+    <block wx:for="{{tabList}}" wx:key="{{index}}">
+      <view bindtap="tabChange" data-id="{{item.id}}">
+        <text class="{{item.id == idx ? 'selected' : ''}}">{{item.title}}</text>
+      </view>
+    </block>
+  </view>
+  <view class="content">
+    <view class="goodsPage" wx:if="{{goodsList.length!=0}}">
+      <block wx:for="{{goodsList}}" wx:key="{{index}}">
+        <view class="goodsItem" bindtap="goShopDetails" data-shopid="{{item.id}}">
+          <view>
+            <image src="{{item.thumbnailUrl}}" mode="aspectFill"></image>
+            <text wx:if="{{idx==1}}">距结束<text class="back">{{countDownList[index].day}}</text>天<text class="back">{{countDownList[index].hou}}</text>时<text class="back">{{countDownList[index].min}}</text>分<text class="back">{{countDownList[index].sec}}</text>秒</text>
+            <text wx:if="{{idx==2}}">距开始<text class="back">{{countDownList[index].day}}</text>天<text class="back">{{countDownList[index].hou}}</text>时<text class="back">{{countDownList[index].min}}</text>分<text class="back">{{countDownList[index].sec}}</text>秒</text>
+          </view>
+          <view>
+            <text>{{item.name}}</text>
+          </view>
+          <view>
+            <text><text style="font-size:10pt;">最低价:￥</text>{{item.bargainprice}}<text class="linePrice">￥{{item.defaultbargainprice}}</text></text>
+            <text wx:if="{{idx==1}}">去砍价</text>
+            <text wx:if="{{idx==2}}" style="opacity:0"></text>
+          </view>
+        </view>
+      </block>
+    </view>
+    <!-- 暂无数据 -->
+    <view class='isNull' wx:else>
+      <text class='iconfont icon-zanwushuju'></text>
+      <text>暂无砍价活动!</text>
+    </view>
+  </view>
+</view>

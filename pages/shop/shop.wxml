@@ -12,6 +12,58 @@
         <view class="item {{item.id==idx ? 'selected' : ''}}" bindtap='selected' data-title="{{item.title}}" data-idx="{{item.id}}">{{item.title}}</view>
       </block>
     </scroll-view> -->
+    <!-- 商家推荐 -->
+    <view class="recommend" wx:if="{{recomdList.length!=0}}">
+      <view>
+        <text>商家推荐</text>
+      </view>
+      <scroll-view scroll-x="true">
+        <block wx:for="{{recomdList}}" wx:key="index">
+          <view class="recomdItem" bindtap='goShopDetails' data-shopid="{{item.id}}">
+            <image src="{{item.thumbnailUrl}}" mode="widthFix"></image>
+            <view>
+              <text>{{item.name}}</text>
+              <text>{{item.beforeprice}}</text>
+              <view>
+                <text>￥{{item.specslist.price}}</text>
+                <text>购买</text>
+              </view>
+            </view>
+          </view>
+        </block>
+      </scroll-view>
+    </view>
+    <view class="huodongItem">
+      <navigator>
+        <image src="{{publicImgUrl}}shopItem1.png" mode="widthFix"></image>
+      </navigator>
+      <navigator>
+        <image src="{{publicImgUrl}}shopItem2.png" mode="widthFix"></image>
+      </navigator>
+      <navigator>
+        <image src="{{publicImgUrl}}shopItem3.png" mode="widthFix"></image>
+      </navigator>
+    </view>
+    <view class="category">
+      <block wx:for="{{categoryList}}" wx:key="{{index}}">
+        <view class="categoryItem">
+          <view>
+            <text>{{item.title}}</text>
+            <image src="{{item.banner}}" mode="widthFix"></image>
+          </view>
+          <scroll-view scroll-x="true">
+            <block wx:for="{{item.goodsList}}" wx:key="{{index}}">
+              <view class="categoryItem_goods" bindtap='goShopDetails' data-shopid="{{item.id}}">
+                <image src="{{item.thumbnailUrl}}" mode="widthFix"></image>
+                <text>{{item.name}}</text>
+                <text>￥{{item.price}}</text>
+              </view>
+            </block>
+          </scroll-view>
+        </view>
+      </block>
+    </view>
+
 
     <view class='navList'>
       <scroll-view scroll-x="true">
@@ -29,10 +81,10 @@
       <!-- <text>{{showShopListTitle}}</text> -->
       <view wx:if="{{showShopList.length!=0}}">
         <block wx:for="{{showShopList}}" wx:key="index">
-          <view class='shopItem'>
-            <image bindtap='goShopDetails' data-shopid="{{item.id}}" src='{{item.thumbnailUrl}}' mode='widthFix'></image>
+          <view class='shopItem' bindtap='goShopDetails' data-shopid="{{item.id}}">
+            <image src='{{item.thumbnailUrl}}' mode='widthFix'></image>
             <view>
-              <view bindtap='goShopDetails' data-shopid="{{item.id}}">
+              <view>
                 <text>{{item.name}}</text>
                 <text>{{item.title}}</text>
               </view>
@@ -41,7 +93,7 @@
                   <text>￥{{item.specslist[item.specslist.length-1].price}}起</text>
                   <text>￥{{item.beforeprice}}</text>
                 </view>
-                <view bindtap="selectSpec" data-selecteditem="{{item}}">
+                <view catchtap="selectSpec" data-selecteditem="{{item}}">
                   <text>去购买</text>
                 </view>
               </view>

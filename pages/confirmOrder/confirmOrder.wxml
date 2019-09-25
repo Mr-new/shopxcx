@@ -43,7 +43,7 @@
         <text>配送方式</text>
         <text>自提</text>
       </view>
-      <view bindtap='goChoiceCoupon'>
+      <view bindtap='goChoiceCoupon' wx:if="{{isseckill!=1}}">
         <text>优惠券</text>
         <text class='iconfont icon-iconfontjiantou4' wx:if="{{couponid!=0}}">-{{orderDetails.coupon.reduce}}</text>
         <text class='iconfont icon-iconfontjiantou4' wx:else>未选择优惠券</text>

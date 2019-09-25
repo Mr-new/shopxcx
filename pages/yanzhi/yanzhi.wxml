@@ -1,0 +1,122 @@
+<!--index.wxml-->
+<view class="container">
+  <view class="telAuthor" wx:if="{{!telAuthor}}">
+    <view>
+      <text class='iconfont icon-shoujihao'></text>
+      <button open-type='getPhoneNumber' bindgetphonenumber="getPhoneNumber">点击手机号授权</button>
+    </view>
+  </view>
+  <view class='header'>
+    <view class='search'>
+      <view>
+        <open-data type="userAvatarUrl"></open-data>
+      </view>
+      <view>
+        <text class='iconfont icon-sousuo'></text>
+        <input bindinput='getSearchValue' type="text" confirm-type='search' placeholder-class="plaColor" placeholder='请输入搜索内容' bindconfirm="goSearch"></input>
+      </view>
+    </view>
+    <view class='navList'>
+      <scroll-view scroll-x="true">
+        <block wx:for="{{navList}}" wx:key="index">
+          <view bindtap='selectedNavItem' class="navItem {{index==idx ? 'selected' : ''}}" data-index="{{index}}">
+            {{item.title}}
+          </view>
+        </block>
+      </scroll-view>
+    </view>
+  </view>
+  <scroll-view class='caseList' wx:if="{{caseList.length!=0 || askList.length!=0}}" scroll-y="true" bindscrolltolower="getMoreData">
+    <!-- 日记数据 -->
+    <view class="ListWrap" wx:if="{{idx!=1}}">
+      <block wx:for="{{caseList}}" wx:if="{{index%2==0}}" wx:key="index">
+        <view class='listItem' data-caseid="{{item.id}}" bindtap='goCaseDetails'>
+          <view class="imgWrap">
+            <image src="{{item.afterImgUrl}}" mode="widthFix"></image>
+            <view>
+              <text>{{item.project}}</text>
+              <image src="{{item.imglist[0]}}" mode="widthFix"></image>
+            </view>
+          </view>
+          <text>{{item.title}}</text>
+          <view class="itemBottom">
+            <view>
+              <image src='{{HospitalMsg.logo}}'></image>
+              <text>{{HospitalMsg.hospitalname}}</text>
+            </view>
+            <view catchtap='delfabulous' data-id='{{item.id}}' data-index="{{index}}" wx:if="{{item.isFabulous}}">
+              <text class='iconfont icon-dianzan' style='font-size:11pt; color:#E45452'></text>
+              <text>{{item.fabulousnumber}}</text>
+            </view>
+            <view catchtap='addfabulous' data-id='{{item.id}}' data-index="{{index}}" wx:else>
+              <text class='iconfont icon-dianzan1'></text>
+              <text>{{item.fabulousnumber}}</text>
+            </view>
+          </view>
+        </view>
+      </block>
+    </view>
+    <view class="ListWrap" wx:if="{{idx!=1}}">
+      <block wx:for="{{caseList}}" wx:if="{{index%2==1}}" wx:key="index">
+        <view class='listItem' data-caseid="{{item.id}}" bindtap='goCaseDetails'>
+          <view class="imgWrap">
+            <image src="{{item.afterImgUrl}}" mode="widthFix"></image>
+            <view>
+              <text>{{item.project}}</text>
+              <image src="{{item.imglist[0]}}" mode="widthFix"></image>
+            </view>
+          </view>
+          <text>{{item.title}}</text>
+          <view class="itemBottom">
+            <view>
+              <image src='{{HospitalMsg.logo}}'></image>
+              <text>{{HospitalMsg.hospitalname}}</text>
+            </view>
+            <view catchtap='delfabulous' data-id='{{item.id}}' data-index="{{index}}" wx:if="{{item.isFabulous}}">
+              <text class='iconfont icon-dianzan' style='font-size:11pt; color:#E45452'></text>
+              <text>{{item.fabulousnumber}}</text>
+            </view>
+            <view catchtap='addfabulous' data-id='{{item.id}}' data-index="{{index}}" wx:else>
+              <text class='iconfont icon-dianzan1'></text>
+              <text>{{item.fabulousnumber}}</text>
+            </view>
+          </view>
+        </view>
+      </block>
+    </view>
+
+    <!-- 问答数据 -->
+    <view class="askListWrap" wx:if="{{idx==1}}">
+      <block wx:for="{{askList}}" wx:key="{{index}}">
+        <view class="askItem" bindtap="goAskDetails" data-index="{{index}}" data-id="{{item.id}}">
+          <view>
+            <text><text class="wen">问</text>{{item.ask}}</text>
+          </view>
+          <view>
+            <text><text class="da">答</text>{{item.answer}}</text>
+          </view>
+          <view>
+            <view>
+              <text>{{item.datetime}}</text>
+            </view>
+            <view>
+              <text class="iconfont icon-chakan"></text>
+              <text>{{item.looknum}}</text>
+            </view>
+          </view>
+        </view>
+      </block>
+    </view>
+
+
+    <view class='isButtom' wx:if="{{isBottom}}">
+      <text>别拉了~到底了</text>
+    </view>
+  </scroll-view>
+  <!-- 暂无数据 -->
+  <view class='isNull' wx:else>
+    <text class='iconfont icon-zanwushuju'></text>
+    <text>暂无数据</text>
+  </view>
+  
+</view>

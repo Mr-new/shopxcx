@@ -1,15 +1,141 @@
 <!--index.wxml-->
 <view class="container">
-  <view class='longtxt'>
-    <import src="../../wxParse/wxParse.wxml"/>
-    <template is="wxParse" wx:if="{{caseDetails.details}}" data="{{wxParseData:article.nodes}}"/>
+  <view class="telAuthor" wx:if="{{!telAuthor}}">
+    <view>
+      <text class='iconfont icon-shoujihao'></text>
+      <button open-type='getPhoneNumber' bindgetphonenumber="getPhoneNumber">点击手机号授权</button>
+    </view>
+  </view>
+  <view class="title">
+    <!-- <text>{{caseDetails.name}}</text> -->
+    <view>
+      <view>
+        <image src="{{HospitalMsg.logo}}"></image>
+        <view>
+          <text>{{HospitalMsg.hospitalname}}</text>
+          <text>{{caseDetails.datetime}}</text>
+        </view>
+      </view>
+      <button open-type="share">分享</button>
+    </view>
+  </view>
+  <!-- 为您推荐 -->
+  <view class="recommendGoods">
+    <scroll-view scroll-x="true">
+      <block wx:for="{{caseDetails.linkGoods}}" wx:key="{{index}}">
+        <view class="recommendItem">
+          <view>为您推荐</view>
+          <view>
+            <image src="{{item.thumbnailUrl}}" mode="widthFix"></image>
+            <view>
+              <text>{{item.name}}</text>
+              <view>
+                <text>￥{{item.price}}<text class="beforeprice">￥{{item.beforeprice}}</text></text>
+                <text>已售{{item.salenumber}}</text>
+              </view>
+            </view>
+          </view>
+        </view>
+      </block>
+    </scroll-view>
+  </view>
+  <!-- 过去的她 -->
+  <view class="beforeShe">
+    <text>过去的她</text>
+    <scroll-view scroll-x="true">
+      <block wx:for="{{caseDetails.imglist}}" wx:key="{{index}}">
+        <image class="beforeSheImg" data-src="{{item}}" data-imglist="{{caseDetails.imglist}}" bindtap="previewImage" src="{{item}}" mode="aspectFill"></image>
+      </block>
+    </scroll-view>
+  </view>
+  <!-- 变美过程 -->
+  <view class='process'>
+    <view class="process_title">
+      <text>变美过程</text>
+      <view>
+        <text wx:if="{{order=='desc'}}" bindtap="changeDesc">时间倒叙</text>
+        <text wx:else bindtap="changeAsc">时间正叙</text>
+      </view>
+    </view>
+    <view class="processList" wx:if="{{caseDetails.processList.length>0}}">
+      <block wx:for="{{caseDetails.processList}}" wx:for-item="i" wx:key="{{index}}">
+        <view class="processItem">
+          <text>术后{{i.day}}天</text>
+          <view class="process_imglist" wx:if="{{i.type==1}}">
+            <view wx:if="{{i.medialist.length==1}}" class="imagelist1">
+               <block wx:for="{{i.medialist}}" wx:for-item="j" wx:key="{{index}}">
+                 <image src="{{j}}" bindtap="previewImage" data-src="{{j}}" data-imglist="{{i.medialist}}" mode="widthFix"></image>
+               </block>
+            </view>
+            <view wx:elif="{{i.medialist.length==2}}" class="imagelist2">
+               <block wx:for="{{i.medialist}}" wx:for-item="j" wx:key="{{index}}">
+                 <image src="{{j}}" bindtap="previewImage" data-src="{{j}}" data-imglist="{{i.medialist}}" mode="aspectFill"></image>
+               </block>
+            </view>
+            <view wx:elif="{{i.medialist.length==3}}" class="imagelist3">
+               <block wx:for="{{i.medialist}}" wx:for-item="j" wx:key="{{index}}">
+                 <image src="{{j}}" bindtap="previewImage" data-src="{{j}}" data-imglist="{{i.medialist}}" mode="aspectFill"></image>
+               </block>
+            </view>
+            <view wx:elif="{{i.medialist.length==4}}" class="imagelist4">
+               <block wx:for="{{i.medialist}}" wx:for-item="j" wx:key="{{index}}">
+                 <image src="{{j}}" bindtap="previewImage" data-src="{{j}}" data-imglist="{{i.medialist}}" mode="aspectFill"></image>
+               </block>
+            </view>
+            <view wx:elif="{{i.medialist.length==5}}" class="imagelist5">
+               <block wx:for="{{i.medialist}}" wx:for-item="j" wx:key="{{index}}">
+                 <image src="{{j}}" bindtap="previewImage" data-src="{{j}}" data-imglist="{{i.medialist}}" mode="aspectFill"></image>
+               </block>
+            </view>
+            <view wx:else class="imagelist6">
+               <block wx:for="{{i.medialist}}" wx:if="{{index<6}}" wx:for-item="j" wx:key="{{index}}">
+                 <image src="{{j}}" bindtap="previewImage" data-src="{{j}}" data-imglist="{{i.medialist}}" mode="aspectFill"></image>
+               </block>
+            </view>
+          </view>
+          <view class="process_video" wx:else>
+            <block wx:for="{{i.medialist}}" wx:for-item="j" wx:key="{{index}}">
+              <video src="{{j}}"></video>
+            </block>
+          </view>
+          <view class="content">
+            <longText inner-text="{{i.content}}"></longText>
+          </view>
+        </view>
+      </block>
+      
+    </view>
+
     <!-- 暂无数据 -->
     <view class='isNull' wx:else>
       <text class='iconfont icon-zanwushuju'></text>
       <text>暂无数据</text>
     </view>
+
+    <view class="link_shop">
+      <block wx:for="{{caseDetails.linkGoods}}" wx:key="{{index}}">
+        <view class="shop_item" bindtap="goShopDetails" data-shopid="{{item.id}}">
+          <image src="{{item.thumbnailUrl}}" mode="widthFix"></image>
+          <view>
+            <text>{{item.name}}</text>
+            <view>
+              <view>
+                <text>￥{{item.price}}</text>
+                <!-- <text>￥{{item.beforeprice}}</text> -->
+              </view>
+              <view>
+                <text>销量:{{item.salenumber}}</text>
+                <view>
+                  <text>购买</text>
+                </view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </block>
+    </view>
   </view>
-  <view class='longtxtFooter'>
+  <!-- <view class='longtxtFooter'>
     <view>
       <text class='iconfont icon-chakan'></text>
       <text><text style="color:#E45452">{{caseDetails.looknumber}}</text>人浏览</text>
@@ -22,8 +148,8 @@
       <image src='{{caseDetails.headerimg}}'></image>
       <text style='width:200rpx;'>{{caseDetails.name}}</text>
     </view>
-  </view>
-  <view class='footer'>
+  </view> -->
+  <!-- <view class='footer'>
     <view>
       <text>联系电话：{{HospitalMsg.tel}}</text>
       <view bindtap='goTel'>
@@ -34,49 +160,119 @@
     <view>
       <text>发布时间：{{caseDetails.datetime}}</text>
     </view>
+  </view> -->
+  <view class="comment">
+    <view class="commentTitle">
+      <text>评论</text>
+      <text>({{count}})</text>
+    </view>
+    <view class="commentList" wx:if="{{commentList.length>0}}">
+      <block wx:for="{{commentList}}" wx:key="{{index}}">
+        <view class="item">
+          <image src="{{item.avatarurl}}"></image>
+          <view>
+            <text>{{item.nickname}}</text>
+            <text>{{item.content}}</text>
+            <text>{{item.datetime}}</text>
+          </view>
+        </view>
+      </block>
+      <view class='isButtom' wx:if="{{isBottom}}">
+        <text>别拉了~到底了</text>
+      </view>
+    </view>
+    <view class='isNull' wx:else>
+      <text class='iconfont icon-zanwushuju'></text>
+      <text>暂无评论哟！</text>
+    </view>
   </view>
+
   <view class='fixed_bottom'>
-    <view bindtap='goHome'>
-      <text class='iconfont icon-shouye'></text>
-      <text>首页</text>
+    <view class="btnWrap">
+      <view catchtap='delfabulous' wx:if="{{caseDetails.isFabulous}}">
+        <text class='iconfont icon-dianzan' style='color:#E45452'></text>
+        <text>{{caseDetails.fabulousnumber}}</text>
+      </view>
+
+      <view catchtap='addfabulous' wx:else>
+        <text class='iconfont icon-dianzan1'></text>
+        <text>{{caseDetails.fabulousnumber}}</text>
+      </view>
+
+      <view bindtap="showCommentPage">
+        <text class='iconfont icon-xiaoxi'></text>
+        <text>{{count}}</text>
+      </view>
+      <view wx:if="{{caseDetails.isCollection}}" bindtap='deleteCaseCollection'>
+        <text class='iconfont icon-shoucang' style='color:#EC7E3B'></text>
+        <text style='color:#EC7E3B'>已收藏</text>
+      </view>
+      <view wx:else bindtap='addCaseCollection'>
+        <text class='iconfont icon-shoucang1'></text>
+        <text>收藏</text>
+      </view>
     </view>
-    <button open-type='share'>
-      <text class='iconfont icon-share-s'></text>
-      <text>转发</text>
-    </button>
-    <view wx:if="{{caseDetails.isCollection}}" bindtap='deleteCaseCollection'>
-      <text class='iconfont icon-shoucang' style='color:#EC7E3B'></text>
-      <text style='color:#EC7E3B'>已收藏</text>
+    <view class="inputComment" bindtap="showCommentPage">
+      <text>添加评论...</text>
     </view>
-    <view wx:else bindtap='addCaseCollection'>
-      <text class='iconfont icon-shoucang1'></text>
-      <text>收藏</text>
-    </view>
+    
   </view>
   <!-- 右侧按钮 -->
   <view class="rightMenu" style="right:{{rightMenuShow ? '0' : '-80rpx'}}">
     <view bindtap='goHome'>
-      <image src='http://xaxcx.17mall.cc/Public/uploadImages/default/icon_03.png' mode='widthFix'></image>
+      <image src='{{publicImgUrl}}icon_03.png' mode='widthFix'></image>
     </view>
     <view bindtap='goMy'>
-      <image src='http://xaxcx.17mall.cc/Public/uploadImages/default/icon_06.png' mode='widthFix'></image>
+      <image src='{{publicImgUrl}}icon_06.png' mode='widthFix'></image>
     </view>
     <view bindtap='goTel' data-tel="{{HospitalMsg.tel}}">
-      <image src='http://xaxcx.17mall.cc/Public/uploadImages/default/icon_08.png' mode='widthFix'></image>
+      <image src='{{publicImgUrl}}icon_08.png' mode='widthFix'></image>
     </view>
     <view class='line'></view>
     <button open-type="contact">
-       <image src='http://xaxcx.17mall.cc/Public/uploadImages/default/icon_10.png' mode='widthFix'></image>
+       <image src='{{publicImgUrl}}icon_10.png' mode='widthFix'></image>
     </button>
     <view bindtap='goTop'>
-      <image src='http://xaxcx.17mall.cc/Public/uploadImages/default/icon_top.png' mode='widthFix'></image>
+      <image src='{{publicImgUrl}}icon_top.png' mode='widthFix'></image>
     </view>
     <view class='line'></view>
     <view bindtap='hideRightMenu'>
-      <image src='http://xaxcx.17mall.cc/Public/uploadImages/default/icon_hide.png' mode='widthFix'></image>
+      <image src='{{publicImgUrl}}icon_hide.png' mode='widthFix'></image>
     </view>  
   </view>
   <view class='showRightMenuBtn' style="right:{{rightMenuShow ? '-80rpx' : '0'}}" bindtap='showRightMenu'>
-    <image src='http://xaxcx.17mall.cc/Public/uploadImages/default/icon_show_03.png' mode='widthFix'></image>
+    <image src='{{publicImgUrl}}icon_show_03.png' mode='widthFix'></image>
+  </view>
+</view>
+<!-- 评论详情 -->
+<view class="commentDetails" wx:if="{{isShowComment}}" bindtap="hideCommentPage">
+  <view class="comment_content" catchtap="hello">
+    <view class="comment_content_top">
+      <text>{{count}}条评论</text>
+      <text bindtap="hideCommentPage">X</text>
+    </view>
+    <scroll-view scroll-y="true" wx:if="{{commentList.length>0}}" bindscrolltolower="getMoreData">
+      <block wx:for="{{commentList}}" wx:key="{{index}}">
+        <view class="item detailsItem">
+          <image src="{{item.avatarurl}}"></image>
+          <view>
+            <text>{{item.nickname}}</text>
+            <text>{{item.content}}</text>
+            <text>{{item.datetime}}</text>
+          </view>
+        </view>
+      </block>
+      <view class='isButtom' wx:if="{{isBottom}}">
+        <text>别拉了~到底了</text>
+      </view>
+    </scroll-view>
+    <view class='isNull' wx:else>
+      <text class='iconfont icon-zanwushuju'></text>
+      <text>暂无评论哟！</text>
+    </view>
+    <view class="subComment">
+      <input type="text" placeholder="添加评论..." bindinput="getInputComment" placeholder-class="commentInput" value="{{inputComment}}"></input>
+      <text bindtap="submit">发送</text>
+    </view>
   </view>
 </view>

@@ -101,6 +101,11 @@ Page({
   },
   //获取手机号
   getPhoneNumber: function (e) {
+    //判断用户是否授权登陆
+    if (!wx.getStorageSync('userid')) {
+      app.NoLogin("请先登陆授权后在来获取手机号哟！");
+      return;
+    }
     let _this = this;
     let encryptedData = e.detail.encryptedData;
     if (encryptedData) {
@@ -202,6 +207,11 @@ Page({
 
   //提交订单并发起支付
   goPay:function(){
+    //判断用户是否授权登陆
+    if (!wx.getStorageSync('userid')) {
+      app.NoLogin("请先登陆授权后在来兑换哟！");
+      return;
+    }
     let _this = this;
     if(_this.data.tel.length==0){
       wx.showToast({

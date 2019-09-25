@@ -26,6 +26,15 @@
  
 .bottom {
     border-radius: 80rpx;
-    margin: 70rpx 50rpx;
+    margin: 70rpx 50rpx 40rpx;
     font-size: 35rpx;
+}
+.bottom2{
+  border-radius: 80rpx;
+  margin: 0 50rpx ;
+  font-size: 35rpx;
+  border: 1rpx solid #E7E7E7;
+}
+button::after{
+  border: none;
 }

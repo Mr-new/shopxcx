@@ -20,7 +20,7 @@
         </button>
       </view><!-- hospital_info end -->
     </view>
-    <view class='doctor_card' data-doctor_id='{{item.id}}' bindtap="goDoctDetails">
+    <view class='doctor_card' data-doctor_id='{{item.id}}' data-index="{{index}}" bindtap="goDoctDetails">
       <image src="{{item.doctor_card}}" mode='widthFix'></image>
     </view>
     <view class="doctor_btn clear">

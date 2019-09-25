@@ -1,0 +1,152 @@
+/**index.wxss**/
+page{
+  background-color: #F5F5F5;
+}
+.container{
+  width: 100%;
+}
+.header{
+  width: 100%;
+  height: 90rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  background-color: #ffffff
+}
+.header>view{
+  width: 50%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.header>view>text{
+  display: inline-block;
+  height: 84rpx;
+  line-height: 84rpx;
+  font-size: 12pt;
+  color: #666666;
+  border-bottom: 6rpx solid transparent;
+}
+.selected{
+  color: #333333 !important;
+  font-weight: bold;
+  border-bottom: 6rpx solid #EC5F80 !important;
+}
+.content{
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+}
+.goodsPage{
+  width: 94%;
+  margin: 0 3%;
+  height: auto;
+  overflow: hidden;
+  padding-top: 20rpx;
+}
+.goodsItem{
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+  border-radius: 20rpx;
+  background-color: #ffffff;
+  margin-bottom: 20rpx;
+}
+.goodsItem>view:first-of-type{
+  width: 100%;
+  height: 400rpx;
+  overflow: hidden;
+  position: relative;
+}
+.goodsItem>view:first-of-type>image{
+  width: 100%;
+}
+.goodsItem>view:first-of-type>text{
+  font-size: 10pt;
+  color: #ffffff;
+  display: block;
+  width: 100%;
+  height: 60rpx;
+  line-height: 60rpx;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  z-index: 9;
+  background-color: rgba(0, 0, 0, 0.3);
+  text-indent: 1rem;
+}
+.back{
+  padding: 5rpx;
+  margin: 0 10rpx;
+  border-radius: 6rpx;
+  background-color: #F3AF4F;
+}
+.goodsItem>view:nth-of-type(2){
+  width: 94%;
+  margin: 20rpx auto;
+}
+.goodsItem>view:nth-of-type(2)>text{
+  line-height: 45rpx;
+  font-size: 11pt;
+  color: #333333;
+  font-weight: bold;
+  word-break: break-all;/*允许在单词内换行*/
+  text-overflow: -o-ellipsis-lastline;/*css3中webkit内核提供的一个方法类似ellipsis*/
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;/*自适应盒子*/
+  -webkit-line-clamp: 2;/*此处为1行,如果是两行就改成2*/
+  -webkit-box-orient: vertical;
+
+}
+.goodsItem>view:nth-of-type(3){
+  width: 94%;
+  margin: 0 auto 20rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.goodsItem>view:nth-of-type(3)>text:first-of-type{
+  font-size: 14pt;
+  color: #EC5F80;
+  font-weight: bold;
+}
+.goodsItem>view:nth-of-type(3)>text:last-of-type{
+  width: 150rpx;
+  height: 55rpx;
+  border-radius: 30rpx;
+  background-color: #EC5F80;
+  display: block;
+  line-height: 55rpx;
+  text-align: center;
+  color: #ffffff;
+  font-size: 10pt;
+}
+.linePrice{
+  color: #A8A8A8;
+  font-size: 10pt;
+  font-weight: normal;
+  text-decoration: line-through;
+  margin-left: 20rpx;
+}
+/* 暂无数据 */
+.isNull{
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 100rpx;
+}
+.isNull>text:first-of-type{
+  font-size: 26pt;
+  color: #999999;
+}
+.isNull>text:last-of-type{
+  font-size: 10pt;
+  color: #666666;
+  margin-top: 20rpx;
+}

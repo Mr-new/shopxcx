@@ -1,8 +1,8 @@
 {
   "usingComponents": {},
-  "navigationBarBackgroundColor": "#ffffff",
-  "navigationBarTextStyle": "black",
-  "navigationBarTitleText": "艺星日记",
+  "navigationBarBackgroundColor": "#EC6073",
+  "navigationBarTextStyle": "white",
+  "navigationBarTitleText": "日记",
   "backgroundColor": "#eeeeee",
   "backgroundTextStyle": "light"
 }

@@ -38,6 +38,11 @@ Page({
   },
   onLoad: function (options) {
     var that = this
+    //判断用户是否授权登陆
+    if (!wx.getStorageSync('userid')) {
+      app.NoLogin("请先登陆授权后在来预约哟！");
+      return;
+    }
   },
   //用户选择性别操作
   radioChange: function (e) {
@@ -210,6 +215,14 @@ Page({
     this.setData({
       datetimes: e.detail.value
     })
+  },
+  //分享
+  onShareAppMessage(res) {
+    let _this = this;
+    return {
+      title: "预约",
+      path: '/pages/online/online'
+    }
   },
 
 })

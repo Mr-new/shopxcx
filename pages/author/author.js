@@ -8,7 +8,7 @@ Page({
     userInfo: {},
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
-  
+    publicImgUrl: app.globalData.publicImgUrl,  //公共图片路径
   },
   
   onLoad: function () {
@@ -69,8 +69,8 @@ Page({
                   key: 'userid',
                   data: results.data.userId,
                 })
-                wx.switchTab({
-                  url: '/pages/index/index',
+                wx.navigateBack({
+                  delta: 1
                 })
               }else{
                 wx.showToast({
@@ -98,5 +98,11 @@ Page({
         showCancel: false,
       })
     }
+  },
+  //返回上一页
+  goBack:function(){
+    wx.navigateBack({
+      delta: 1
+    })
   }
 })

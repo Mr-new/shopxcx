@@ -12,7 +12,7 @@ Page({
     caseList: [],  //日记收藏列表
     idx:1, //默认选中的tab
     pageIndex: 1, //当前第几页
-    number: 6,  //每页显示数量
+    number: 10,  //每页显示数量
     sumPage: 1,  //总页数
     isBottom: false,  //是否到底
   },
@@ -97,7 +97,7 @@ Page({
         url: app.globalData.shopRequestUrl + "Collection/getCaseCollectionList",
         data: {
           'pageIndex': _this.data.pageIndex,
-          'number': 3,
+          'number': _this.data.number,
           'userid': wx.getStorageSync('userid'),
         },
         header: {
@@ -146,7 +146,8 @@ Page({
   },
   //跳转到日记详情页面
   goCaseDetails:function(e){
-    let id = e.currentTarget.dataset.id;
+    let id = e.currentTarget.dataset.caseid;
+    console.log(id);
     wx.navigateTo({
       url: '/pages/caseDetails/caseDetails?caseId=' + id,
     })

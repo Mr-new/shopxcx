@@ -69,7 +69,7 @@
   <view class='activity_role' style="display:{{isShowRole ? 'flex' : 'none'}}">
     <view>
       <view class='back'>
-        <image src='https://xaxcx.17mall.cc/Public/uploadImages/default/role_back_03.png' mode='widthFix'></image>
+        <image src='{{publicImgUrl}}role_back_03.png' mode='widthFix'></image>
         <text bindtap='hideRole' class='iconfont icon-Close'></text>
       </view>
       <view class='text'>
@@ -89,7 +89,7 @@
   <!-- <view class='prize_record' style="display:{{isShowprize ? 'flex' : 'none'}}">
     <view>
       <view class='prize_back'>
-        <image src='https://xaxcx.17mall.cc/Public/uploadImages/default/prize_record_back_03.png' mode='widthFix'></image>
+        <image src='{{publicImgUrl}}prize_record_back_03.png' mode='widthFix'></image>
         <text bindtap='hidePrize' class='iconfont icon-Close'></text>
       </view>
       <view class='prize_text'>
@@ -126,7 +126,7 @@
   </view>
   <view class='ku' wx:if="{{isKu}}">
     <view>
-      <image src='https://xaxcx.17mall.cc/Public/uploadImages/default/ku.png' mode='widthFix'></image>
+      <image src='{{publicImgUrl}}ku.png' mode='widthFix'></image>
       <text>您的砸蛋次数暂时用完了，去做任务可以获得更多砸蛋次数哟</text>
       <navigator url='/pages/smashAge/receive'>
         <text>去做任务</text>
@@ -137,8 +137,8 @@
     </view>
     <text bindtap='hideKu' class='iconfont icon-Close'></text>
   </view>
-  <audio id='boomMusic' src="https://xaxcx.17mall.cc/Public/music/boomMusic.mp3" loop="{{false}}"></audio>
-  <audio id='backMusic' src="https://xaxcx.17mall.cc/Public/music/backMusic2.mp3" loop="{{true}}"></audio>
+  <audio id='boomMusic' src="https://xaxcx.yixingtb.com/Public/music/boomMusic.mp3" loop="{{false}}"></audio>
+  <audio id='backMusic' src="https://xaxcx.yixingtb.com/Public/music/backMusic2.mp3" loop="{{true}}"></audio>
   <view class='record'>
     <view bindtap='showPrize'>
       <text>我的卡券</text>

@@ -12,8 +12,8 @@ Page({
     inCode:'',  //用户输入的内部码
     issharepyq:false,  //是否显示分享朋友圈弹框
     shareTitle: '全球星粉节疯狂砸金蛋，盘iphone XS', // 分享标题
-    shareCoverImg: 'https://xaxcx.17mall.cc/Public/uploadImages/default/share.png', // 分享封面图
-    shareQrImg: 'https://xaxcx.17mall.cc/Public/uploadImages/default/qrcode.png', // 分享小程序二维码
+    shareCoverImg: 'https://xaxcx.yixingtb.com/Public/uploadImages/default/share.png', // 分享封面图
+    shareQrImg: 'https://xaxcx.yixingtb.com/Public/uploadImages/default/qrcode.png', // 分享小程序二维码
     userInfo: {
       headImg: '', //用户头像
       nickName: '', // 昵称
@@ -25,7 +25,8 @@ Page({
       { title: "【内部码】输入内部码可以获得5次额外砸蛋机会" },
     ],
     isgzh:false,  //是否显示公众号二维码图片
-    gzhImg: "https://xaxcx.17mall.cc/Public/uploadImages/default/gzh_01.jpg",  //公众号二维码图片
+    gzhImg: "https://xaxcx.yixingtb.com/Public/uploadImages/default/gzh_01.jpg",  //公众号二维码图片
+    publicImgUrl: app.globalData.publicImgUrl,  //公共图片路径
   },
   //事件处理函数
   bindViewTap: function() {
@@ -177,7 +178,7 @@ Page({
     return {
       title: '星粉节疯狂砸金蛋',
       path: '/pages/smashAge/smashAge?topId=' + wx.getStorageSync('userId'),
-      imageUrl: "https://xaxcx.17mall.cc/Public/uploadImages/default/share.png",
+      imageUrl: "https://xaxcx.yixingtb.com/Public/uploadImages/default/share.png",
       success: function (res) {
         console.log('成功', res)
       },

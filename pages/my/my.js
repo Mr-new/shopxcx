@@ -10,15 +10,29 @@ Page({
     HospitalMsg:null,  //医院基本配置信息
     integral: 0,  //积分
     publicImgUrl: app.globalData.publicImgUrl,  //公共图片路径
+    userid: null,  //用户id
   },
   onShow: function(){
+    if (typeof this.getTabBar === 'function' &&
+      this.getTabBar()) {
+      this.getTabBar().setData({
+        selected: 4
+      })
+    }
     //获取用户积分
     this.getUserIntegral();
+    this.setData({
+      userid: wx.getStorageSync('userid')
+    })
   },
   onLoad: function () {
-    //获取医院基本配置信息
-    this.setData({
-      HospitalMsg: app.globalData.HospitalMsg
+    let _this = this;
+    //当app.js中的getHospitalMsg方法执行完后设置医院基本配置信息
+    app.getHospitalMsg().then(function (res) {
+      //获取医院基本配置信息
+      _this.setData({
+        HospitalMsg: app.globalData.HospitalMsg
+      })
     })
     if (app.globalData.userInfo) {
       this.setData({
@@ -61,6 +75,12 @@ Page({
       url: '/pages/order/order?idx=0',
     })
   },
+  //跳转到我的优惠券页面
+  goMyCouponList:function(){
+    wx.navigateTo({
+      url: '/pages/myCouponList/myCouponList',
+    })
+  },
   //获取用户积分
   getUserIntegral: function () {
     let _this = this;
@@ -78,7 +98,7 @@ Page({
       method: 'POST',
       success: function (result) {
         let results = result.data;
-        // console.log(results);
+        // console.log(results);  
         _this.setData({
           integral: results.data
         })
@@ -97,6 +117,11 @@ Page({
   },
   //签到操作
   addUserIntegral: function () {
+    //判断用户是否授权登陆
+    if (!wx.getStorageSync('userid')) {
+      app.NoLogin("请先登陆授权后在来签到哟！");
+      return;
+    }
     let _this = this;
     wx.showLoading({
       title: '加载中',
@@ -141,4 +166,10 @@ Page({
       path: '/pages/my/my'
     }
   },
+  //跳转到登陆页面
+  goLogin:function(){
+    wx.navigateTo({
+      url: '/pages/author/author',
+    })
+  }
 })
